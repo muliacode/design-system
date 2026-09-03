@@ -637,13 +637,16 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 [data-theme="light"] .term{border-color:#27272A}
 .term-bar{
   display:flex;align-items:center;gap:6px;padding:var(--s-2) var(--s-3);
-  border-bottom:1px solid #27272A;color:#71717A;font-size:var(--t-xs);
+  border-bottom:1px solid #27272A;color:#8B8B93;font-size:var(--t-xs);
 }
 .term-bar i{width:9px;height:9px;border-radius:50%;background:#3F3F46;display:block}
 .term-body{padding:var(--s-4);color:#D4D4D8;overflow-x:auto;white-space:pre-wrap}
 .term-body .g{color:#4ADE80} .term-body .r{color:#F87171} .term-body .y{color:#FBBF24}
-.term-body .c{color:#67E8F9} .term-body .d{color:#71717A} .term-body .b{color:#8AA9FF}
+.term-body .c{color:#67E8F9} .term-body .d{color:#8B8B93} .term-body .b{color:#8AA9FF}
 .term-body .w{color:#FAFAFA;font-weight:500}
+/* .d and .term-bar text is fixed at 5.85:1 on the terminal's own #0A0A0B —
+   this specimen always renders dark regardless of site theme, so it needs
+   its own verified value rather than a theme token. */
 
 /* ============================================================
    11. TOKEN SPECIMENS
@@ -740,7 +743,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 .tree li{color:var(--text-secondary)}
 .tree .node{display:flex;align-items:center;gap:6px;padding:1px var(--s-1);border-radius:var(--r-sm);cursor:pointer}
 .tree .node:hover{background:var(--bg-hover)}
-.tree .node[aria-selected="true"]{background:var(--accent-bg);color:var(--accent-text)}
+.tree li[aria-selected="true"] > .node{background:var(--accent-bg);color:var(--accent-text)}
 
 /* split button */
 .splitbtn{display:inline-flex}
@@ -1473,7 +1476,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
         <ul role="group">
           <li role="treeitem" aria-expanded="true"><div class="node" tabindex="-1"><svg class="icon tw" style="width:11px;height:11px" aria-hidden="true"><use href="#i-chevd"/></svg>tokens/</div>
             <ul role="group">
-              <li role="treeitem"><div class="node" tabindex="-1" aria-selected="true">toska.css</div></li>
+              <li role="treeitem" aria-selected="true"><div class="node" tabindex="-1">toska.css</div></li>
               <li role="treeitem"><div class="node" tabindex="-1">kencana.css</div></li>
             </ul></li>
           <li role="treeitem"><div class="node" tabindex="-1">main.rs</div></li>
@@ -1562,11 +1565,11 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <caption>Recent deployments · 4 of 128</caption>
       <thead><tr>
         <th scope="col" style="width:32px"><input type="checkbox" id="sel-all" aria-label="Select all rows"></th>
-        <th scope="col"><button type="button" data-sort="1" aria-sort="ascending">Project <span class="sarrow">▲</span></button></th>
+        <th scope="col" aria-sort="ascending"><button type="button" data-sort="1">Project <span class="sarrow">▲</span></button></th>
         <th scope="col">Status</th>
         <th scope="col">Commit</th>
-        <th scope="col" style="text-align:right"><button type="button" data-sort="4" aria-sort="none">Duration <span class="sarrow">↕</span></button></th>
-        <th scope="col" style="text-align:right"><button type="button" data-sort="5" aria-sort="none">Requests <span class="sarrow">↕</span></button></th>
+        <th scope="col" style="text-align:right" aria-sort="none"><button type="button" data-sort="4">Duration <span class="sarrow">↕</span></button></th>
+        <th scope="col" style="text-align:right" aria-sort="none"><button type="button" data-sort="5">Requests <span class="sarrow">↕</span></button></th>
         <th scope="col"></th>
       </tr></thead>
       <tbody>
@@ -2649,9 +2652,11 @@ cal.addEventListener('keydown',e=>{
 const tree=$('#tree');
 tree.addEventListener('click',e=>{
   const n=e.target.closest('.node'); if(!n)return;
-  $$('.node',tree).forEach(x=>x.removeAttribute('aria-selected'));
-  n.setAttribute('aria-selected','true');
   const li=n.parentElement;
+  // aria-selected belongs on the element with role=treeitem (the <li>) —
+  // .node itself carries no role, so aria-selected there fails aria-allowed-attr.
+  $$('[role="treeitem"]',tree).forEach(x=>x.removeAttribute('aria-selected'));
+  li.setAttribute('aria-selected','true');
   if(li.hasAttribute('aria-expanded')){
     const open=li.getAttribute('aria-expanded')==='true';
     li.setAttribute('aria-expanded',String(!open));
