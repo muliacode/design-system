@@ -41,4 +41,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
-      - run: npx --yes @axe-core/cli@4 docs/design-system.html --exit-one
+      - run: npm ci
+
+      # Playwright manages its own browser binary, so this doesn't depend on
+      # matching a ChromeDriver version to whatever Chrome the runner image
+      # ships this week.
+      - run: npx playwright install --with-deps chromium
+
+      - run: node scripts/check-a11y.mjs docs/design-system.html

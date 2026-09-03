@@ -1009,7 +1009,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 <header class="page-head">
   <div>
     <h1>Mulia Code Design System</h1>
-    <p>A single visual and interaction language for web, mobile, and command-line software — dense, technical, quiet. Dark-first, light-equal, WCAG 2.2 AA throughout. Every value here is a token; consume tokens, never literals.</p>
+    <p>One visual and interaction language for web, mobile, and command-line software. Dense, technical, quiet. Dark-first, light-equal, WCAG 2.2 AA throughout. Every value here is a token — consume tokens, never literals.</p>
   </div>
   <button class="btn btn-secondary" id="theme-toggle" aria-pressed="false">
     <svg class="icon" aria-hidden="true"><use href="#i-sun"/></svg><span id="theme-label">Light</span>
@@ -1018,7 +1018,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 
 <section id="brand">
   <div class="sec-head"><span class="sec-num">01</span><h2>Brand</h2></div>
-  <p class="lede"><em>Mulia</em> is Indonesian for noble. The palette draws on <em>batik pesisir</em>, the coastal batik of Cirebon and Pekalongan — brighter and more polychrome than the browns of court batik, since a trading coast dyed with whatever it could get.</p>
+  <p class="lede"><em>Mulia</em> is Indonesian for noble. The palette comes from <em>batik pesisir</em>, the coastal batik of Cirebon and Pekalongan — brighter and more polychrome than the browns of court batik, because the coast traded with everyone and dyed with everything.</p>
 
   <div class="spec"><div class="spec-body" style="gap:var(--s-8);padding:var(--s-8)">
     <div style="display:flex;align-items:center;gap:var(--s-3)">
@@ -1049,12 +1049,12 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <tr><td class="mono">info</td><td>Nila</td><td>Indigo, the other great batik dye</td><td>Informational states</td></tr>
     </tbody>
   </table></div>
-  <p class="note">Indigo lives at <em>info</em>, not at primary. As a large fill it reads violet — wrong for this palette, and the tell of every off-the-shelf admin template. As a small informational accent it reads as what it actually is: indigo.</p>
+  <p class="note">Indigo sits at <em>info</em> rather than at primary. As a large fill it reads violet, which is both wrong for this palette and the signature of every bought admin template. As a small informational accent it reads correctly as indigo, which is what it is.</p>
 
   <h3 class="sub">The two-colour rule</h3>
   <div class="grid-2">
-    <div class="card"><div class="card-head"><h4>Toska — primary</h4><span class="badge badge-accent">interactive</span></div><div class="card-body">Every action lives here — primary buttons, links, focus rings, active navigation, selected rows, progress. If a user can click it, it's toska.</div></div>
-    <div class="card"><div class="card-head"><h4>Kencana — secondary</h4><span class="badge" style="background:var(--brand-bg);color:var(--brand-text);border-color:var(--brand-border)">brand</span></div><div class="card-body">Logo, wordmark, and rules on marketing pages, plus one job inside the product: marking something as featured or starred. It never stands in for a status, and it never competes with a primary button.</div></div>
+    <div class="card"><div class="card-head"><h4>Toska — primary</h4><span class="badge badge-accent">interactive</span></div><div class="card-body">Every action lives here: primary buttons, links, focus rings, active navigation, selected rows, progress. If a user can click it, it is toska.</div></div>
+    <div class="card"><div class="card-head"><h4>Kencana — secondary</h4><span class="badge" style="background:var(--brand-bg);color:var(--brand-text);border-color:var(--brand-border)">brand</span></div><div class="card-body">Logo, wordmark, rules on marketing pages, and one product use: marking something featured or starred. Never a status, never competing with a primary button.</div></div>
   </div>
   <div class="spec" style="margin-top:var(--s-4)"><div class="spec-body">
     <button class="btn btn-primary">Install</button>
@@ -1064,41 +1064,41 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
   </div><div class="spec-foot"><span>one primary action per view</span><span>kencana used once, as a mark</span></div></div>
 
   <h3 class="sub">Open source, in the tokens</h3>
-  <p class="note">Both typefaces are libre — <strong>Inter</strong> and <strong>JetBrains Mono</strong>, SIL OFL 1.1. Self-host them; routing through a Google Fonts CDN is a GDPR exposure and a dependency nobody needs. This document ships under <strong>CC BY 4.0</strong>, the token package under <strong>MIT</strong>, so a downstream fork needs no one's permission. Every repository carries the same header: name, one-line purpose, licence badge, install command.</p>
+  <p class="note">Both typefaces are libre — <strong>Inter</strong> and <strong>JetBrains Mono</strong>, SIL OFL 1.1. Self-host them; a Google Fonts CDN call is a GDPR exposure and a needless third-party dependency. The system ships under <strong>CC BY 4.0</strong> for this document and <strong>MIT</strong> for the token package, so downstream forks need no permission. Every repository carries the same header: name, one-line purpose, licence badge, install command.</p>
 </section>
 
 <section id="principles">
   <div class="sec-head"><span class="sec-num">02</span><h2>Principles</h2></div>
-  <p class="lede">Six rules that settle arguments. Any choice a token doesn't cover, one of these does.</p>
+  <p class="lede">Six rules that settle arguments. When a choice is not covered by a token, it is covered by one of these.</p>
   <div class="grid-2">
-    <div class="card"><div class="card-head"><h4>Density over decoration</h4></div><div class="card-body">Chrome competes with content. Start tighter than feels comfortable, and add space back only where it improves comprehension. Skip the shadow wherever a 1px border does the job.</div></div>
-    <div class="card"><div class="card-head"><h4>One accent, used for meaning</h4></div><div class="card-body">Colour signals action or state, nothing else. The interface stays warm neutral, with one sea-green for "you can act here" and four status hues on top. Nothing gets coloured just to look nice.</div></div>
-    <div class="card"><div class="card-head"><h4>Text is the primary material</h4></div><div class="card-body">Hierarchy comes from size and weight, not colour or boxes. Monospace flags anything machine-generated — identifiers, paths, counts, hashes, durations.</div></div>
-    <div class="card"><div class="card-head"><h4>Fast by default</h4></div><div class="card-body">Micro-interactions run in 120ms, panels in 220ms. Reach for optimistic updates and skeletons over spinners whenever the shape of the result is already known.</div></div>
-    <div class="card"><div class="card-head"><h4>Accessible is not a variant</h4></div><div class="card-body">Contrast, focus, target size, and reduced motion are built into the tokens themselves. A component that fails one of them is broken — not an alternate, lighter version.</div></div>
-    <div class="card"><div class="card-head"><h4>One system, three surfaces</h4></div><div class="card-body">Web, mobile, and CLI all adapt the same tokens. Someone moving from terminal to app should recognise the same software — not just a family resemblance.</div></div>
+    <div class="card"><div class="card-head"><h4>Density over decoration</h4></div><div class="card-body">Chrome competes with content. Start tighter than feels comfortable and add back only what improves comprehension. No shadow where a 1px border will do.</div></div>
+    <div class="card"><div class="card-head"><h4>One accent, used for meaning</h4></div><div class="card-body">Colour signals action or state. The interface is warm neutral with one sea-green for "you can act here" and four status hues. Nothing is coloured to look nice.</div></div>
+    <div class="card"><div class="card-head"><h4>Text is the primary material</h4></div><div class="card-body">Hierarchy comes from size and weight, not colour or boxes. Monospace marks anything machine-generated: identifiers, paths, counts, hashes, durations.</div></div>
+    <div class="card"><div class="card-head"><h4>Fast by default</h4></div><div class="card-body">Micro-interactions in 120ms, panels in 220ms. Optimistic updates and skeletons instead of spinners wherever the shape of the result is known.</div></div>
+    <div class="card"><div class="card-head"><h4>Accessible is not a variant</h4></div><div class="card-body">Contrast, focus, target size, and reduced motion are built into the tokens. A component that fails them is broken, not an alternative version.</div></div>
+    <div class="card"><div class="card-head"><h4>One system, three surfaces</h4></div><div class="card-body">Web, mobile, and CLI adapt the same tokens. A user moving from terminal to app should recognise the same software, not a family resemblance.</div></div>
   </div>
 </section>
 
 <section id="colour">
   <div class="sec-head"><span class="sec-num">03</span><h2>Colour</h2><span class="sec-note">WCAG 2.2 AA verified</span></div>
-  <p class="lede">Three layers: primitives (raw ramps) → semantic tokens (meaning) → component tokens. Product code only ever reads semantic tokens, so a new theme touches a single file.</p>
+  <p class="lede">Three layers: primitives (raw ramps) → semantic tokens (meaning) → component tokens. Product code reads semantic tokens only, so a new theme touches one file.</p>
 
   <h3 class="sub">Neutral ramp</h3>
   <div class="swatches" id="sw-gray"></div>
-  <p class="note">Eleven steps, warm-cast. This does the most work of anything here and gets noticed the least: almost every technical interface defaults to a cool blue-grey, so warming the ramp toward undyed cloth changes how the product feels before a single accent colour shows up — at no cost, since the ramp still clears every contrast target.</p>
+  <p class="note">Eleven steps, warm-cast. This is the part that does the most work and gets noticed the least: nearly every technical interface uses a cool blue-grey, so warming the ramp toward undyed cloth changes how the product feels before any accent appears — and costs nothing, because the ramp still clears every contrast target.</p>
 
   <h3 class="sub">Primary — toska</h3>
   <div class="swatches" id="sw-accent"></div>
-  <p class="note">It splits into <code class="inline">--accent-solid</code> (fills), <code class="inline">--accent-text</code> (links and text), and <code class="inline">--accent-on-solid</code> (a label sitting on a fill). No single hue clears 4.5:1 both as a fill background and as body text, so the system settles the accessible pairing itself instead of leaving it to whoever implements it.</p>
+  <p class="note">Split into <code class="inline">--accent-solid</code> (fills), <code class="inline">--accent-text</code> (links and text), and <code class="inline">--accent-on-solid</code> (label on a fill). One hue cannot clear 4.5:1 both as a fill background and as body text, so the system defines the accessible pairing rather than leaving it to the implementer.</p>
 
   <h3 class="sub">Secondary — kencana</h3>
   <div class="swatches" id="sw-brand"></div>
-  <p class="note">Kencana carries the identity, not the interface. Keeping it out of the interactive layer is exactly what keeps a two-colour brand from turning into an ambiguous one.</p>
+  <p class="note">Kencana carries the identity, not the interface. Keeping it out of the interactive layer is what stops a two-colour brand from becoming an ambiguous one.</p>
 
   <h3 class="sub">Status</h3>
   <div class="swatches" id="sw-status"></div>
-  <p class="note">Four hues, each with a solid, a text-safe variant, and a low-chroma tint. Every one sits more than 40° from toska on the wheel, because a primary action must never be mistaken for a status at badge size. Warning shifted from amber to orange specifically to put clear distance between it and kencana.</p>
+  <p class="note">Four hues, each with a solid, a text-safe variant, and a low-chroma tint. All sit more than 40° from toska in hue, because a primary action must never be mistakable for a status at badge size. Warning was moved from amber to orange to open distance from kencana.</p>
 
   <h3 class="sub">Verified contrast pairings</h3>
   <div class="table-wrap"><table class="tbl">
@@ -1117,18 +1117,18 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
     </tbody>
   </table></div>
   <div class="do-dont">
-    <div class="dd do"><h5>Do</h5><p>Pair every status colour with an icon or a word. Roughly 8% of men have some colour vision deficiency, and CI logs strip colour out entirely.</p></div>
-    <div class="dd dont"><h5>Don't</h5><p>Rely on a red or green row background as the only signal that something failed. That's a 1.4.1 failure, and it disappears entirely in monochrome print.</p></div>
+    <div class="dd do"><h5>Do</h5><p>Pair every status colour with an icon or a word. Around 8% of men have a colour vision deficiency, and CI logs strip colour entirely.</p></div>
+    <div class="dd dont"><h5>Don't</h5><p>Use a red or green row background as the only signal that something failed. That is a 1.4.1 failure and it breaks in monochrome print.</p></div>
   </div>
 </section>
 
 <section id="type">
   <div class="sec-head"><span class="sec-num">04</span><h2>Typography</h2></div>
-  <p class="lede">Two typefaces. Inter for interface and prose, JetBrains Mono for anything a machine produced. The split <em>is</em> the information design — if it's set in mono, it's data you can copy, grep, or paste into a terminal.</p>
+  <p class="lede">Two faces. Inter for interface and prose, JetBrains Mono for anything a machine produced. The split <em>is</em> the information design: if it is in mono, it is data you can copy, grep, or paste into a terminal.</p>
   <h3 class="sub">Scale</h3>
   <div class="spec"><div class="spec-body col" id="type-scale"></div>
     <div class="spec-foot"><span>base 14px desktop</span><span>base 16px mobile</span><span>1.4–1.5 line height</span></div></div>
-  <p class="note">The 14px base sits deliberately below the marketing-site norm, because a dense tool needs more information per screen. That's not licence to go smaller still: 12px is the floor, reserved for metadata, and mobile lifts the whole scale rather than shrinking it further.</p>
+  <p class="note">The 14px base is deliberately below the marketing-site norm — dense tools need information per screen. It is not a licence to go smaller: 12px is the floor, used only for metadata, and mobile lifts the whole scale rather than compressing it.</p>
   <h3 class="sub">Weight</h3>
   <div class="spec"><div class="spec-body col" style="gap:var(--s-2)">
     <div style="font-weight:400">400 Regular — body copy, table cells, descriptions</div>
@@ -1140,12 +1140,12 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
   <div class="spec"><div class="spec-body col">
     <div class="dl"><dt>Deployment</dt><dd>dpl_8f2c91ba</dd><dt>Branch</dt><dd>feat/token-layer</dd><dt>Duration</dt><dd>1m 42s</dd><dt>Path</dt><dd>~/src/api/handlers/auth.rs</dd></div>
   </div><div class="spec-foot"><span>font-mono · tabular-nums</span><span>identifiers, refs, durations, paths</span></div></div>
-  <p class="note">Numbers in columns always carry <code class="inline">font-variant-numeric: tabular-nums</code> so the digits line up vertically. Skip it, and scanning a column of figures measurably slows down.</p>
+  <p class="note">Numbers in columns always use <code class="inline">font-variant-numeric: tabular-nums</code> so digits align vertically. Without it, scanning a column of figures is measurably slower.</p>
 </section>
 
 <section id="space">
   <div class="sec-head"><span class="sec-num">05</span><h2>Spacing &amp; layout</h2></div>
-  <p class="lede">A 4px grid. Every margin, padding, and gap is one of these twelve values — an arbitrary <code class="inline">13px</code> in a stylesheet is a defect, not a style choice.</p>
+  <p class="lede">A 4px grid. Every margin, padding, and gap is one of these twelve values. An arbitrary <code class="inline">13px</code> in a stylesheet is a defect, not a preference.</p>
   <div class="spec"><div class="spec-body col" style="gap:0" id="space-scale"></div></div>
   <h3 class="sub">Applied defaults</h3>
   <div class="table-wrap"><table class="tbl">
@@ -1159,7 +1159,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <tr><td>Section stack</td><td class="mono">—</td><td class="mono">64px</td></tr>
     </tbody>
   </table></div>
-  <p class="note">The content column caps at <strong>980px</strong>; prose caps at <strong>70 characters</strong>. Breakpoints sit at <code class="inline">640px</code>, <code class="inline">900px</code>, and <code class="inline">1280px</code>. Layout has to survive 400% zoom without horizontal scrolling (WCAG 1.4.10), which in practice rules out fixed pixel columns in favour of grid and percentage layouts.</p>
+  <p class="note">Content column caps at <strong>980px</strong>; prose caps at <strong>70 characters</strong>. Breakpoints: <code class="inline">640px</code>, <code class="inline">900px</code>, <code class="inline">1280px</code>. Layout must survive 400% zoom without horizontal scrolling — WCAG 1.4.10 — which in practice means grid and percentage layouts rather than fixed pixel columns.</p>
 </section>
 
 <section id="shape">
@@ -1173,7 +1173,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
         <div style="text-align:center"><div style="width:60px;height:42px;background:var(--accent-bg);border:1px solid var(--accent-border);border-radius:10px"></div><div class="help" style="margin-top:6px">lg · 10px</div></div>
         <div style="text-align:center"><div style="width:60px;height:42px;background:var(--accent-bg);border:1px solid var(--accent-border);border-radius:9999px"></div><div class="help" style="margin-top:6px">full</div></div>
       </div></div>
-      <p class="note">Small radii read as precise: <code class="inline">sm</code> for controls, <code class="inline">md</code> for containers, <code class="inline">lg</code> for floating panels, and <code class="inline">full</code> reserved for avatars and pills.</p>
+      <p class="note">Small radii read as precise. <code class="inline">sm</code> for controls, <code class="inline">md</code> for containers, <code class="inline">lg</code> for floating panels, <code class="inline">full</code> for avatars and pills only.</p>
     </div>
     <div>
       <h3 class="sub" style="margin-top:0">Elevation</h3>
@@ -1183,14 +1183,14 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
         <div style="width:90px;height:54px;background:var(--bg-raised);border:1px solid var(--border);border-radius:6px;box-shadow:var(--sh-md);display:grid;place-items:center;font-size:11px;color:var(--text-muted)">md</div>
         <div style="width:90px;height:54px;background:var(--bg-raised);border:1px solid var(--border);border-radius:10px;box-shadow:var(--sh-lg);display:grid;place-items:center;font-size:11px;color:var(--text-muted)">lg</div>
       </div></div>
-      <p class="note"><strong>Borders separate, shadows float.</strong> Anything that sits in the page flow gets a border. Shadow is reserved for what overlays content — menus, modals, the command palette.</p>
+      <p class="note"><strong>Borders separate, shadows float.</strong> If an element sits in the page flow it gets a border. Shadow is reserved for things that overlay content: menus, modals, command palette.</p>
     </div>
   </div>
 </section>
 
 <section id="motion">
   <div class="sec-head"><span class="sec-num">07</span><h2>Motion</h2></div>
-  <p class="lede">Motion exists to clarify where something came from — never to entertain, and never to make the user wait.</p>
+  <p class="lede">Motion clarifies where something came from. It never entertains, and it never delays the user.</p>
   <div class="table-wrap"><table class="tbl">
     <thead><tr><th scope="col">Token</th><th scope="col">Duration</th><th scope="col">Easing</th><th scope="col">Applies to</th></tr></thead>
     <tbody>
@@ -1198,25 +1198,25 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <tr><td class="mono">--d-panel</td><td class="mono">220ms</td><td class="mono">ease-out / ease-in</td><td>Modal, drawer, popover, toast</td></tr>
     </tbody>
   </table></div>
-  <p class="note">Entrances ease out, exits ease in. <strong>Nothing animates inside a data table</strong> — a row that slides while you're reading it makes you lose your place. Flash a changed row's background for 400ms instead, and never more than three times per second.</p>
+  <p class="note">Entrances ease out, exits ease in. <strong>Nothing animates in a data table</strong> — rows that slide while you read cause loss of place. Flash a changed row's background for 400ms instead. Nothing flashes more than three times per second.</p>
   <div class="alert alert-info" role="note"><svg class="icon alert-icon" aria-hidden="true"><use href="#i-info"/></svg>
     <div><h4>Reduced motion is a hard requirement</h4><p>Every transition collapses to 1ms under <code class="inline">prefers-reduced-motion: reduce</code>. Vestibular disorders make large-movement animation genuinely painful.</p></div></div>
 </section>
 
 <section id="icons">
   <div class="sec-head"><span class="sec-num">08</span><h2>Iconography</h2></div>
-  <p class="lede">One family, one weight: a 16px grid, 1.75px stroke, round caps and joins, no fills — all drawn on the same optical grid so they hold their density beside 13–14px text.</p>
+  <p class="lede">One family, one weight. 16px grid, 1.75px stroke, round caps and joins, no fills, drawn on the same optical grid so they hold density beside 13–14px text.</p>
   <div class="spec"><div class="spec-body" id="icon-grid" style="gap:var(--s-5)"></div>
     <div class="spec-foot"><span>16 × 16 grid</span><span>stroke 1.75</span><span>currentColor</span><span>sizes 16 / 20 / 24</span></div></div>
   <div class="do-dont">
-    <div class="dd do"><h5>Do</h5><p>Give every standalone icon button an <code class="inline">aria-label</code>, and mark purely decorative icons <code class="inline">aria-hidden="true"</code> so nothing gets announced twice.</p></div>
-    <div class="dd dont"><h5>Don't</h5><p>Ship an icon-only control for a destructive or ambiguous action. Delete, publish, and merge get words — an unlabelled trash can is a support ticket waiting to happen.</p></div>
+    <div class="dd do"><h5>Do</h5><p>Give every standalone icon button an <code class="inline">aria-label</code>, and mark decorative icons <code class="inline">aria-hidden="true"</code> so they are not announced twice.</p></div>
+    <div class="dd dont"><h5>Don't</h5><p>Ship an icon-only control for a destructive or ambiguous action. Delete, publish, and merge get words — an unlabelled trash can is a support ticket.</p></div>
   </div>
-  <p class="note">Treat this set as a working sample. Extend it on the same grid, or adopt a libre set that already matches — Lucide runs 16/24px at a 2px stroke and rescales cleanly to 1.75.</p>
+  <p class="note">This set is a working sample. Grow it on the same grid, or adopt a libre set that already matches it — Lucide is 16/24px at a 2px stroke and rescales cleanly to 1.75.</p>
 </section>
 <section id="api">
   <div class="sec-head"><span class="sec-num">09</span><h2>Component API</h2><span class="sec-note">naming</span></div>
-  <p class="lede">One taxonomy for every component: four axes, always the same order, always the same vocabulary. Learn one component's props and you can guess the next one's.</p>
+  <p class="lede">One taxonomy across every component. Four axes, always the same order, always the same vocabulary. A developer who has used one component can guess the props of the next.</p>
   <div class="table-wrap"><table class="tbl">
     <thead><tr><th scope="col">Axis</th><th scope="col">Values</th><th scope="col">Applies to</th></tr></thead>
     <tbody>
@@ -1233,15 +1233,15 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 &lt;<span class="c-key">Alert</span>  tone=<span class="c-str">"danger"</span> variant=<span class="c-str">"outline"</span> /&gt;</pre>
   </div><div class="spec-foot"><span>size → tone → variant</span><span>md is default</span><span>state is never a prop</span></div></div>
   <div class="do-dont">
-    <div class="dd do"><h5>Do</h5><p>Reuse the axis names even when a component only supports two values. A <code class="inline">tone</code> that accepts nothing but <code class="inline">neutral</code> and <code class="inline">danger</code> is still called <code class="inline">tone</code>.</p></div>
-    <div class="dd dont"><h5>Don't</h5><p>Introduce <code class="inline">color</code>, <code class="inline">kind</code>, <code class="inline">type</code>, <code class="inline">appearance</code>, or <code class="inline">intent</code> as synonyms. Five names for one concept is how a library stops being learnable.</p></div>
+    <div class="dd do"><h5>Do</h5><p>Reuse the axis names even when a component supports two values. A <code class="inline">tone</code> accepting only <code class="inline">neutral</code> and <code class="inline">danger</code> is still called <code class="inline">tone</code>.</p></div>
+    <div class="dd dont"><h5>Don't</h5><p>Add <code class="inline">color</code>, <code class="inline">kind</code>, <code class="inline">type</code>, <code class="inline">appearance</code>, or <code class="inline">intent</code> as synonyms. Five words for one concept is how a library becomes unlearnable.</p></div>
   </div>
-  <p class="note">Keep <code class="inline">tone</code> to components where colour genuinely carries meaning — buttons, badges, alerts, progress, status dots. A tinted avatar communicates nothing and still costs a contrast audit.</p>
+  <p class="note">Restrict <code class="inline">tone</code> to components where colour genuinely carries meaning: buttons, badges, alerts, progress, status dots. A tinted avatar communicates nothing and costs a contrast audit.</p>
 </section>
 
 <section id="buttons">
   <div class="sec-head"><span class="sec-num">10</span><h2>Buttons</h2></div>
-  <p class="lede">One primary button per view, exactly. If two things look equally important, neither one is.</p>
+  <p class="lede">Exactly one primary button per view. If two things look equally important, neither is.</p>
   <h3 class="sub">Variants</h3>
   <div class="spec"><div class="spec-body">
     <button class="btn btn-primary">Deploy</button>
@@ -1251,7 +1251,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
     <button class="btn btn-danger-ghost">Revoke</button>
     <a class="link" href="#buttons">Read the docs</a>
   </div><div class="spec-foot"><span>primary</span><span>secondary</span><span>ghost</span><span>danger</span><span>danger-ghost</span><span>link</span></div></div>
-  <p class="note"><strong>Primary</strong> is the reason the view exists. <strong>Secondary</strong> is the way out. <strong>Ghost</strong> handles repeated, low-weight actions in toolbars and rows. <strong>Danger</strong> is reserved for irreversible destruction, and it never sits directly beside the primary action.</p>
+  <p class="note"><strong>Primary</strong> is the action the view exists for. <strong>Secondary</strong> is the escape hatch. <strong>Ghost</strong> is for repeated low-weight actions in toolbars and rows. <strong>Danger</strong> is only for irreversible destruction, and never sits directly beside the primary action.</p>
 
   <h3 class="sub">Sizes and states</h3>
   <div class="spec"><div class="spec-body">
@@ -1265,7 +1265,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
     <button class="btn btn-secondary" disabled>Disabled</button>
     <button class="btn btn-primary" id="btn-loading">Save changes</button>
   </div><div class="spec-foot"><span>sm: rows, toolbars</span><span>md: default</span><span>lg: mobile, empty states</span><span>press Save to see the loading state</span></div></div>
-  <p class="note">A loading button keeps its width and sets <code class="inline">aria-busy</code> — it never collapses to a bare spinner, since layout that shifts under the cursor causes mis-clicks. Disable as little as possible: an always-enabled submit that explains what's missing beats a dead button that explains nothing.</p>
+  <p class="note">A loading button keeps its width and sets <code class="inline">aria-busy</code>; it does not collapse to a bare spinner, because layout that shifts under the cursor causes mis-clicks. Prefer disabling nothing where you can — an always-enabled submit that explains what is missing beats a dead button with no explanation.</p>
 
   <h3 class="sub">Icon, group, split</h3>
   <div class="spec"><div class="spec-body">
@@ -1289,12 +1289,12 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       </div>
     </div>
   </div><div class="spec-foot"><span>icon button</span><span>toggle group</span><span>segmented control</span><span>split button</span></div></div>
-  <p class="note">Icon buttons render at 28–32px but carry a <strong>44px hit area</strong> via a transparent pseudo-element, meeting target size without inflating visual density.</p>
+  <p class="note">Icon buttons render at 28–32px but carry a <strong>44px hit area</strong> through a transparent pseudo-element, satisfying target size without inflating visual density.</p>
 </section>
 
 <section id="forms">
   <div class="sec-head"><span class="sec-num">11</span><h2>Form controls</h2></div>
-  <p class="lede">Labels stay visible, always above the field. Placeholder text is never a substitute — it vanishes on focus, fails contrast, and is invisible to anyone reviewing an already-filled form.</p>
+  <p class="lede">Labels are always visible and always above the field. Placeholder text is never a label — it disappears on focus, fails contrast, and is invisible to someone reviewing a filled form.</p>
   <div class="spec"><div class="spec-body col" style="max-width:420px">
     <div class="field">
       <label class="label" for="f-name">Project name <span class="req" aria-hidden="true">*</span><span class="sr-only">required</span></label>
@@ -1329,8 +1329,8 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
     </div>
   </div><div class="spec-foot"><span>32px height</span><span>label + help + error</span><span>aria-describedby</span></div></div>
   <div class="do-dont">
-    <div class="dd do"><h5>Do</h5><p>Tie help and error text to the field with <code class="inline">aria-describedby</code>, mark invalid fields <code class="inline">aria-invalid</code>, and say what to do next, not just what went wrong.</p></div>
-    <div class="dd dont"><h5>Don't</h5><p>Validate on every keystroke while someone is still typing. Validate on blur instead, and only re-validate live once a field has already failed.</p></div>
+    <div class="dd do"><h5>Do</h5><p>Tie help and error text to the field with <code class="inline">aria-describedby</code>, mark invalid fields <code class="inline">aria-invalid</code>, and say what to do next rather than only what is wrong.</p></div>
+    <div class="dd dont"><h5>Don't</h5><p>Validate on every keystroke while someone is still typing. Validate on blur, and re-validate live only after a field has already failed once.</p></div>
   </div>
 
   <h3 class="sub">Search, upload, validation summary</h3>
@@ -1350,7 +1350,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
     <div class="alert alert-danger" role="alert"><svg class="icon alert-icon" aria-hidden="true"><use href="#i-x"/></svg>
       <div><h4>Two fields need attention</h4><p><a class="link" href="#f-mail">Billing email</a> — add a domain ending.<br><a class="link" href="#f-name">Project name</a> — this name is already taken.</p></div></div>
   </div><div class="spec-foot"><span>drag always has a keyboard path</span><span>error summary links to each field</span></div></div>
-  <p class="note">On submit, move focus to the error summary and link each entry to its field. That single step is what makes a long form recoverable for screen reader and keyboard users — without it, they're left hunting for whatever failed.</p>
+  <p class="note">On submit, move focus to the error summary and link each entry to its field. This is what makes a long form recoverable for screen reader and keyboard users, who otherwise have to hunt for what failed.</p>
 </section>
 
 <section id="selection">
@@ -1384,12 +1384,12 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <input class="slider" type="range" id="s1" min="1" max="16" value="8" aria-describedby="s1out">
     </div>
   </div><div class="spec-foot"><span>switch applies immediately</span><span>checkbox applies on save</span><span>slider</span></div></div>
-  <p class="note">The switch and the checkbox differ in behaviour, not style. <strong>A switch takes effect the instant it moves</strong>; a checkbox is a value the form collects and commits on submit. Mix them up and the interface stops being predictable.</p>
+  <p class="note">The switch/checkbox distinction is behavioural, not stylistic. <strong>A switch takes effect the moment it moves</strong>; a checkbox is a value collected by a form and committed on submit. Mixing them makes an interface unpredictable.</p>
 </section>
 
 <section id="inputs-adv">
   <div class="sec-head"><span class="sec-num">13</span><h2>Advanced inputs</h2></div>
-  <p class="lede">The controls a mature product actually needs. Each one is here because leaving it out forces a team to invent its own — which is how a design system quietly stops being the source of truth.</p>
+  <p class="lede">The controls a mature product needs. Each is here because omitting it forces a team to invent its own, which is how a design system quietly stops being the source of truth.</p>
 
   <h3 class="sub">Combobox &amp; tag input</h3>
   <div class="spec"><div class="spec-body" style="align-items:flex-start;gap:var(--s-8)">
@@ -1433,7 +1433,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <span class="help" id="pw-note">A passphrase beats a short complex string.</span>
     </div>
   </div><div class="spec-foot"><span>autocomplete=one-time-code</span><span>paste always permitted</span><span>WCAG 3.3.8</span></div></div>
-  <p class="note">These exist as first-class components because of <strong>WCAG 3.3.8</strong>. An OTP field that swallows paste, or a password field with paste turned off, is a level AA failure — and it defeats password managers, the opposite of what a security control should do.</p>
+  <p class="note">These exist as first-class components because of <strong>WCAG 3.3.8</strong>. An OTP field that swallows paste, or a password field with paste disabled, is a level AA failure — and it defeats password managers, which is the opposite of a security control.</p>
 
   <h3 class="sub">Number, rating, colour</h3>
   <div class="spec"><div class="spec-body" style="align-items:flex-start;gap:var(--s-8)">
@@ -1449,7 +1449,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
     <div><label class="label" style="margin-bottom:6px">Label colour</label>
       <div class="colorpick" id="colorpick" role="radiogroup" aria-label="Label colour"></div></div>
   </div><div class="spec-foot"><span>arrow keys adjust all three</span><span>colour swatches drawn from the token set only</span></div></div>
-  <p class="note">A colour picker offers <strong>tokens, not a spectrum</strong>. Open hex entry guarantees that someone, eventually, ships an unreadable label; a fixed set guarantees every choice already passes contrast.</p>
+  <p class="note">A colour picker offers <strong>tokens, not a spectrum</strong>. Free hex entry guarantees somebody ships an unreadable label; a fixed set guarantees every choice already passes contrast.</p>
 </section>
 
 <section id="pickers">
@@ -1484,7 +1484,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
         <span class="help">Stored as ISO 8601 with offset; rendered in your locale.</span></div>
     </div>
   </div><div class="spec-foot"><span>Monday-first for EU locales</span><span>typable field always present</span><span>presets beside every range</span></div></div>
-  <p class="note">The calendar grid is a convenience, not the input — a <strong>typable text field</strong> always sits beside it. A keyboard user entering a date from six months back shouldn't have to press an arrow 180 times. Ranges get presets, since "last 30 days" is what people actually want nine times out of ten.</p>
+  <p class="note">The grid is a convenience, not the input — there is always a <strong>typable text field</strong> beside it. A keyboard user entering a date from six months ago should not press an arrow 180 times. Ranges get presets, because "last 30 days" is what people actually want nine times in ten.</p>
 </section>
 <section id="data">
   <div class="sec-head"><span class="sec-num">15</span><h2>Data display</h2></div>
@@ -1510,7 +1510,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
     </div>
     <span class="av-wrap"><button class="btn btn-ghost btn-icon" aria-label="Notifications, 3 unread"><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg></button><span class="av-dot" style="background:var(--danger-solid)"></span></span>
   </div><div class="spec-foot"><span>pill: status</span><span>square + mono: versions, licences</span><span>presence and count dots</span></div></div>
-  <p class="note">An initials-only avatar is decorative — the person's name still has to appear as text nearby, or as a label on the group. A status dot is never the only signal; it always pairs with a title or adjacent text.</p>
+  <p class="note">Initials-only avatars are decorative — the person's name must appear as text nearby or as a label on the group. A status dot is never the only signal; it pairs with a title or adjacent text.</p>
 
   <h3 class="sub">Cards and metrics</h3>
   <div class="grid-3">
@@ -1522,7 +1522,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
   <div class="grid-2">
     <div class="card">
       <div class="card-head"><h4>acme-api</h4><span class="badge badge-success"><span class="dot"></span>Ready</span></div>
-      <div class="card-body">Production deployment from <code class="inline">main</code>, last shipped 14 minutes ago by Marta.</div>
+      <div class="card-body">Production deployment from <code class="inline">main</code>. Last shipped 14 minutes ago by Marta.</div>
       <div class="card-foot"><button class="btn btn-ghost btn-sm">Logs</button><button class="btn btn-secondary btn-sm">Redeploy</button></div>
     </div>
     <div class="card">
@@ -1595,7 +1595,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <div style="color:var(--text-muted)">  --danger-solid: #C62828;</div>
     </div>
   </div>
-  <p class="note">Log levels are left-padded to a fixed width so the message column lines up — one small change that makes a log actually scannable. Diff lines carry <code class="inline">+</code> and <code class="inline">−</code> as literal characters, not just background colour, so a diff still reads once pasted into a plain-text issue.</p>
+  <p class="note">Log levels are left-padded to a fixed width so the message column aligns — the single change that makes a log scannable. Diff lines carry <code class="inline">+</code> and <code class="inline">−</code> as characters, not just background colour, so a diff survives being pasted into a plain-text issue.</p>
 
   <h3 class="sub">Scroll area and aspect ratio</h3>
   <div class="grid-2">
@@ -1604,12 +1604,12 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
     </div>
     <div class="ratio">16 : 9 media slot</div>
   </div>
-  <p class="note">A scrollable region needs <code class="inline">tabindex="0"</code> and a label, or keyboard users can't scroll it at all — one of the most commonly missed keyboard failures out there.</p>
+  <p class="note">A scrollable region needs <code class="inline">tabindex="0"</code> and a label, or keyboard users cannot scroll it at all. This is one of the most commonly missed keyboard failures.</p>
 </section>
 
 <section id="tables">
   <div class="sec-head"><span class="sec-num">16</span><h2>Tables</h2></div>
-  <p class="lede">The densest surface in the system, and the one most often broken. Use real <code class="inline">&lt;table&gt;</code> markup with <code class="inline">&lt;th scope&gt;</code> — a grid of divs is unusable with a screen reader, which depends on header association to announce what each cell actually means.</p>
+  <p class="lede">The densest surface in the system and the one most often broken. Real <code class="inline">&lt;table&gt;</code> markup with <code class="inline">&lt;th scope&gt;</code> — a grid of divs is unusable with a screen reader, which relies on header association to announce what each cell means.</p>
   <div class="toolbar" style="margin-bottom:var(--s-3)">
     <div class="input-group" style="width:200px">
       <span class="icon-left"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span>
@@ -1663,8 +1663,8 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <button aria-label="Next page">›</button>
     </nav>
   </div>
-  <p class="note">Numeric columns right-align with tabular figures; identifiers stay monospaced but left-aligned. The header row is sticky, and <code class="inline">scroll-padding-top</code> stops a focused row from hiding beneath it — the classic 2.4.11 failure. Long paths truncate <strong>from the middle</strong>, since the ends are where the meaning lives. Sorting sets <code class="inline">aria-sort</code> so the state gets announced, and the selection count lives in a live region.</p>
-  <p class="note">Past roughly 200 rows, paginate or virtualise. Virtualised rows have to keep <code class="inline">aria-rowcount</code> and <code class="inline">aria-rowindex</code> accurate, or a screen reader ends up reporting the wrong total and position.</p>
+  <p class="note">Numeric columns are right-aligned with tabular figures; identifiers are monospaced but left-aligned. The header row is sticky, and <code class="inline">scroll-padding-top</code> keeps a focused row from hiding beneath it — the classic 2.4.11 failure. Long paths truncate <strong>from the middle</strong>, because the ends carry the meaning. Sorting sets <code class="inline">aria-sort</code> so the state is announced, and the selection count lives in a live region.</p>
+  <p class="note">Beyond roughly 200 rows, paginate or virtualise. Virtualised rows must keep <code class="inline">aria-rowcount</code> and <code class="inline">aria-rowindex</code> accurate, or a screen reader reports the wrong total and position.</p>
 </section>
 
 <section id="disclosure">
@@ -1689,7 +1689,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       </ol>
     </div><div class="spec-foot"><span>timeline · newest first</span><span>dot colour plus label</span></div></div>
   </div>
-  <p class="note">An accordion collapses the <em>heading</em>, so the heading element wraps the button rather than containing it — that keeps the document outline intact for anyone navigating by heading. Never collapse a form field that can carry a validation error: an error hidden inside a closed panel is invisible.</p>
+  <p class="note">An accordion collapses the <em>heading</em>, so the heading element wraps the button rather than sitting inside it — this keeps the document outline intact for anyone navigating by heading. Never collapse a form field that can hold a validation error: an error inside a closed panel is invisible.</p>
 </section>
 <section id="nav">
   <div class="sec-head"><span class="sec-num">18</span><h2>Navigation</h2></div>
@@ -1724,7 +1724,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <li class="step"><span class="step-num">4</span>Deploy</li>
     </ol>
   </div><div class="spec-foot"><span>breadcrumb with overflow</span><span>tabs · ←→ roving focus</span><span>stepper</span></div></div>
-  <p class="note">Tabs use a roving tabindex: <kbd class="kbd">Tab</kbd> enters the list once, then <kbd class="kbd">←</kbd> <kbd class="kbd">→</kbd> move between tabs, and the panel takes focus next. Tabs switch views of the same object; a sequence belongs to a stepper instead. Breadcrumbs collapse from the middle, never from the end.</p>
+  <p class="note">Tabs use a roving tabindex: <kbd class="kbd">Tab</kbd> enters the list once, then <kbd class="kbd">←</kbd> <kbd class="kbd">→</kbd> move between tabs and the panel takes focus next. Tabs switch views of the same object; a sequence is a stepper. Breadcrumbs collapse from the middle, never from the end.</p>
 
   <h3 class="sub">Menubar and toolbar</h3>
   <div class="spec"><div class="spec-body col" style="align-items:flex-start">
@@ -1752,7 +1752,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
     <div class="sep-label" style="width:100%">or continue with</div>
     <div style="display:flex;gap:var(--s-2)"><button class="btn btn-secondary">GitLab</button><button class="btn btn-secondary">Codeberg</button></div>
   </div><div class="spec-foot"><span>menubar: ←→ between, ↓ opens</span><span>toolbar: one tab stop, arrows within</span><span>separator with label</span></div></div>
-  <p class="note">A toolbar is <strong>one</strong> tab stop, not fourteen — arrow keys handle movement within it. Getting this wrong is the most common keyboard complaint about editor interfaces: someone pressing Tab to leave a comment box shouldn't have to pass through every formatting button first.</p>
+  <p class="note">A toolbar is <strong>one</strong> tab stop, not fourteen. Arrow keys move within it. Getting this wrong is the most common keyboard complaint about editor interfaces — someone pressing Tab to leave a comment box should not traverse every formatting button first.</p>
 
   <h3 class="sub">Application shell</h3>
   <div class="spec"><div class="spec-body" style="padding:0;gap:0;align-items:stretch">
@@ -1775,12 +1775,12 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <div class="skel" style="height:10px;width:60%"></div>
     </div>
   </div><div class="spec-foot"><span>left sidebar</span><span>primary action top-right</span><span>Help is always the last item</span></div></div>
-  <p class="note">Dense tools take a left sidebar over a top-nav-only layout: a vertical list scales to dozens of destinations, a horizontal one doesn't. The current location gets <code class="inline">aria-current="page"</code> plus a visible background — never a colour change on its own. <strong>Help sits last in the sidebar on every screen</strong>; that consistency is what WCAG 3.2.6 asks for.</p>
+  <p class="note">Dense tools use a left sidebar, not a top-nav-only layout: vertical lists scale to dozens of destinations and horizontal ones do not. The current location is marked with <code class="inline">aria-current="page"</code> plus a visible background, never a colour change alone. <strong>Help sits last in the sidebar on every screen</strong> — consistent placement is WCAG 3.2.6.</p>
 </section>
 
 <section id="overlays">
   <div class="sec-head"><span class="sec-num">19</span><h2>Overlays</h2></div>
-  <p class="lede">Everything that floats follows four rules: focus moves in on open, focus stays trapped while open, <kbd class="kbd">Esc</kbd> closes it, and focus returns to the trigger once it's closed.</p>
+  <p class="lede">Everything that floats obeys four rules: focus moves in on open, focus is trapped while open, <kbd class="kbd">Esc</kbd> closes, and focus returns to the trigger on close.</p>
   <div class="spec"><div class="spec-body">
     <button class="btn btn-secondary" id="open-modal">Dialog</button>
     <button class="btn btn-secondary" id="open-drawer">Drawer</button>
@@ -1818,7 +1818,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <div class="help" style="margin-top:6px">context menu · also ⇧F10</div>
     </div>
   </div><div class="spec-foot"><span>menu: actions</span><span>popover / hover card: rich content</span><span>tooltip: label only</span><span>popconfirm: light confirmation</span></div></div>
-  <p class="note">A tooltip is only ever allowed to repeat or shorten something available elsewhere. Content that exists nowhere else belongs in a popover, which is keyboard-reachable and dismissable — a hover-only tooltip reaches neither touch nor keyboard users. A context menu also needs a keyboard route in, via <kbd class="kbd">⇧F10</kbd> or the menu key, and everything inside it should exist somewhere else too.</p>
+  <p class="note">A tooltip may only ever repeat or shorten something already available. Content that exists nowhere else belongs in a popover, which is keyboard-reachable and dismissable — a hover-only tooltip is unreachable by touch and by keyboard. A context menu must also open from the keyboard via <kbd class="kbd">⇧F10</kbd> or the menu key, and everything in it must exist somewhere else too.</p>
 
   <h3 class="sub">Resizable panels</h3>
   <div class="resize" id="resize">
@@ -1826,7 +1826,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
     <div class="handle" tabindex="0" role="separator" aria-orientation="vertical" aria-valuenow="38" aria-valuemin="20" aria-valuemax="80" aria-label="Resize explorer panel"></div>
     <div class="pane" style="flex:1">Editor</div>
   </div>
-  <p class="note">A drag handle is a 2.5.7 failure unless it also answers to arrow keys. Give it <code class="inline">role="separator"</code>, a value, and keyboard adjustment — roughly ten lines of code, and the panel becomes usable without a pointer at all.</p>
+  <p class="note">A drag handle is a 2.5.7 failure unless it also responds to arrow keys. Give it <code class="inline">role="separator"</code>, a value, and keyboard adjustment — roughly ten lines of code that make the panel usable without a pointer.</p>
 
   <h3 class="sub">Destructive confirmation</h3>
   <div class="spec"><div class="spec-body col" style="align-items:flex-start">
@@ -1838,19 +1838,19 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <div class="modal-foot"><button class="btn btn-secondary">Cancel</button><button class="btn btn-danger" id="confirm-btn" disabled>Delete project</button></div>
     </div>
   </div><div class="spec-foot"><span>typed confirmation for the irreversible</span><span>undo toast for everything else</span></div></div>
-  <p class="note">Save typed confirmation for what genuinely can't be undone. Everything reversible gets an <strong>undo toast</strong> instead — faster and less irritating than a dialog, since most of the time the user meant to do it anyway.</p>
+  <p class="note">Reserve typed confirmation for what genuinely cannot be undone. Everything reversible gets an <strong>undo toast</strong> instead — faster and less irritating than a dialog for the overwhelming majority of cases where the user meant it.</p>
 </section>
 
 <section id="feedback">
   <div class="sec-head"><span class="sec-num">20</span><h2>Feedback</h2></div>
-  <p class="lede">Three channels, chosen by how long the message needs to stick around. <strong>Inline</strong> for a specific field. <strong>Alert</strong> for the current page. <strong>Toast</strong> for the result of an action you just took.</p>
+  <p class="lede">Three channels, chosen by permanence. <strong>Inline</strong> for a specific field. <strong>Alert</strong> for the current page. <strong>Toast</strong> for the result of an action you just took.</p>
   <div class="spec"><div class="spec-body col">
-    <div class="alert alert-info" role="note"><svg class="icon alert-icon" aria-hidden="true"><use href="#i-info"/></svg><div><h4>Region migration scheduled</h4><p>eu-west-1 is moving to new hardware on 12 March, 02:00 CET. No action needed on your end.</p></div></div>
+    <div class="alert alert-info" role="note"><svg class="icon alert-icon" aria-hidden="true"><use href="#i-info"/></svg><div><h4>Region migration scheduled</h4><p>eu-west-1 moves to new hardware on 12 March, 02:00 CET. No action needed.</p></div></div>
     <div class="alert alert-success" role="status"><svg class="icon alert-icon" aria-hidden="true"><use href="#i-check"/></svg><div><h4>Domain verified</h4><p>acme.com now routes to this project.</p></div></div>
-    <div class="alert alert-warning" role="alert"><svg class="icon alert-icon" aria-hidden="true"><use href="#i-alert"/></svg><div><h4>Approaching build minute limit</h4><p>You've used 92% of this month's allowance. Builds pause once you hit 100%.</p></div></div>
-    <div class="alert alert-danger" role="alert"><svg class="icon alert-icon" aria-hidden="true"><use href="#i-x"/></svg><div><h4>Build failed: missing environment variable</h4><p><code class="inline">DATABASE_URL</code> isn't set for production. Add it in Settings → Environment, then redeploy.</p></div></div>
+    <div class="alert alert-warning" role="alert"><svg class="icon alert-icon" aria-hidden="true"><use href="#i-alert"/></svg><div><h4>Approaching build minute limit</h4><p>You have used 92% of this month's allowance. Builds pause at 100%.</p></div></div>
+    <div class="alert alert-danger" role="alert"><svg class="icon alert-icon" aria-hidden="true"><use href="#i-x"/></svg><div><h4>Build failed: missing environment variable</h4><p><code class="inline">DATABASE_URL</code> is not set for production. Add it in Settings → Environment, then redeploy.</p></div></div>
   </div><div class="spec-foot"><span>role=note / status / alert</span><span>icon + colour + text, never colour alone</span></div></div>
-  <p class="note">Reserve <code class="inline">role="alert"</code> for what genuinely needs to interrupt — it forces a screen reader to break off mid-sentence. Informational and success messages use <code class="inline">role="status"</code> instead, which waits for a natural pause.</p>
+  <p class="note">Use <code class="inline">role="alert"</code> only for what genuinely interrupts — it forces a screen reader to break off mid-sentence. Informational and success messages use <code class="inline">role="status"</code>, which waits for a pause.</p>
 
   <h3 class="sub">Toasts</h3>
   <div class="spec"><div class="spec-body">
@@ -1858,7 +1858,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
     <button class="btn btn-secondary" data-toast="undo">Toast with undo</button>
     <button class="btn btn-secondary" data-toast="error">Error toast</button>
   </div><div class="spec-foot"><span>bottom-right</span><span>success auto-dismisses at 5s</span><span>anything actionable persists</span></div></div>
-  <p class="note">Anything with an action inside it <strong>must not auto-dismiss</strong> — a timed message is a 2.2.1 failure for anyone reading slowly or using a magnifier. Errors stay put until someone dismisses them. Never let a toast be the only place important information lives.</p>
+  <p class="note">Anything with an action inside it <strong>must not auto-dismiss</strong> — a timed message is a 2.2.1 failure for anyone reading slowly or using a magnifier. Errors stay until dismissed. Never put the only copy of important information in a toast.</p>
 </section>
 
 <section id="loading">
@@ -1882,7 +1882,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       </div>
     </div><div class="spec-foot"><span>an empty state is an invitation to act</span></div></div>
   </div>
-  <p class="note">Choose by what you actually know: <strong>skeleton</strong> when you know the shape of what's coming, <strong>progress bar</strong> when you know how far along it is, <strong>spinner</strong> only when you know neither. A skeleton that doesn't match the final layout is worse than showing nothing at all.</p>
+  <p class="note">Choose by knowledge: <strong>skeleton</strong> when you know the shape of what is coming, <strong>progress bar</strong> when you know how far along it is, <strong>spinner</strong> only when you know neither. A skeleton that does not match the final layout is worse than nothing.</p>
   <h3 class="sub">Result pages</h3>
   <div class="grid-2">
     <div class="card"><div class="result">
@@ -1894,12 +1894,12 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <p class="help" style="max-width:34ch;margin:0 auto var(--s-4)">Reference <code class="inline">req_8f2c91ba</code>. Include it if you open an issue.</p>
       <button class="btn btn-secondary">Report this</button></div></div>
   </div>
-  <p class="note">A 500 page hands the user a <strong>request ID</strong> to quote back. In an open-source project, that one line of template turns a dead end into a usable bug report.</p>
+  <p class="note">A 500 page gives the user a <strong>request ID</strong> to quote. In an open-source project that turns a dead end into a usable bug report, and it costs one line of template.</p>
 </section>
 
 <section id="patterns">
   <div class="sec-head"><span class="sec-num">22</span><h2>Application patterns</h2></div>
-  <p class="lede">Composed screens rather than primitives, included here because their accessibility problems are specific — and they recur in every product that ends up building them.</p>
+  <p class="lede">Composed screens rather than primitives. They are here because their accessibility problems are specific and recur in every product that builds them.</p>
   <div class="spec"><div class="spec-body" style="align-items:flex-start;gap:var(--s-6)">
     <div class="kb">
       <div class="kb-col"><h5>Backlog <span>2</span></h5>
@@ -1917,11 +1917,11 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <div class="bubble me">5.5:1 light, 10.4:1 dark.</div>
     </div>
   </div><div class="spec-foot"><span>kanban: every drag has a menu equivalent</span><span>chat: bubbles are list items</span></div></div>
-  <p class="note">A kanban board is the classic 2.5.7 failure. Every card needs a menu with <em>Move to…</em>, and each column must be a real list so a screen reader can announce position and count. If dragging is the only way to move a card, the board is unusable for a large share of people. In a chat thread, new messages arrive through a polite live region — never assertive, or every incoming message interrupts whatever the user is currently reading.</p>
+  <p class="note">A kanban board is the classic 2.5.7 failure. Every card needs a menu with <em>Move to…</em>, and each column must be a real list so a screen reader announces position and count. If dragging is the only way to move a card, the board is unusable for a large group of people. In a chat thread, new messages arrive in a polite live region — never assertive, or every incoming message interrupts what the user is reading.</p>
 </section>
 <section id="layouts">
   <div class="sec-head"><span class="sec-num">23</span><h2>Page templates</h2><span class="sec-note">skeletons to start from</span></div>
-  <p class="lede">Nine page shapes that cover almost everything a product needs. Start from one of these rather than a blank file — settle the argument about where the primary action goes once, here, rather than re-litigating it on every screen.</p>
+  <p class="lede">Nine page shapes that cover almost everything a product needs. Start from one rather than from a blank file — the argument about where the primary action goes should be settled once, here, not on every screen.</p>
 
   <div class="grid-2">
     <div class="wf"><div class="wf-t">01 · App shell</div><div class="wf-b" style="grid-template-columns:64px 1fr;grid-template-rows:auto 1fr">
@@ -1958,12 +1958,12 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <tr><td>Empty and error</td><td>Every template needs a designed empty state and a designed error state before it ships.</td></tr>
     </tbody>
   </table></div>
-  <p class="note">Templates 02 and 09 both need a <strong>responsive collapse strategy</strong> settled up front: below 900px, the detail pane becomes a full-screen view with a back control, instead of squeezing two panes into one narrow column. Decide this once, here, and it saves nine separate answers later.</p>
+  <p class="note">Templates 02 and 09 both need a <strong>responsive collapse strategy</strong> chosen up front: below 900px the detail pane becomes a full-screen view with a back control, rather than squeezing two panes into one column. Deciding this once here prevents nine different answers later.</p>
 </section>
 
 <section id="mobile">
   <div class="sec-head"><span class="sec-num">24</span><h2>Mobile</h2></div>
-  <p class="lede">An adaptation, not a second design system: the same ramps, the same spacing scale, the same components — with four adjustments.</p>
+  <p class="lede">An adaptation, not a second design system. Same ramps, same spacing scale, same components — with four adjustments.</p>
   <div style="display:flex;gap:var(--s-6);flex-wrap:wrap;align-items:flex-start">
     <div class="phone">
       <div class="phone-top"><strong style="font-size:var(--t-base)">Projects</strong><button class="btn btn-ghost btn-icon" aria-label="Search"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></button></div>
@@ -1996,12 +1996,12 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       </table></div>
     </div>
   </div>
-  <p class="note">Four non-negotiables: <strong>44×44pt minimum touch targets</strong> (pad the hit area rather than inflating the visual), a 16px minimum input font size so iOS Safari doesn't zoom on focus, safe-area insets honoured on notch and home-indicator devices, and <strong>no primary action within 8px of the bottom edge</strong>, where the system gesture bar lives. Tables become stacked cards below 640px instead of scrolling sideways — horizontal scroll inside a vertically scrolling page reliably loses people.</p>
+  <p class="note">Four non-negotiables: <strong>44×44pt minimum touch targets</strong> (pad the hit area, do not inflate the visual), 16px minimum input font size so iOS Safari does not zoom on focus, safe-area insets respected on notch and home-indicator devices, and <strong>no primary action within 8px of the bottom edge</strong> where the system gesture bar lives. Tables become stacked cards below 640px rather than scrolling sideways — horizontal scroll inside a vertically scrolling page reliably loses people.</p>
 </section>
 
 <section id="cli">
   <div class="sec-head"><span class="sec-num">25</span><h2>Command line</h2></div>
-  <p class="lede">The terminal is part of the product, not an afterthought — it shares the same status vocabulary and the same voice as the interface, so a user recognises the same software either way.</p>
+  <p class="lede">The terminal is part of the product. It uses the same status vocabulary and the same voice as the interface — a user should recognise the same software.</p>
   <div class="term">
     <div class="term-bar"><i></i><i></i><i></i><span style="margin-left:var(--s-2)">mulia — zsh</span></div>
     <div class="term-body"><span class="d">$</span> <span class="w">mulia deploy --env production</span>
@@ -2052,18 +2052,18 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
   </div>
   <h3 class="sub">Rules</h3>
   <p class="note">
-    <strong>Never rely on ANSI colour alone</strong> — every state carries a symbol and a word too, since colour gets stripped in CI logs and is unavailable to a large share of users. Pull from the terminal's semantic palette rather than hardcoded hex, so a user's own theme keeps working.
-    Detect a non-TTY stdout and drop colour, spinners, and box drawing automatically; honour <code class="inline">NO_COLOR</code>, and offer <code class="inline">--json</code> for machine consumption.
-    Indent nesting by two spaces, right-align only numbers, and truncate long paths from the middle.
-    Use a spinner under five seconds, a progress bar with an ETA above it, and plain sequential lines when piped.
-    Errors state <strong>what happened, why, and the fix</strong>, in that order, one-line summary first, with a stable error code mapped to a documentation page.
+    <strong>Never rely on ANSI colour alone</strong> — every state carries a symbol and a word, because colour is stripped in CI logs and unavailable to a large share of users. Use the terminal's semantic palette rather than hardcoded hex, so a user's own theme still works.
+    Detect a non-TTY stdout and drop colour, spinners, and box drawing automatically; honour <code class="inline">NO_COLOR</code> and offer <code class="inline">--json</code> for machine consumption.
+    Indent nesting by two spaces, right-align numbers only, truncate long paths from the middle.
+    Spinner under five seconds, progress bar with an ETA above it, plain sequential lines when piped.
+    Errors state <strong>what happened, why, and the fix</strong>, in that order, one-line summary first, with a stable error code that maps to a documentation page.
     Destructive commands confirm interactively and accept <code class="inline">--force</code> for scripts.
     Every command answers <code class="inline">--help</code> in the same shape: Usage → Description → Flags → Examples.
   </p>
 </section>
 <section id="a11y">
   <div class="sec-head"><span class="sec-num">26</span><h2>Accessibility</h2><span class="sec-note">WCAG 2.2 AA</span></div>
-  <p class="lede">The system targets <strong>WCAG 2.2 level AA</strong>. EN 301 549, the harmonised European standard, formally sits at v3.2.1 and still cites WCAG 2.1 — but v4.1.1, which adopts 2.2 AA, went to public review in late 2025 and is expected in the Official Journal around late 2026. The six new criteria are cheap to build in now and expensive to retrofit later, so 2.2 is the floor here, not the ceiling.</p>
+  <p class="lede">The system targets <strong>WCAG 2.2 level AA</strong>. EN 301 549, the harmonised European standard, is formally at v3.2.1 and cites WCAG 2.1 — but v4.1.1, which adopts 2.2 AA, went to public review in late 2025 and is expected to be referenced in the Official Journal around late 2026. The six new A/AA criteria are cheap to build in and expensive to retrofit, so 2.2 is the floor here.</p>
 
   <h3 class="sub">The six criteria new in 2.2</h3>
   <div class="table-wrap"><table class="tbl">
@@ -2079,7 +2079,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
   </table></div>
   <div class="alert alert-danger" role="note" style="margin-top:var(--s-4)">
     <svg class="icon alert-icon" aria-hidden="true"><use href="#i-x"/></svg>
-    <div><h4>The three that break real products</h4><p><strong>Blocking paste in a password or 2FA field</strong> is a straight AA failure, and it defeats password managers — the opposite of what a security control should do. <strong>Puzzle CAPTCHAs</strong> fail 3.3.8; use a device or token-based check instead. <strong>A sticky header covering a focused row</strong> fails 2.4.11 on nearly every dense table ever built. Test all three by tabbing through them, not by reading the spec.</p></div>
+    <div><h4>The three that break real products</h4><p><strong>Blocking paste in a password or 2FA field</strong> is a straight AA failure and defeats password managers, which is the opposite of a security control. <strong>Puzzle CAPTCHAs</strong> fail 3.3.8; use a device or token-based check. <strong>A sticky header covering a focused row</strong> fails 2.4.11 on almost every dense table ever built. Test all three by tabbing, not by reading the spec.</p></div>
   </div>
 
   <h3 class="sub">Full conformance checklist</h3>
@@ -2116,7 +2116,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <tr><td>Status messages</td><td class="mono">4.1.3 AA</td><td>Live regions with <code class="inline">role="status"</code> or <code class="inline">"alert"</code>.</td></tr>
     </tbody>
   </table></div>
-  <p class="note"><strong>4.1.1 Parsing was removed</strong> in WCAG 2.2 — it's obsolete now and always passes. If an audit tool still flags it, the tool is what needs updating.</p>
+  <p class="note"><strong>4.1.1 Parsing was removed</strong> in WCAG 2.2 — it is obsolete and always passes. If an audit tool still reports it, the tool is out of date.</p>
 
   <h3 class="sub">Focus specimen</h3>
   <div class="spec"><div class="spec-body">
@@ -2128,44 +2128,44 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 
   <h3 class="sub">Beyond the checklist</h3>
   <p class="note">
-    Conformance is the floor, not the finish line. Ship every new pattern with a real <strong>keyboard-only pass</strong> and a <strong>screen reader pass</strong> — NVDA on Windows, VoiceOver on macOS and iOS, TalkBack on Android. Automated tooling only catches roughly a third of real issues.
-    Publish an <strong>accessibility statement</strong>: public sector bodies must under Directive 2016/2102, and the European Accessibility Act expects accessibility information inside product documentation. Name the known gaps and give people a way to report problems — in an open-source project, that's just a labelled issue template, which costs nothing and is more honest than a badge.
-    For the CLI, EN 301 549 chapter 11 covers non-web software: don't defeat platform accessibility features, keep terminal output legible when read linearly, and never let colour be the only carrier of meaning.
+    Conformance is the floor. Ship every new pattern with a real <strong>keyboard-only pass</strong> and a <strong>screen reader pass</strong> — NVDA on Windows, VoiceOver on macOS and iOS, TalkBack on Android. Automated tooling catches roughly a third of real issues.
+    Publish an <strong>accessibility statement</strong>: public sector bodies must under Directive 2016/2102, and the European Accessibility Act expects accessibility information in product documentation. Name known gaps and give people a route to report problems — in an open-source project that is a labelled issue template, which costs nothing and is more honest than a badge.
+    For the CLI, EN 301 549 chapter 11 covers non-web software: do not defeat platform accessibility features, keep terminal output legible when read linearly, and never let colour be the only carrier of meaning.
   </p>
   <div class="alert alert-warning" role="note">
     <svg class="icon alert-icon" aria-hidden="true"><use href="#i-alert"/></svg>
-    <div><h4>Scope check</h4><p>The European Accessibility Act covers specific product and service categories, with microenterprise exemptions and national implementations that vary. Treat this checklist as engineering practice, and confirm your actual legal obligations for your sector and member state with someone qualified to advise on it.</p></div>
+    <div><h4>Scope check</h4><p>The European Accessibility Act covers specific product and service categories, with microenterprise exemptions and national implementations that differ. Treat this checklist as engineering practice; confirm your actual legal obligations for your sector and member state with someone qualified to advise on it.</p></div>
   </div>
 </section>
 
 <section id="voice">
   <div class="sec-head"><span class="sec-num">27</span><h2>Voice &amp; content</h2></div>
-  <p class="lede">Words are design material too. Sentence case everywhere, plain verbs, no exclamation marks, no apologies.</p>
+  <p class="lede">Words are design material. Sentence case everywhere, plain verbs, no exclamation marks, no apologies.</p>
   <div class="do-dont">
-    <div class="dd do"><h5>Write</h5><p>"Save changes" · "Delete project" · "Connect a repository"<br><br>A control names exactly what will happen, and the same verb resurfaces in the result: <em>Publish</em> → <em>Published</em>.</p></div>
-    <div class="dd dont"><h5>Not</h5><p>"Submit" · "OK" · "Are you sure?"<br><br>Generic verbs leave the user guessing. A confirmation that doesn't name the consequence is just a coin flip.</p></div>
-    <div class="dd do"><h5>Write</h5><p>"DATABASE_URL isn't set for staging. Add it in Settings → Environment, then redeploy."</p></div>
-    <div class="dd dont"><h5>Not</h5><p>"Oops! Something went wrong 😅 Please try again later."<br><br>Errors don't apologise, and they're never vague. Log the stack trace; show the fix.</p></div>
+    <div class="dd do"><h5>Write</h5><p>"Save changes" · "Delete project" · "Connect a repository"<br><br>A control names exactly what happens, and the verb reappears in the result: <em>Publish</em> → <em>Published</em>.</p></div>
+    <div class="dd dont"><h5>Not</h5><p>"Submit" · "OK" · "Are you sure?"<br><br>Generic verbs make the user guess. A confirmation that does not name the consequence is a coin flip.</p></div>
+    <div class="dd do"><h5>Write</h5><p>"DATABASE_URL is not set for staging. Add it in Settings → Environment, then redeploy."</p></div>
+    <div class="dd dont"><h5>Not</h5><p>"Oops! Something went wrong 😅 Please try again later."<br><br>Errors do not apologise and are never vague. Log the stack trace; show the fix.</p></div>
   </div>
-  <p class="note">Name things the way the user thinks about them, not the way the system happens to be built: people manage <em>notifications</em>, not <em>webhook configuration</em>. Keep the vocabulary identical across interface, CLI, and documentation — one object, one name. No marketing language inside the product; nothing here is blazing fast or seamless.</p>
+  <p class="note">Name things the way the user thinks about them, not the way the system is built: people manage <em>notifications</em>, not <em>webhook configuration</em>. Keep vocabulary identical across interface, CLI, and documentation — one object, one name. No marketing language inside the product: nothing is blazing fast or seamless.</p>
 </section>
 
 <section id="charts">
   <div class="sec-head"><span class="sec-num">28</span><h2>Data visualisation</h2><span class="sec-note">categorical · sequential · diverging</span></div>
-  <p class="lede">Charts are where most design systems give up and let each team improvise. The hard part was never drawing a bar — it's a categorical ramp that stays distinguishable across both themes and under the common colour vision deficiencies. That ramp gets defined once, here.</p>
+  <p class="lede">Charts are where design systems usually give up and let each team improvise. The hard part is not drawing a bar — it is a categorical ramp that stays distinguishable in both themes and under the common colour vision deficiencies. That ramp is defined here, once.</p>
 
   <h3 class="sub">Categorical ramp</h3>
   <div class="spec"><div class="spec-body col">
     <div class="cvd-grid" id="cat-ramp"></div>
     <div class="legend" id="cat-legend" style="margin-top:var(--s-2)"></div>
   </div><div class="spec-foot"><span>8 series maximum</span><span>ordered by distinctness</span><span>slot 8 is neutral, for "other"</span></div></div>
-  <p class="note">Order matters more than the set itself. Most charts show two to four series, so the <strong>first four are maximally separated</strong>: teal, gold, blue, red. That sequence deliberately keeps red away from green, the single most common way a chart becomes unreadable. Every colour clears 3:1 against its own theme background, which is what WCAG 1.4.11 requires of graphical objects the content depends on.</p>
+  <p class="note">The order matters more than the set. Most charts show two to four series, so the <strong>first four are maximally separated</strong>: teal, gold, blue, red. That sequence deliberately avoids putting red next to green, which is the single most common way a chart becomes unreadable. Every colour clears 3:1 against its own theme background, which WCAG 1.4.11 requires of graphical objects needed to understand the content.</p>
 
   <h3 class="sub">Simulated colour vision deficiency</h3>
   <div class="spec"><div class="spec-body col">
     <div id="cvd-sim"></div>
   </div><div class="spec-foot"><span>deuteranopia ≈ 6% of men</span><span>protanopia ≈ 2%</span><span>tritanopia &lt; 0.01%</span></div></div>
-  <p class="note">These rows are approximations, not a substitute for real testing — but they show the property that matters: adjacent swatches stay distinguishable because the ramp varies <strong>lightness as well as hue</strong>. A ramp that varies hue alone collapses into two or three indistinguishable bands under deuteranopia.</p>
+  <p class="note">These rows are approximations, not a substitute for testing — but they show the property that matters: adjacent swatches stay distinguishable because the ramp varies <strong>lightness as well as hue</strong>. A ramp that only varies hue collapses into two or three indistinguishable bands under deuteranopia.</p>
 
   <h3 class="sub">Sequential &amp; diverging</h3>
   <div class="grid-2">
@@ -2178,7 +2178,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <div class="ramp-labels"><span>−100%</span><span>diverging · signed change</span><span>+100%</span></div>
     </div>
   </div>
-  <p class="note">The diverging ramp runs <strong>red to teal, never red to green</strong>. A red-green diverging scale is the most common accessibility failure in dashboards: to someone with deuteranopia both ends look the same, so a chart of gains and losses collapses into noise. Red-teal and orange-blue both hold up.</p>
+  <p class="note">The diverging ramp runs <strong>red to teal, never red to green</strong>. A red-green diverging scale is the most common accessibility failure in dashboards: to a person with deuteranopia both ends look identical, so a chart of gains and losses becomes noise. Red-teal and orange-blue both survive.</p>
 
   <h3 class="sub">Chart types</h3>
   <div class="grid-2">
@@ -2230,12 +2230,12 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <tr><td>Respect reduced motion</td><td>Entry animations on charts are decorative. Under <code class="inline">prefers-reduced-motion</code> they do not run.</td></tr>
     </tbody>
   </table></div>
-  <p class="note">A tooltip on hover is a convenience, never the only route to a value — it's unreachable by touch and by keyboard alike. Whatever a tooltip says has to also live in the table view or on the axis.</p>
+  <p class="note">Tooltips on hover are a convenience, never the only route to a value — they are unreachable by touch and by keyboard. Anything a tooltip says must also be in the table view or on the axis.</p>
 </section>
 
 <section id="grid">
   <div class="sec-head"><span class="sec-num">29</span><h2>Data grid</h2><span class="sec-note">virtualised</span></div>
-  <p class="lede">Past roughly 200 rows, a table stops being a table. This grid renders only the visible window across 10,000 rows, keeps the first column frozen, and moves cell focus with the arrow keys.</p>
+  <p class="lede">Past roughly 200 rows a table stops being a table. This grid renders only the visible window over 10,000 rows, keeps the first column frozen, and moves cell focus with the arrow keys.</p>
 
   <div class="dg">
     <div class="dg-bar">
@@ -2270,16 +2270,16 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <tr><td>Frozen columns stay reachable</td><td>The frozen column is in normal DOM order, so linear reading and arrow navigation are unaffected by its visual pinning.</td></tr>
     </tbody>
   </table></div>
-  <p class="note">Row height is fixed at 34px, which is exactly what makes the maths trivial: <code class="inline">start = floor(scrollTop / 34)</code>. Variable heights need a measured offset cache, and they're worth avoiding unless the content genuinely demands them. When filtering removes rows, <code class="inline">aria-rowcount</code> updates to the filtered total — reporting the unfiltered count is a small lie, but a real one.</p>
+  <p class="note">Row height is fixed at 34px, which is what makes the maths trivial: <code class="inline">start = floor(scrollTop / 34)</code>. Variable heights need a measured offset cache and are worth avoiding unless the content genuinely demands it. When rows are removed by filtering, <code class="inline">aria-rowcount</code> updates to the filtered total — reporting the unfiltered count is a quiet but real lie.</p>
   <div class="alert alert-warning" role="note">
     <svg class="icon alert-icon" aria-hidden="true"><use href="#i-alert"/></svg>
-    <div><h4>Choose the plain table when you can</h4><p>Virtualisation costs correct ARIA bookkeeping, breaks the browser's find-in-page, and complicates printing and copy-paste. Under a few hundred rows, a real <code class="inline">&lt;table&gt;</code> with pagination is faster to build, more accessible by default, and better behaved overall. Reach for this grid only when the data genuinely won't fit.</p></div>
+    <div><h4>Choose the plain table when you can</h4><p>Virtualisation costs correct ARIA bookkeeping, breaks browser find-in-page, and complicates printing and copy-paste. Under a few hundred rows a real <code class="inline">&lt;table&gt;</code> with pagination is faster to build, more accessible by default, and better behaved. Reach for this grid when the data genuinely will not fit.</p></div>
   </div>
 </section>
 
 <section id="coverage">
   <div class="sec-head"><span class="sec-num">30</span><h2>Coverage</h2></div>
-  <p class="lede"><strong>Built</strong> means it's in this document with working markup and behaviour. <strong>Planned</strong> means specified but not yet drawn. <strong>Declined</strong> means deliberately left out, with the reason attached — a design system is defined as much by what it refuses as by what it ships.</p>
+  <p class="lede"><strong>Built</strong> means it is in this document with working markup and behaviour. <strong>Planned</strong> means specified but not yet drawn. <strong>Declined</strong> means deliberately excluded, with the reason — a design system is defined as much by what it refuses as by what it ships.</p>
   <div class="table-wrap"><table class="tbl">
     <thead><tr><th scope="col">Group</th><th scope="col">Components</th><th scope="col">State</th></tr></thead>
     <tbody>
@@ -2302,19 +2302,19 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <tr><td>Prebuilt screens</td><td>Email, invoicing, e-commerce. Stale example code that nobody deletes.</td><td><span class="badge badge-danger">Declined</span></td></tr>
     </tbody>
   </table></div>
-  <p class="note">Both former gaps are now closed. What's left open is smaller, and better decided against real use: a global density toggle, a menubar with nested submenus, and localisation testing — German and Finnish run 30–40% longer than English, while Indonesian runs shorter, so every fixed-width control needs checking against all three before translation.</p>
+  <p class="note">Both former gaps are now closed. What remains open is smaller and better decided against real use: a global density toggle, a menubar with nested submenus, and localisation testing — German and Finnish run 30–40% longer than English while Indonesian runs shorter, so every fixed-width control needs checking in all three before translation.</p>
 </section>
 
 <section id="governance">
   <div class="sec-head"><span class="sec-num">31</span><h2>Governance</h2></div>
-  <p class="lede">A design system starts decaying the moment it stops being the path of least resistance.</p>
+  <p class="lede">A design system decays the moment it stops being the path of least resistance.</p>
   <div class="grid-2">
-    <div class="card"><div class="card-head"><h4>Consume tokens, not values</h4></div><div class="card-body">Every project imports <code class="inline">tokens.css</code> or <code class="inline">tokens.json</code>. A raw hex or an off-grid pixel value in a stylesheet is a defect — write a lint rule to catch it.</div></div>
-    <div class="card"><div class="card-head"><h4>Extend here first</h4></div><div class="card-body">If a screen needs something this document doesn't cover, add it here first, then build. One-off decisions made inside a feature branch are how systems die.</div></div>
-    <div class="card"><div class="card-head"><h4>Version deliberately</h4></div><div class="card-body">Semantic versioning governs the token package. Renaming or removing a token is a major bump; adding one is minor. A token's meaning never changes silently.</div></div>
-    <div class="card"><div class="card-head"><h4>Review after real use</h4></div><div class="card-body">Revisit this after two or three shipped projects. The accent hue, the 14px base, and the radius scale are the values most likely to need a second look once seen at full page scale.</div></div>
+    <div class="card"><div class="card-head"><h4>Consume tokens, not values</h4></div><div class="card-body">Every project imports <code class="inline">tokens.css</code> or <code class="inline">tokens.json</code>. A raw hex or an off-grid pixel value in a stylesheet is a defect — add a lint rule for it.</div></div>
+    <div class="card"><div class="card-head"><h4>Extend here first</h4></div><div class="card-body">If a screen needs something this document does not cover, add it here, then build. One-off decisions made in a feature branch are how systems die.</div></div>
+    <div class="card"><div class="card-head"><h4>Version deliberately</h4></div><div class="card-body">Semantic versioning on the token package. Renaming or removing a token is a major bump; adding one is minor. Never silently change a token's meaning.</div></div>
+    <div class="card"><div class="card-head"><h4>Review after real use</h4></div><div class="card-body">Revisit after two or three shipped projects. The accent hue, the 14px base, and the radius scale are the values most likely to need adjusting once seen at full page scale.</div></div>
   </div>
-  <p class="note" style="margin-top:var(--s-6)"><strong>Next decisions.</strong> A density toggle applied globally rather than per table. Localisation — German and Finnish run 30–40% longer than English, Indonesian runs shorter, so every fixed-width control needs testing against all three before translation. And how to distribute it: a single <code class="inline">@muliacode/tokens</code> package, or tokens plus a headless component layer that supplies keyboard behaviour for combobox, menubar, and date picker without rewriting it once per framework.</p>
+  <p class="note" style="margin-top:var(--s-6)"><strong>Next decisions.</strong> A density toggle applied globally rather than per table. Localisation — German and Finnish run 30–40% longer than English and Indonesian runs shorter, so every fixed-width control needs testing in all three before translation. And how to distribute: a single <code class="inline">@muliacode/tokens</code> package, or tokens plus a headless component layer, which would supply keyboard behaviour for combobox, menubar, and date picker without writing it once per framework.</p>
 </section>
 </main>
 </div>

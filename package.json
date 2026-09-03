@@ -2,12 +2,21 @@
   "name": "muliacode-design-system",
   "private": true,
   "license": "MIT",
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "validate": "npm run validate -w @muliacode/tokens",
-    "docs": "python -m http.server 8080 --directory docs"
+    "docs": "python3 -m http.server 8080 --directory docs",
+    "a11y": "node scripts/check-a11y.mjs docs/design-system.html"
   },
-  "engines": { "node": ">=20" }
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1",
+    "axe-core": "^4.13.0"
+  }
 }
