@@ -441,7 +441,7 @@ pre.code{
   border-radius:var(--r-md);overflow-x:auto;font-size:var(--t-sm);line-height:var(--lh-md);
   color:var(--text-secondary);
 }
-pre.code .c-key{color:var(--accent-text)} pre.code .c-str{color:var(--success-text)} pre.code .c-com{color:var(--text-disabled)}
+pre.code .c-key{color:var(--accent-text)} pre.code .c-str{color:var(--success-text)} pre.code .c-com{color:var(--text-muted)}
 code.inline{background:var(--bg-raised);border:1px solid var(--border);border-radius:var(--r-sm);padding:1px 5px;font-size:.92em;color:var(--text-primary)}
 
 .dl{display:grid;grid-template-columns:140px 1fr;gap:var(--s-2) var(--s-4);font-size:var(--t-sm)}
@@ -497,7 +497,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
   text-align:center;padding:var(--s-12) var(--s-6);border:1px dashed var(--border-strong);
   border-radius:var(--r-md);background:var(--bg-raised);
 }
-.empty .empty-mark{font-family:var(--font-mono);color:var(--text-disabled);font-size:var(--t-xl);margin-bottom:var(--s-3)}
+.empty .empty-mark{font-family:var(--font-mono);color:var(--text-muted);font-size:var(--t-xl);margin-bottom:var(--s-3)}
 .empty h4{font-size:var(--t-md);margin-bottom:var(--s-2)}
 .empty p{color:var(--text-secondary);font-size:var(--t-sm);max-width:44ch;margin:0 auto var(--s-4)}
 
@@ -517,7 +517,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 .crumbs{display:flex;align-items:center;gap:var(--s-2);font-size:var(--t-sm);flex-wrap:wrap}
 .crumbs a{color:var(--text-muted);text-decoration:none}
 .crumbs a:hover{color:var(--text-primary);text-decoration:underline}
-.crumbs .sep{color:var(--text-disabled)}
+.crumbs .sep{color:var(--text-muted)}
 .crumbs [aria-current]{color:var(--text-primary);font-weight:var(--w-medium)}
 
 .pager{display:flex;align-items:center;gap:var(--s-1)}
@@ -548,7 +548,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 .nav-item:hover{background:var(--bg-hover);color:var(--text-primary)}
 .nav-item[aria-current]{background:var(--bg-active);color:var(--text-primary);font-weight:var(--w-medium)}
 .nav-item .count{margin-left:auto;font-family:var(--font-mono);font-size:var(--t-xs);color:var(--text-muted)}
-.nav-section{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-disabled);padding:var(--s-3) var(--s-2) var(--s-1)}
+.nav-section{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);padding:var(--s-3) var(--s-2) var(--s-1)}
 
 .tabbar{
   display:flex;border-top:1px solid var(--border);background:var(--bg-surface);
@@ -610,7 +610,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 .menu-item.danger{color:var(--danger-text)}
 .menu-item.danger:hover{background:var(--danger-bg)}
 .menu-sep{height:1px;background:var(--border);margin:var(--s-1) 0}
-.menu-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-disabled);padding:var(--s-2) var(--s-2) var(--s-1)}
+.menu-label{font-family:var(--font-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);padding:var(--s-2) var(--s-2) var(--s-1)}
 
 .tip{
   background:var(--gray-900);color:var(--gray-50);font-size:var(--t-xs);
@@ -658,7 +658,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 .type-row{display:flex;align-items:baseline;gap:var(--s-4);padding:var(--s-3) 0;border-bottom:1px solid var(--border)}
 .type-row:last-child{border-bottom:0}
 .type-row .tag{font-family:var(--font-mono);font-size:var(--t-xs);color:var(--text-muted);width:88px;flex:none}
-.type-row .dim{font-family:var(--font-mono);font-size:var(--t-xs);color:var(--text-disabled);margin-left:auto;flex:none}
+.type-row .dim{font-family:var(--font-mono);font-size:var(--t-xs);color:var(--text-muted);margin-left:auto;flex:none}
 
 .space-row{display:flex;align-items:center;gap:var(--s-3);padding:5px 0;font-family:var(--font-mono);font-size:var(--t-xs)}
 .space-row .bar{height:12px;background:var(--accent-solid);border-radius:2px}
@@ -767,7 +767,8 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 /* calendar */
 .cal{width:236px;font-size:var(--t-xs)}
 .cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--s-2);font-size:var(--t-sm);font-weight:var(--w-medium)}
-.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center}
+.cal-grid{display:flex;flex-direction:column;gap:2px;text-align:center}
+.cal-row{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
 .cal-grid .dow{color:var(--text-muted);font-family:var(--font-mono);padding-bottom:4px}
 .cal-grid button{aspect-ratio:1;border:0;background:transparent;color:var(--text-secondary);
   border-radius:var(--r-sm);cursor:pointer;font:var(--t-xs)/1 var(--font-mono)}
@@ -793,7 +794,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 /* log + diff */
 .log{font:var(--t-xs)/1.7 var(--font-mono);background:var(--bg-app);border:1px solid var(--border);
   border-radius:var(--r-md);padding:var(--s-3);overflow-x:auto}
-.log .ts{color:var(--text-disabled)}
+.log .ts{color:var(--text-muted)}
 .log .lvl-i{color:var(--info-text)} .log .lvl-w{color:var(--warning-text)} .log .lvl-e{color:var(--danger-text)}
 .diff{font:var(--t-xs)/1.7 var(--font-mono);border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden}
 .diff div{padding:1px var(--s-3)}
@@ -802,7 +803,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 
 /* result page */
 .result{text-align:center;padding:var(--s-10) var(--s-6)}
-.result .code{font:var(--w-bold) var(--t-3xl)/1 var(--font-mono);color:var(--text-disabled);letter-spacing:-.02em}
+.result .code{font:var(--w-bold) var(--t-3xl)/1 var(--font-mono);color:var(--text-muted);letter-spacing:-.02em}
 
 /* bottom sheet */
 .sheet{border:1px solid var(--border);border-radius:var(--r-lg) var(--r-lg) 0 0;background:var(--bg-raised);
@@ -811,73 +812,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 
 /* coverage matrix */
 .cov{color:var(--text-muted);font-family:var(--font-mono);font-size:var(--t-xs)}
-.cov.yes{color:var(--success-text)} .cov.no{color:var(--text-disabled)}
-
-/* ============================================================
-   14. DATA VISUALISATION
-   ============================================================ */
-.chart-card{border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg-raised);overflow:hidden}
-.chart-head{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s-3);padding:var(--s-4) var(--s-4) 0}
-.chart-head h4{font-size:var(--t-sm);font-weight:var(--w-semibold)}
-.chart-head .help{margin-top:2px}
-.chart-body{padding:var(--s-3) var(--s-4) var(--s-4)}
-.chart-body svg{display:block;width:100%;height:auto;overflow:visible}
-.chart-foot{border-top:1px solid var(--border);padding:var(--s-2) var(--s-4);display:flex;gap:var(--s-3);align-items:center;flex-wrap:wrap}
-.chart-summary{font-size:var(--t-sm);color:var(--text-secondary);padding:0 var(--s-4) var(--s-3);line-height:var(--lh-md)}
-
-.axis line,.axis path{stroke:var(--border);stroke-width:1}
-.grid line{stroke:var(--border);stroke-width:1}
-.tick{fill:var(--text-muted);font:11px var(--font-mono)}
-.series-label{font:var(--w-medium) 11px var(--font-ui)}
-.dpoint{cursor:pointer}
-.dpoint:focus-visible{outline:2px solid var(--accent-text);outline-offset:2px}
-
-.legend{display:flex;gap:var(--s-3);flex-wrap:wrap;font-size:var(--t-xs);color:var(--text-secondary)}
-.legend span{display:inline-flex;align-items:center;gap:5px}
-.legend i{width:10px;height:10px;border-radius:2px;display:block}
-
-.ramp{display:flex;border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--border)}
-.ramp div{flex:1;height:34px}
-.ramp-labels{display:flex;justify-content:space-between;font:11px var(--font-mono);color:var(--text-muted);margin-top:4px}
-
-.cvd-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:4px}
-.cvd-grid i{height:26px;border-radius:3px;display:block}
-.cvd-row-label{font:11px var(--font-mono);color:var(--text-muted);margin:var(--s-2) 0 4px}
-
-.heat{display:grid;grid-template-columns:repeat(12,1fr);gap:2px}
-.heat i{aspect-ratio:1;border-radius:2px;display:block}
-
-/* ============================================================
-   15. DATA GRID
-   ============================================================ */
-.dg{border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg-raised);overflow:hidden}
-.dg-bar{display:flex;align-items:center;gap:var(--s-2);padding:var(--s-2) var(--s-3);border-bottom:1px solid var(--border);flex-wrap:wrap}
-.dg-scroll{height:300px;overflow:auto;position:relative;scrollbar-width:thin}
-.dg-head{display:flex;position:sticky;top:0;z-index:3;background:var(--bg-surface);border-bottom:1px solid var(--border)}
-.dg-head div{
-  padding:var(--s-2) var(--s-3);font:var(--w-medium) var(--t-xs)/1 var(--font-mono);
-  text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);flex:none;
-  border-right:1px solid var(--border);box-sizing:border-box;
-}
-.dg-row{display:flex;position:absolute;left:0;right:0;align-items:stretch;border-bottom:1px solid var(--border)}
-.dg-row:hover{background:var(--bg-hover)}
-.dg-row[aria-selected="true"]{background:var(--accent-bg)}
-.dg-cell{
-  padding:0 var(--s-3);font-size:var(--t-sm);color:var(--text-secondary);flex:none;
-  display:flex;align-items:center;border-right:1px solid var(--border);
-  box-sizing:border-box;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;
-}
-.dg-cell.num{justify-content:flex-end;font-family:var(--font-mono);font-variant-numeric:tabular-nums}
-.dg-cell.mono{font-family:var(--font-mono)}
-.dg-cell:focus-visible{outline:2px solid var(--accent-text);outline-offset:-2px;border-radius:2px}
-.dg-freeze{position:sticky;left:0;z-index:2;background:inherit;box-shadow:1px 0 0 var(--border)}
-.dg-head .dg-freeze{background:var(--bg-surface);z-index:4}
-.dg-row .dg-freeze{background:var(--bg-raised)}
-.dg-row:hover .dg-freeze{background:var(--bg-surface)}
-.dg-edit{width:100%;height:24px;border:1px solid var(--accent-solid);border-radius:var(--r-sm);
-  background:var(--bg-app);color:var(--text-primary);font:var(--t-sm)/1 var(--font-mono);padding:0 6px}
-.dg-foot{display:flex;justify-content:space-between;align-items:center;padding:var(--s-2) var(--s-3);
-  border-top:1px solid var(--border);font-size:var(--t-xs);color:var(--text-muted);flex-wrap:wrap;gap:var(--s-2)}
+.cov.yes{color:var(--success-text)} .cov.no{color:var(--text-muted)}
 
 /* ============================================================
    12. RESPONSIVE
@@ -913,7 +848,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
 
 /* scroll area / aspect ratio */
 .scrollarea{max-height:120px;overflow:auto;border:1px solid var(--border);border-radius:var(--r-md);padding:var(--s-3);font-size:var(--t-sm);color:var(--text-secondary);scrollbar-width:thin}
-.ratio{aspect-ratio:16/9;background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--r-md);display:grid;place-items:center;color:var(--text-disabled);font-family:var(--font-mono);font-size:var(--t-xs)}
+.ratio{aspect-ratio:16/9;background:var(--bg-surface);border:1px solid var(--border);border-radius:var(--r-md);display:grid;place-items:center;color:var(--text-muted);font-family:var(--font-mono);font-size:var(--t-xs)}
 
 /* notification dot on avatar */
 .av-wrap{position:relative;display:inline-flex}
@@ -1138,7 +1073,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
   </div></div>
   <h3 class="sub">Mono in context</h3>
   <div class="spec"><div class="spec-body col">
-    <div class="dl"><dt>Deployment</dt><dd>dpl_8f2c91ba</dd><dt>Branch</dt><dd>feat/token-layer</dd><dt>Duration</dt><dd>1m 42s</dd><dt>Path</dt><dd>~/src/api/handlers/auth.rs</dd></div>
+    <dl class="dl"><dt>Deployment</dt><dd>dpl_8f2c91ba</dd><dt>Branch</dt><dd>feat/token-layer</dd><dt>Duration</dt><dd>1m 42s</dd><dt>Path</dt><dd>~/src/api/handlers/auth.rs</dd></dl>
   </div><div class="spec-foot"><span>font-mono · tabular-nums</span><span>identifiers, refs, durations, paths</span></div></div>
   <p class="note">Numbers in columns always use <code class="inline">font-variant-numeric: tabular-nums</code> so digits align vertically. Without it, scanning a column of figures is measurably slower.</p>
 </section>
@@ -2122,7 +2057,7 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
   <div class="spec"><div class="spec-body">
     <button class="btn btn-primary" style="outline:2px solid var(--accent-text);outline-offset:2px">Primary</button>
     <button class="btn btn-secondary" style="outline:2px solid var(--accent-text);outline-offset:2px">Secondary</button>
-    <input class="input" style="width:180px;border-color:var(--accent-solid);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent-solid) 30%,transparent)" value="Focused input">
+    <input class="input" style="width:180px;border-color:var(--accent-solid);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent-solid) 30%,transparent)" value="Focused input" aria-label="Example input, shown here to demonstrate the focus ring">
     <span class="help">Tab through this page to see the real behaviour.</span>
   </div><div class="spec-foot"><span>2px outline · 2px offset · ≥3:1 against both adjacent colours</span></div></div>
 
@@ -2248,8 +2183,8 @@ code.inline{background:var(--bg-raised);border:1px solid var(--border);border-ra
       <span class="help" style="margin-left:auto">Arrow keys move · Enter edits · Space selects</span>
     </div>
     <div class="dg-scroll" id="dg-scroll">
-      <div class="dg-head" role="presentation" id="dg-head"></div>
-      <div id="dg-spacer" style="position:relative"></div>
+      <div class="dg-head" role="row" aria-rowindex="1" id="dg-head"></div>
+      <div id="dg-spacer" role="rowgroup" style="position:relative"></div>
     </div>
     <div class="dg-foot">
       <span id="dg-status" role="status">Row 1 of 10,000</span>
@@ -2659,26 +2594,55 @@ rt.addEventListener('keydown',e=>{
 /* ---------- colour picker (tokens only) ---------- */
 const swatchTokens=[['--accent-solid','Toska'],['--brand-solid','Kencana'],['--success-solid','Success'],['--warning-solid','Warning'],['--danger-solid','Danger'],['--info-solid','Info'],['--gray-500','Neutral']];
 const cp=$('#colorpick');
-cp.innerHTML=swatchTokens.map(([v,n],i)=>`<button role="radio" aria-checked="${i===0}" aria-pressed="${i===0}" aria-label="${n}" style="background:var(${v})"></button>`).join('');
+cp.innerHTML=swatchTokens.map(([v,n],i)=>`<button role="radio" aria-checked="${i===0}" tabindex="${i===0?'0':'-1'}" aria-label="${n}" style="background:var(${v})"></button>`).join('');
 cp.addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b)return;
-  $$('button',cp).forEach(x=>{x.setAttribute('aria-checked',String(x===b));x.setAttribute('aria-pressed',String(x===b))});
+  $$('button',cp).forEach(x=>{x.setAttribute('aria-checked',String(x===b));x.tabIndex=x===b?0:-1});
 });
+roving(cp,'button',{select:b=>{$$('button',cp).forEach(x=>x.setAttribute('aria-checked',String(x===b)))}});
 
-/* ---------- calendar ---------- */
+/* ---------- calendar ----------
+   role=grid requires row children, and columnheader/gridcell require a row
+   parent — a flat list of buttons directly under role=grid fails both
+   aria-required-children and aria-required-parent. Chunk into real rows. */
 const cal=$('#cal'); const sel=13;
 const dows=['M','T','W','T','F','S','S'];
-let html=dows.map(d=>`<span class="dow">${d}</span>`).join('');
-for(let i=23;i<=28;i++)html+=`<button disabled>${i}</button>`;
-for(let d=1;d<=22;d++){
-  const a=d===sel?' aria-selected="true"':''; const c=d===11?' aria-current="date"':'';
-  html+=`<button${a}${c}>${d}</button>`;
+const leading=[23,24,25,26,27,28];
+const days=Array.from({length:22},(_,i)=>i+1);
+
+function calRow(cells){ return `<div class="cal-row" role="row">${cells}</div>`; }
+let html = calRow(dows.map(d=>`<span class="dow" role="columnheader" aria-label="${({M:'Monday',T:'Tuesday',W:'Wednesday',F:'Friday',S:'Saturday'})[d]||d}">${d}</span>`).join(''));
+
+const cells = [
+  ...leading.map(i=>`<button role="gridcell" disabled tabindex="-1" aria-label="${i} February, outside March">${i}</button>`),
+  ...days.map(d=>{
+    const a=d===sel?' aria-selected="true"':''; const c=d===11?' aria-current="date"':'';
+    const label=`${d} March 2026${d===11?', today':''}`;
+    return `<button role="gridcell" tabindex="${d===sel?'0':'-1'}"${a}${c} aria-label="${label}">${d}</button>`;
+  }),
+];
+for(let i=0;i<cells.length;i+=7) html += calRow(cells.slice(i,i+7).join(''));
+cal.innerHTML = html;
+
+const calCell=r=>$$('.cal-row',cal).slice(1).flatMap(row=>$$('button',row))[r];
+function calSelect(b){
+  if(!b||b.disabled)return;
+  $$('button',cal).forEach(x=>{x.removeAttribute('aria-selected');x.tabIndex=-1});
+  b.setAttribute('aria-selected','true'); b.tabIndex=0;
+  $('#dt1').value='2026-03-'+String(b.textContent).padStart(2,'0');
 }
-cal.innerHTML=html;
-cal.addEventListener('click',e=>{
-  const b=e.target.closest('button'); if(!b||b.disabled)return;
-  $$('button',cal).forEach(x=>x.removeAttribute('aria-selected'));
-  b.setAttribute('aria-selected','true'); $('#dt1').value='2026-03-'+String(b.textContent).padStart(2,'0');
+cal.addEventListener('click',e=>{const b=e.target.closest('button'); if(b)calSelect(b)});
+cal.addEventListener('keydown',e=>{
+  const all=$$('.cal-row',cal).slice(1).flatMap(row=>$$('button',row));
+  const i=all.indexOf(document.activeElement); if(i<0)return;
+  let n=null;
+  if(e.key==='ArrowRight')n=Math.min(all.length-1,i+1);
+  else if(e.key==='ArrowLeft')n=Math.max(0,i-1);
+  else if(e.key==='ArrowDown')n=Math.min(all.length-1,i+7);
+  else if(e.key==='ArrowUp')n=Math.max(0,i-7);
+  else if(e.key==='Enter'||e.key===' '){e.preventDefault();calSelect(all[i]);return;}
+  if(n===null||all[n].disabled)return;
+  e.preventDefault(); all[i].tabIndex=-1; all[n].tabIndex=0; all[n].focus();
 });
 
 /* ---------- tree ---------- */

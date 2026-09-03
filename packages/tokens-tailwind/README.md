@@ -20,3 +20,15 @@ working. `@theme inline` emits `var(--token)`, so utilities resolve live.
 
 Our 4px spacing grid and Tailwind's default scale already agree exactly
 (`p-4` = 16px), so no spacing mapping is needed.
+
+## Form control borders
+
+Interactive controls (input, select, stepper) use `border-line-control`, not
+`border-line`. It's a separate token because a plain `1px solid` border at the
+general `border` colour measured only 1.14:1 against the raised surface — well
+under the 3:1 WCAG 1.4.11 requires for a UI component boundary.
+`border-line-control` is calibrated to clear 3:1 in both themes.
+
+```html
+<input class="h-control rounded-sm border border-line-control bg-raised px-3" />
+```
