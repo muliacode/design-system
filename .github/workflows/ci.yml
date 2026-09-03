@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push: { branches: [main] }
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tokens:
+    name: Build & validate tokens
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+
+      - name: Build tokens
+        run: npm run build -w @muliacode/tokens
+
+      # The generated output is committed so consumers can read the diff of a
+      # palette change in the PR. If the build produces something different
+      # from what was committed, the author forgot to run it.
+      - name: Check generated output is current
+        run: |
+          if [ -n "$(git status --porcelain packages/tokens/dist)" ]; then
+            echo "::error::dist/ is stale. Run 'npm run build -w @muliacode/tokens' and commit."
+            git --no-pager diff --stat packages/tokens/dist
+            exit 1
+          fi
+
+      # Fails the build if any declared pairing drops below its WCAG threshold.
+      - name: Validate contrast
+        run: npm run validate
+
+  a11y:
+    name: Styleguide accessibility
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: npx --yes @axe-core/cli@4 docs/design-system.html --exit-one
