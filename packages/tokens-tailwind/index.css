@@ -1,0 +1,200 @@
+/* ============================================================
+   Mulia Code Design System — Tailwind CSS v4 integration
+   ============================================================
+
+   Import this instead of tokens.css when the project uses Tailwind.
+   It imports Tailwind, imports our tokens, then maps them into
+   Tailwind's theme so they generate utility classes.
+
+       @import "@muliacode/tokens/tailwind.css";
+
+   Tailwind v4 configures in CSS. There is no tailwind.config.js.
+   ============================================================ */
+
+@import "tailwindcss";
+@import "./tokens.css";
+
+/* ------------------------------------------------------------
+   THE CRITICAL DETAIL: @theme inline
+
+   Plain `@theme` copies the *value* into the generated utility.
+   That freezes whichever theme was active at build time, so
+   switching data-theme at runtime would do nothing.
+
+   `@theme inline` makes the utility emit var(--our-token)
+   instead, so the utility resolves live and light/dark switching
+   keeps working. Use inline for anything that changes per theme;
+   plain @theme is fine for spacing, radius, and type, which don't.
+   ------------------------------------------------------------ */
+
+@theme inline {
+  /* Neutrals — bg-surface, text-muted, border-strong, … */
+  --color-app: var(--bg-app);
+  --color-surface: var(--bg-surface);
+  --color-raised: var(--bg-raised);
+
+  --color-fg: var(--text-primary);
+  --color-fg-secondary: var(--text-secondary);
+  --color-fg-muted: var(--text-muted);
+  --color-fg-disabled: var(--text-disabled);
+
+  --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
+
+  /* Primary — toska */
+  --color-primary: var(--accent-solid);
+  --color-primary-hover: var(--accent-solid-hover);
+  --color-primary-fg: var(--accent-on-solid);
+  --color-primary-text: var(--accent-text);
+  --color-primary-tint: var(--accent-bg);
+  --color-primary-line: var(--accent-border);
+
+  /* Secondary — kencana */
+  --color-brand: var(--brand-solid);
+  --color-brand-fg: var(--brand-on-solid);
+  --color-brand-text: var(--brand-text);
+  --color-brand-tint: var(--brand-bg);
+  --color-brand-line: var(--brand-border);
+
+  /* Status */
+  --color-success: var(--success-solid);
+  --color-success-text: var(--success-text);
+  --color-success-tint: var(--success-bg);
+  --color-warning: var(--warning-solid);
+  --color-warning-text: var(--warning-text);
+  --color-warning-tint: var(--warning-bg);
+  --color-danger: var(--danger-solid);
+  --color-danger-text: var(--danger-text);
+  --color-danger-tint: var(--danger-bg);
+  --color-info: var(--info-solid);
+  --color-info-text: var(--info-text);
+  --color-info-tint: var(--info-bg);
+
+  /* Charts — bg-chart-1 … bg-chart-8 */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+  --color-chart-7: var(--chart-7);
+  --color-chart-8: var(--chart-8);
+
+  /* Shadows follow the theme, so they belong here too */
+  --shadow-sm: var(--sh-sm);
+  --shadow-md: var(--sh-md);
+  --shadow-lg: var(--sh-lg);
+}
+
+/* ------------------------------------------------------------
+   Theme-independent tokens. Plain @theme is correct here.
+   ------------------------------------------------------------ */
+
+@theme {
+  /* Type — Tailwind's default sans/mono are replaced outright */
+  --font-sans: "Inter", -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+
+  --text-xs: 12px;   --text-xs--line-height: 16px;
+  --text-sm: 13px;   --text-sm--line-height: 20px;
+  --text-base: 14px; --text-base--line-height: 20px;
+  --text-md: 16px;   --text-md--line-height: 24px;
+  --text-lg: 18px;   --text-lg--line-height: 26px;
+  --text-xl: 22px;   --text-xl--line-height: 28px;
+  --text-2xl: 28px;  --text-2xl--line-height: 34px;
+  --text-3xl: 36px;  --text-3xl--line-height: 42px;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+
+  /* Breakpoints */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 900px;
+  --breakpoint-lg: 1280px;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-soft: cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* ------------------------------------------------------------
+   SPACING
+
+   Tailwind v4 generates spacing from a single --spacing value and
+   multiplies it, so p-1 = 4px, p-2 = 8px, p-4 = 16px, and so on.
+   That is already our 4px grid — no mapping needed, and the two
+   scales agree exactly. Setting it explicitly documents the fact.
+   ------------------------------------------------------------ */
+
+@theme {
+  --spacing: 4px;
+}
+
+/* ------------------------------------------------------------
+   Control heights, which have no Tailwind namespace of their own.
+   ------------------------------------------------------------ */
+
+@utility h-control-sm { height: var(--ctrl-sm); }
+@utility h-control    { height: var(--ctrl-md); }
+@utility h-control-lg { height: var(--ctrl-lg); }
+
+/* ------------------------------------------------------------
+   Dark mode
+
+   Our themes switch on a data attribute, not Tailwind's default
+   `.dark` class. This variant lets you write dark:… when you
+   genuinely need a per-theme override — which should be rare,
+   because the semantic tokens already resolve per theme.
+   ------------------------------------------------------------ */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ------------------------------------------------------------
+   Base layer — focus ring and reduced motion apply everywhere.
+   ------------------------------------------------------------ */
+
+@layer base {
+  body {
+    background: var(--bg-app);
+    color: var(--text-primary);
+    font-family: var(--font-ui);
+    font-size: var(--t-base);
+    line-height: var(--lh-base);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-text);
+    outline-offset: 2px;
+    border-radius: var(--r-sm);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 1ms !important;
+      transition-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ============================================================
+   USAGE
+
+   <button class="h-control rounded-sm bg-primary px-3
+                  text-base font-medium text-primary-fg
+                  hover:bg-primary-hover">
+     Deploy
+   </button>
+
+   <div class="rounded-md border border-line bg-raised p-4">
+     <h3 class="text-sm font-semibold text-fg">acme-api</h3>
+     <p class="mt-1 text-xs text-fg-muted">Deployed 14m ago</p>
+   </div>
+
+   Both survive a runtime theme switch, because every colour
+   utility above resolves through var() rather than a frozen hex.
+   ============================================================ */
