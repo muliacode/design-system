@@ -18,6 +18,9 @@
     { "name": "focus ring on app background",       "fg": "accent-text", "bg": "surface-app",  "min": 3.0 },
     { "name": "primary fill on app background",     "fg": "accent-solid", "bg": "surface-app", "min": 3.0 },
     { "name": "control border on raised surface",   "fg": "border-control", "bg": "surface-raised", "min": 3.0 },
-    { "name": "control border on app background",   "fg": "border-control", "bg": "surface-app",    "min": 3.0 }
+    { "name": "control border on app background",   "fg": "border-control", "bg": "surface-app",    "min": 3.0 },
+    { "name": "text-primary on app background",     "fg": "text-primary",   "bg": "surface-app",    "min": 4.5 },
+    { "name": "text-secondary on app background",   "fg": "text-secondary", "bg": "surface-app",    "min": 4.5 },
+    { "name": "text-muted on app background",       "fg": "text-muted",     "bg": "surface-app",    "min": 4.5 }
   ]
 }

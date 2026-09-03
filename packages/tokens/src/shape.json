@@ -19,15 +19,15 @@
   },
   "shadow": {
     "sm": {
-      "$value": "0 1px 2px var(--shadow-color)",
+      "$value": "0 1px 2px var(--surface-shadow-color)",
       "$type": "shadow"
     },
     "md": {
-      "$value": "0 4px 12px var(--shadow-color)",
+      "$value": "0 4px 12px var(--surface-shadow-color)",
       "$type": "shadow"
     },
     "lg": {
-      "$value": "0 12px 32px var(--shadow-color)",
+      "$value": "0 12px 32px var(--surface-shadow-color)",
       "$type": "shadow"
     }
   },

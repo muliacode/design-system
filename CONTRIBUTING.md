@@ -18,7 +18,13 @@ docs/design-system.html    the styleguide and reference implementation
 1. Edit the relevant file in `packages/tokens/src/`. Never edit `dist/`.
 2. `npm run build -w @muliacode/tokens`
 3. `npm run validate` — every declared contrast pairing must still pass.
-4. Commit both the source change **and** the regenerated `dist/`.
+4. `npm test -w @muliacode/tokens-tailwind` — fails if the Tailwind layer
+   references a token you just renamed or removed. This is how the mapping
+   stays honest instead of drifting silently, which is exactly what
+   happened once already: an earlier draft of that file was written
+   against an imagined naming scheme that never matched what this package
+   actually shipped.
+5. Commit both the source change **and** the regenerated `dist/`.
 
 `dist/` is committed on purpose. A palette change should be readable as a diff
 in the pull request, by a reviewer who has not checked the branch out.

@@ -151,6 +151,32 @@
       "$value": "#948E86",
       "$type": "color",
       "$description": "Border of an interactive control (input, select, stepper). Must clear 3:1 against surface-raised \u2014 WCAG 1.4.11."
+    },
+    "default": {
+      "$value": "#E7E3DC",
+      "$type": "color"
+    },
+    "strong": {
+      "$value": "#D6D1C7",
+      "$type": "color"
+    }
+  },
+  "text": {
+    "primary": {
+      "$value": "#0C0B0A",
+      "$type": "color"
+    },
+    "secondary": {
+      "$value": "#423F3A",
+      "$type": "color"
+    },
+    "muted": {
+      "$value": "#57534D",
+      "$type": "color"
+    },
+    "disabled": {
+      "$value": "#78736B",
+      "$type": "color"
     }
   }
 }

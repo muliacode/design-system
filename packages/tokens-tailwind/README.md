@@ -32,3 +32,21 @@ under the 3:1 WCAG 1.4.11 requires for a UI component boundary.
 ```html
 <input class="h-control rounded-sm border border-line-control bg-raised px-3" />
 ```
+
+## Staying in sync with @muliacode/tokens
+
+Every mapping in `index.css` is checked against the real, built output of
+`@muliacode/tokens` — not against memory of what that package should contain.
+
+```bash
+npm run test -w @muliacode/tokens-tailwind
+```
+
+`scripts/verify.mjs` extracts every `var(--token)` this file references and
+confirms each one actually exists in `@muliacode/tokens`'s generated
+`tokens.css`. This exists because an earlier draft of this file was written
+against a different, informal naming scheme (`--bg-app`, `--text-primary`,
+`--ctrl-md`) that never matched what the token package actually ships
+(`--surface-app`, `--font-size-base`, `--control-md`) — nearly every utility
+in the file was silently broken. The check runs in CI on every change to
+either package, so that class of drift fails the build instead of shipping.

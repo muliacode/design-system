@@ -1,6 +1,6 @@
 {
   "name": "@muliacode/tokens-tailwind",
-  "version": "2.1.1",
+  "version": "2.2.0",
   "description": "Tailwind CSS v4 theme layer for the Mulia Code design system.",
   "license": "MIT",
   "type": "module",
@@ -9,13 +9,17 @@
   },
   "files": [
     "index.css",
-    "README.md"
+    "README.md",
+    "LICENSE"
   ],
   "peerDependencies": {
     "tailwindcss": "^4.0.0",
-    "@muliacode/tokens": "^2.0.0"
+    "@muliacode/tokens": "^2.2.0"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "scripts": {
+    "test": "node scripts/verify.mjs"
   }
 }

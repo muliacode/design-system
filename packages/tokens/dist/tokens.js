@@ -1,4 +1,4 @@
-/* @muliacode/tokens v2.1.0 — GENERATED, do not edit.
+/* @muliacode/tokens v2.2.0 — GENERATED, do not edit.
    Source: packages/tokens/src/*.json   Build: npm run build */
 export const theme = {
   "light": {
@@ -47,6 +47,12 @@ export const theme = {
     "surface-active": "rgba(28,26,24,.07)",
     "surface-shadow-color": "rgba(28,26,24,.15)",
     "border-control": "#948E86",
+    "border-default": "#E7E3DC",
+    "border-strong": "#D6D1C7",
+    "text-primary": "#0C0B0A",
+    "text-secondary": "#423F3A",
+    "text-muted": "#57534D",
+    "text-disabled": "#78736B",
     "chart-categorical-1": "#0F766E",
     "chart-categorical-2": "#8A5A08",
     "chart-categorical-3": "#2E4593",
@@ -115,6 +121,12 @@ export const theme = {
     "surface-active": "rgba(255,252,245,.09)",
     "surface-shadow-color": "rgba(0,0,0,.62)",
     "border-control": "#78736B",
+    "border-default": "#1F1D1B",
+    "border-strong": "#2A2825",
+    "text-primary": "#FBFAF8",
+    "text-secondary": "#B0A99F",
+    "text-muted": "#8A847B",
+    "text-disabled": "#57534D",
     "chart-categorical-1": "#2DD4BF",
     "chart-categorical-2": "#E5B653",
     "chart-categorical-3": "#7FA7FF",
@@ -176,9 +188,9 @@ export const shared = {
   "radius-md": "6px",
   "radius-lg": "10px",
   "radius-full": "9999px",
-  "shadow-sm": "0 1px 2px var(--shadow-color)",
-  "shadow-md": "0 4px 12px var(--shadow-color)",
-  "shadow-lg": "0 12px 32px var(--shadow-color)",
+  "shadow-sm": "0 1px 2px var(--surface-shadow-color)",
+  "shadow-md": "0 4px 12px var(--surface-shadow-color)",
+  "shadow-lg": "0 12px 32px var(--surface-shadow-color)",
   "control-sm": "28px",
   "control-md": "32px",
   "control-lg": "40px",

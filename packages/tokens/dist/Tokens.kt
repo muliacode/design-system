@@ -1,4 +1,4 @@
-// @muliacode/tokens v2.1.0 — GENERATED, do not edit.
+// @muliacode/tokens v2.2.0 — GENERATED, do not edit.
    Source: packages/tokens/src//.json   Build: npm run build //
 
 package dev.mulia.tokens
@@ -49,6 +49,12 @@ object MuliaTokens {
     val surfaceSurface = Color(0xFF131211)
     val surfaceRaised = Color(0xFF1F1D1B)
     val borderControl = Color(0xFF78736B)
+    val borderDefault = Color(0xFF1F1D1B)
+    val borderStrong = Color(0xFF2A2825)
+    val textPrimary = Color(0xFFFBFAF8)
+    val textSecondary = Color(0xFFB0A99F)
+    val textMuted = Color(0xFF8A847B)
+    val textDisabled = Color(0xFF57534D)
     val chartCategorical1 = Color(0xFF2DD4BF)
     val chartCategorical2 = Color(0xFFE5B653)
     val chartCategorical3 = Color(0xFF7FA7FF)
@@ -114,6 +120,12 @@ object MuliaTokens {
     val surfaceSurface = Color(0xFFFBFAF8)
     val surfaceRaised = Color(0xFFFFFFFF)
     val borderControl = Color(0xFF948E86)
+    val borderDefault = Color(0xFFE7E3DC)
+    val borderStrong = Color(0xFFD6D1C7)
+    val textPrimary = Color(0xFF0C0B0A)
+    val textSecondary = Color(0xFF423F3A)
+    val textMuted = Color(0xFF57534D)
+    val textDisabled = Color(0xFF78736B)
     val chartCategorical1 = Color(0xFF0F766E)
     val chartCategorical2 = Color(0xFF8A5A08)
     val chartCategorical3 = Color(0xFF2E4593)

@@ -1,4 +1,4 @@
-// @muliacode/tokens v2.1.0 — GENERATED, do not edit.
+// @muliacode/tokens v2.2.0 — GENERATED, do not edit.
    Source: packages/tokens/src//.json   Build: npm run build //
 
 import SwiftUI
@@ -47,6 +47,12 @@ public enum MuliaTokens {
     static let surfaceSurface = Color(red: 0.075, green: 0.071, blue: 0.067)
     static let surfaceRaised = Color(red: 0.122, green: 0.114, blue: 0.106)
     static let borderControl = Color(red: 0.471, green: 0.451, blue: 0.420)
+    static let borderDefault = Color(red: 0.122, green: 0.114, blue: 0.106)
+    static let borderStrong = Color(red: 0.165, green: 0.157, blue: 0.145)
+    static let textPrimary = Color(red: 0.984, green: 0.980, blue: 0.973)
+    static let textSecondary = Color(red: 0.690, green: 0.663, blue: 0.624)
+    static let textMuted = Color(red: 0.541, green: 0.518, blue: 0.482)
+    static let textDisabled = Color(red: 0.341, green: 0.325, blue: 0.302)
     static let chartCategorical1 = Color(red: 0.176, green: 0.831, blue: 0.749)
     static let chartCategorical2 = Color(red: 0.898, green: 0.714, blue: 0.325)
     static let chartCategorical3 = Color(red: 0.498, green: 0.655, blue: 1.000)
@@ -112,6 +118,12 @@ public enum MuliaTokens {
     static let surfaceSurface = Color(red: 0.984, green: 0.980, blue: 0.973)
     static let surfaceRaised = Color(red: 1.000, green: 1.000, blue: 1.000)
     static let borderControl = Color(red: 0.580, green: 0.557, blue: 0.525)
+    static let borderDefault = Color(red: 0.906, green: 0.890, blue: 0.863)
+    static let borderStrong = Color(red: 0.839, green: 0.820, blue: 0.780)
+    static let textPrimary = Color(red: 0.047, green: 0.043, blue: 0.039)
+    static let textSecondary = Color(red: 0.259, green: 0.247, blue: 0.227)
+    static let textMuted = Color(red: 0.341, green: 0.325, blue: 0.302)
+    static let textDisabled = Color(red: 0.471, green: 0.451, blue: 0.420)
     static let chartCategorical1 = Color(red: 0.059, green: 0.463, blue: 0.431)
     static let chartCategorical2 = Color(red: 0.541, green: 0.353, blue: 0.031)
     static let chartCategorical3 = Color(red: 0.180, green: 0.271, blue: 0.576)
