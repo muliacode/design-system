@@ -1,0 +1,26 @@
+name: Accessibility problem
+description: Report something in the design system that is hard or impossible to use.
+labels: [accessibility]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Accessibility reports are prioritised. You do not need to identify the
+        WCAG criterion — describing what happened is enough.
+  - type: textarea
+    attributes:
+      label: What happened
+      description: What you were trying to do, and what got in the way.
+    validations: { required: true }
+  - type: input
+    attributes:
+      label: Component or page
+      placeholder: "e.g. combobox, data grid, §14 charts"
+  - type: input
+    attributes:
+      label: Assistive technology, if any
+      placeholder: "e.g. NVDA 2024.4 + Firefox, VoiceOver + Safari, keyboard only"
+  - type: dropdown
+    attributes:
+      label: Theme
+      options: [dark, light, both, not relevant]
