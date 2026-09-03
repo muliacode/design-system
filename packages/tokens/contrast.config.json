@@ -1,0 +1,23 @@
+{
+  "$comment": "Every pairing the design system promises. Checked in CI against both themes. Thresholds follow WCAG 2.2: 4.5 for body text, 3.0 for large text and UI boundaries.",
+  "pairings": [
+    { "name": "body text on app background",        "fg": "gray-950", "bg": "surface-app",     "min": 4.5 },
+    { "name": "secondary text on app background",   "fg": "gray-700", "bg": "surface-app",     "min": 4.5 },
+    { "name": "muted text on app background",       "fg": "gray-600", "bg": "surface-app",     "min": 4.5 },
+    { "name": "body text on raised surface",        "fg": "gray-950", "bg": "surface-raised",  "min": 4.5 },
+    { "name": "label on primary fill",              "fg": "accent-on-solid", "bg": "accent-solid", "min": 4.5 },
+    { "name": "label on brand fill",                "fg": "brand-on-solid",  "bg": "brand-solid",  "min": 4.5 },
+    { "name": "link text on app background",        "fg": "accent-text", "bg": "surface-app",  "min": 4.5 },
+    { "name": "brand text on app background",       "fg": "brand-text",  "bg": "surface-app",  "min": 4.5 },
+    { "name": "success text on app background",     "fg": "success-text", "bg": "surface-app", "min": 4.5 },
+    { "name": "warning text on app background",     "fg": "warning-text", "bg": "surface-app", "min": 4.5 },
+    { "name": "danger text on app background",      "fg": "danger-text",  "bg": "surface-app", "min": 4.5 },
+    { "name": "info text on app background",        "fg": "info-text",    "bg": "surface-app", "min": 4.5 },
+    { "name": "success text on success tint",       "fg": "success-text", "bg": "success-bg",  "min": 4.5 },
+    { "name": "danger text on danger tint",         "fg": "danger-text",  "bg": "danger-bg",   "min": 4.5 },
+    { "name": "focus ring on app background",       "fg": "accent-text", "bg": "surface-app",  "min": 3.0 },
+    { "name": "primary fill on app background",     "fg": "accent-solid", "bg": "surface-app", "min": 3.0 },
+    { "name": "control border on raised surface",   "fg": "border-control", "bg": "surface-raised", "min": 3.0 },
+    { "name": "control border on app background",   "fg": "border-control", "bg": "surface-app",    "min": 3.0 }
+  ]
+}

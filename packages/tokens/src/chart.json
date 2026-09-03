@@ -1,0 +1,187 @@
+{
+  "$description": "Chart ramps. Categorical is ordered by distinctness; slot 8 is neutral. Diverging runs red to teal, never red to green.",
+  "light": {
+    "categorical": {
+      "1": {
+        "$value": "#0F766E",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#8A5A08",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#2E4593",
+        "$type": "color"
+      },
+      "4": {
+        "$value": "#B02A37",
+        "$type": "color"
+      },
+      "5": {
+        "$value": "#4D7C0F",
+        "$type": "color"
+      },
+      "6": {
+        "$value": "#6D28D9",
+        "$type": "color"
+      },
+      "7": {
+        "$value": "#C2410C",
+        "$type": "color"
+      },
+      "8": {
+        "$value": "#57534D",
+        "$type": "color"
+      }
+    },
+    "sequential": {
+      "1": {
+        "$value": "#E6F7F3",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#B9E8DD",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#7FD1C1",
+        "$type": "color"
+      },
+      "4": {
+        "$value": "#42AC98",
+        "$type": "color"
+      },
+      "5": {
+        "$value": "#1B8172",
+        "$type": "color"
+      },
+      "6": {
+        "$value": "#0B4F48",
+        "$type": "color"
+      }
+    },
+    "diverging": {
+      "1": {
+        "$value": "#9B1C2A",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#C6564F",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#E6A392",
+        "$type": "color"
+      },
+      "4": {
+        "$value": "#EDE9E2",
+        "$type": "color"
+      },
+      "5": {
+        "$value": "#84C7B8",
+        "$type": "color"
+      },
+      "6": {
+        "$value": "#2A9484",
+        "$type": "color"
+      },
+      "7": {
+        "$value": "#0B4F48",
+        "$type": "color"
+      }
+    }
+  },
+  "dark": {
+    "categorical": {
+      "1": {
+        "$value": "#2DD4BF",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#E5B653",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#7FA7FF",
+        "$type": "color"
+      },
+      "4": {
+        "$value": "#F98080",
+        "$type": "color"
+      },
+      "5": {
+        "$value": "#A3D96B",
+        "$type": "color"
+      },
+      "6": {
+        "$value": "#C79BF0",
+        "$type": "color"
+      },
+      "7": {
+        "$value": "#FB923C",
+        "$type": "color"
+      },
+      "8": {
+        "$value": "#A8A29A",
+        "$type": "color"
+      }
+    },
+    "sequential": {
+      "1": {
+        "$value": "#0A2F2B",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#11463F",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#1A6155",
+        "$type": "color"
+      },
+      "4": {
+        "$value": "#2A8C7A",
+        "$type": "color"
+      },
+      "5": {
+        "$value": "#48BFA8",
+        "$type": "color"
+      },
+      "6": {
+        "$value": "#7DE8D3",
+        "$type": "color"
+      }
+    },
+    "diverging": {
+      "1": {
+        "$value": "#E05252",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "#EE8B7B",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "#F3C0AE",
+        "$type": "color"
+      },
+      "4": {
+        "$value": "#3F3B36",
+        "$type": "color"
+      },
+      "5": {
+        "$value": "#8FD8CB",
+        "$type": "color"
+      },
+      "6": {
+        "$value": "#3FBBA5",
+        "$type": "color"
+      },
+      "7": {
+        "$value": "#0E8577",
+        "$type": "color"
+      }
+    }
+  }
+}

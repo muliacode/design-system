@@ -1,0 +1,46 @@
+{
+  "$description": "Command-line surface. ANSI names, not hex, so the user's terminal theme still applies.",
+  "status": {
+    "success": {
+      "ansi": "green",
+      "mark": "\u2713",
+      "$type": "other"
+    },
+    "error": {
+      "ansi": "red",
+      "mark": "\u2717",
+      "$type": "other"
+    },
+    "warning": {
+      "ansi": "yellow",
+      "mark": "\u26a0",
+      "$type": "other"
+    },
+    "progress": {
+      "ansi": "cyan",
+      "mark": "\u2192",
+      "$type": "other"
+    },
+    "detail": {
+      "ansi": "dim",
+      "mark": "\u203a",
+      "$type": "other"
+    }
+  },
+  "exitCode": {
+    "success": 0,
+    "runtimeError": 1,
+    "usageError": 2,
+    "interrupted": 130
+  },
+  "rules": [
+    "never colour alone",
+    "respect NO_COLOR",
+    "strip styling when stdout is not a TTY",
+    "2-space indent",
+    "truncate long paths from the middle",
+    "spinner under 5s, progress bar with ETA above",
+    "errors state what happened, why, and the fix",
+    "--help on every command (WCAG 3.2.6)"
+  ]
+}

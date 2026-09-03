@@ -1,0 +1,29 @@
+{
+  "name": "@muliacode/tokens",
+  "version": "2.1.0",
+  "description": "Design tokens for Mulia Code software — web, mobile, and CLI. WCAG 2.2 AA.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/tokens.js",
+  "types": "./dist/tokens.d.ts",
+  "exports": {
+    ".": { "types": "./dist/tokens.d.ts", "default": "./dist/tokens.js" },
+    "./css": "./dist/tokens.css",
+    "./scss": "./dist/_tokens.scss",
+    "./json": "./dist/tokens.json",
+    "./cli": "./dist/cli.json",
+    "./swift": "./dist/Tokens.swift",
+    "./kotlin": "./dist/Tokens.kt"
+  },
+  "files": ["dist", "src", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate-contrast.mjs",
+    "test": "npm run build && npm run validate",
+    "prepublishOnly": "npm run test"
+  },
+  "keywords": ["design-tokens", "design-system", "wcag", "accessibility", "css-variables"],
+  "repository": { "type": "git", "url": "git+https://github.com/muliacode/design-system.git", "directory": "packages/tokens" },
+  "publishConfig": { "access": "public" }
+}

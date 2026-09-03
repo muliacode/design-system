@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+*.log
+.env*
+
+# Generated token output is committed on purpose: a palette change should be
+# readable as a diff in the pull request. CI fails if it is stale.
+# packages/tokens/dist  <- intentionally NOT ignored

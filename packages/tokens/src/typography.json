@@ -1,0 +1,98 @@
+{
+  "family": {
+    "ui": {
+      "$value": "'Inter',-apple-system,'Segoe UI',sans-serif",
+      "$type": "fontFamily"
+    },
+    "mono": {
+      "$value": "'JetBrains Mono','SF Mono',Consolas,monospace",
+      "$type": "fontFamily"
+    }
+  },
+  "size": {
+    "xs": {
+      "$value": "12px",
+      "$type": "dimension"
+    },
+    "sm": {
+      "$value": "13px",
+      "$type": "dimension"
+    },
+    "base": {
+      "$value": "14px",
+      "$type": "dimension"
+    },
+    "md": {
+      "$value": "16px",
+      "$type": "dimension"
+    },
+    "lg": {
+      "$value": "18px",
+      "$type": "dimension"
+    },
+    "xl": {
+      "$value": "22px",
+      "$type": "dimension"
+    },
+    "2xl": {
+      "$value": "28px",
+      "$type": "dimension"
+    },
+    "3xl": {
+      "$value": "36px",
+      "$type": "dimension"
+    }
+  },
+  "lineHeight": {
+    "xs": {
+      "$value": "16px",
+      "$type": "dimension"
+    },
+    "sm": {
+      "$value": "20px",
+      "$type": "dimension"
+    },
+    "base": {
+      "$value": "20px",
+      "$type": "dimension"
+    },
+    "md": {
+      "$value": "24px",
+      "$type": "dimension"
+    },
+    "lg": {
+      "$value": "26px",
+      "$type": "dimension"
+    },
+    "xl": {
+      "$value": "28px",
+      "$type": "dimension"
+    },
+    "2xl": {
+      "$value": "34px",
+      "$type": "dimension"
+    },
+    "3xl": {
+      "$value": "42px",
+      "$type": "dimension"
+    }
+  },
+  "weight": {
+    "regular": {
+      "$value": "400",
+      "$type": "fontWeight"
+    },
+    "medium": {
+      "$value": "500",
+      "$type": "fontWeight"
+    },
+    "semibold": {
+      "$value": "600",
+      "$type": "fontWeight"
+    },
+    "bold": {
+      "$value": "700",
+      "$type": "fontWeight"
+    }
+  }
+}

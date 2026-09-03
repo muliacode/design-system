@@ -1,0 +1,97 @@
+{
+  "$description": "Primitive colour ramps. Never referenced directly in product code.",
+  "gray": {
+    "light": {
+      "50": {
+        "$value": "#FBFAF8",
+        "$type": "color"
+      },
+      "100": {
+        "$value": "#F5F3EF",
+        "$type": "color"
+      },
+      "200": {
+        "$value": "#E7E3DC",
+        "$type": "color"
+      },
+      "300": {
+        "$value": "#D6D1C7",
+        "$type": "color"
+      },
+      "400": {
+        "$value": "#A8A29A",
+        "$type": "color"
+      },
+      "500": {
+        "$value": "#78736B",
+        "$type": "color"
+      },
+      "600": {
+        "$value": "#57534D",
+        "$type": "color"
+      },
+      "700": {
+        "$value": "#423F3A",
+        "$type": "color"
+      },
+      "800": {
+        "$value": "#2B2926",
+        "$type": "color"
+      },
+      "900": {
+        "$value": "#1C1A18",
+        "$type": "color"
+      },
+      "950": {
+        "$value": "#0C0B0A",
+        "$type": "color"
+      }
+    },
+    "dark": {
+      "50": {
+        "$value": "#0C0B0A",
+        "$type": "color"
+      },
+      "100": {
+        "$value": "#131211",
+        "$type": "color"
+      },
+      "200": {
+        "$value": "#1F1D1B",
+        "$type": "color"
+      },
+      "300": {
+        "$value": "#2A2825",
+        "$type": "color"
+      },
+      "400": {
+        "$value": "#423F3A",
+        "$type": "color"
+      },
+      "500": {
+        "$value": "#57534D",
+        "$type": "color"
+      },
+      "600": {
+        "$value": "#8A847B",
+        "$type": "color"
+      },
+      "700": {
+        "$value": "#B0A99F",
+        "$type": "color"
+      },
+      "800": {
+        "$value": "#D6D1C7",
+        "$type": "color"
+      },
+      "900": {
+        "$value": "#E7E3DC",
+        "$type": "color"
+      },
+      "950": {
+        "$value": "#FBFAF8",
+        "$type": "color"
+      }
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "$description": "Semantic colour \u2014 dark theme (default surface).",
+  "accent": {
+    "bg": {
+      "$value": "#07302C",
+      "$type": "color"
+    },
+    "border": {
+      "$value": "#12594F",
+      "$type": "color"
+    },
+    "solid": {
+      "$value": "#2DD4BF",
+      "$type": "color"
+    },
+    "solid-hover": {
+      "$value": "#5EEAD4",
+      "$type": "color"
+    },
+    "on-solid": {
+      "$value": "#0C0B0A",
+      "$type": "color"
+    },
+    "text": {
+      "$value": "#5EEAD4",
+      "$type": "color"
+    }
+  },
+  "brand": {
+    "bg": {
+      "$value": "#2A1F08",
+      "$type": "color"
+    },
+    "border": {
+      "$value": "#6B5216",
+      "$type": "color"
+    },
+    "solid": {
+      "$value": "#E5B653",
+      "$type": "color"
+    },
+    "on-solid": {
+      "$value": "#0C0B0A",
+      "$type": "color"
+    },
+    "text": {
+      "$value": "#F0CE85",
+      "$type": "color"
+    }
+  },
+  "success": {
+    "solid": {
+      "$value": "#5FD68C",
+      "$type": "color"
+    },
+    "text": {
+      "$value": "#86EFAC",
+      "$type": "color"
+    },
+    "bg": {
+      "$value": "#0A2418",
+      "$type": "color"
+    },
+    "on-solid": {
+      "$value": "#0C0B0A",
+      "$type": "color"
+    }
+  },
+  "warning": {
+    "solid": {
+      "$value": "#FB923C",
+      "$type": "color"
+    },
+    "text": {
+      "$value": "#FDBA74",
+      "$type": "color"
+    },
+    "bg": {
+      "$value": "#2B1408",
+      "$type": "color"
+    },
+    "on-solid": {
+      "$value": "#0C0B0A",
+      "$type": "color"
+    }
+  },
+  "danger": {
+    "solid": {
+      "$value": "#F98080",
+      "$type": "color"
+    },
+    "text": {
+      "$value": "#FCA5A5",
+      "$type": "color"
+    },
+    "bg": {
+      "$value": "#2B0F10",
+      "$type": "color"
+    },
+    "on-solid": {
+      "$value": "#0C0B0A",
+      "$type": "color"
+    }
+  },
+  "info": {
+    "solid": {
+      "$value": "#7FA7FF",
+      "$type": "color"
+    },
+    "text": {
+      "$value": "#A9C2FF",
+      "$type": "color"
+    },
+    "bg": {
+      "$value": "#111A38",
+      "$type": "color"
+    },
+    "on-solid": {
+      "$value": "#0C0B0A",
+      "$type": "color"
+    }
+  },
+  "surface": {
+    "app": {
+      "$value": "#0C0B0A",
+      "$type": "color"
+    },
+    "surface": {
+      "$value": "#131211",
+      "$type": "color"
+    },
+    "raised": {
+      "$value": "#1F1D1B",
+      "$type": "color"
+    },
+    "hover": {
+      "$value": "rgba(255,252,245,.05)",
+      "$type": "color"
+    },
+    "active": {
+      "$value": "rgba(255,252,245,.09)",
+      "$type": "color"
+    },
+    "shadow-color": {
+      "$value": "rgba(0,0,0,.62)",
+      "$type": "color"
+    }
+  },
+  "border": {
+    "control": {
+      "$value": "#78736B",
+      "$type": "color",
+      "$description": "Border of an interactive control (input, select, stepper). Must clear 3:1 against surface-raised \u2014 WCAG 1.4.11."
+    }
+  }
+}

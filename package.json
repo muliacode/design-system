@@ -1,0 +1,13 @@
+{
+  "name": "muliacode-design-system",
+  "private": true,
+  "license": "MIT",
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "validate": "npm run validate -w @muliacode/tokens",
+    "docs": "python -m http.server 8080 --directory docs"
+  },
+  "engines": { "node": ">=20" }
+}

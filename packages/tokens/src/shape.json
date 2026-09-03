@@ -1,0 +1,53 @@
+{
+  "radius": {
+    "sm": {
+      "$value": "4px",
+      "$type": "dimension"
+    },
+    "md": {
+      "$value": "6px",
+      "$type": "dimension"
+    },
+    "lg": {
+      "$value": "10px",
+      "$type": "dimension"
+    },
+    "full": {
+      "$value": "9999px",
+      "$type": "dimension"
+    }
+  },
+  "shadow": {
+    "sm": {
+      "$value": "0 1px 2px var(--shadow-color)",
+      "$type": "shadow"
+    },
+    "md": {
+      "$value": "0 4px 12px var(--shadow-color)",
+      "$type": "shadow"
+    },
+    "lg": {
+      "$value": "0 12px 32px var(--shadow-color)",
+      "$type": "shadow"
+    }
+  },
+  "control": {
+    "sm": {
+      "$value": "28px",
+      "$type": "dimension"
+    },
+    "md": {
+      "$value": "32px",
+      "$type": "dimension"
+    },
+    "lg": {
+      "$value": "40px",
+      "$type": "dimension"
+    }
+  },
+  "touchMin": {
+    "$value": "44px",
+    "$type": "dimension",
+    "$description": "WCAG 2.5.8 target size on touch surfaces."
+  }
+}
