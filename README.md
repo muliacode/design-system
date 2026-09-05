@@ -12,7 +12,7 @@ in light and **malam** (batik wax, also "night") in dark.
 | Path | What |
 |---|---|
 | `packages/tokens` | The source of truth. Builds to CSS, SCSS, JSON, JS/TS, Swift, Kotlin, and CLI. |
-| `packages/tokens-tailwind` | Tailwind v4 theme layer. |
+| `packages/tokens-tailwind` | Tailwind v4 theme layer, plus a `/shadcn` entrypoint for shadcn / shadcn-vue. |
 | `docs/design-system.html` | The styleguide — 31 sections, every component live. Open it in a browser. |
 
 ## Quick start

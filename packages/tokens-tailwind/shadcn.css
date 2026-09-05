@@ -1,0 +1,173 @@
+/* ============================================================
+   Mulia Code Design System — shadcn / shadcn-vue compatibility
+   ============================================================
+
+   Import this INSTEAD of "@muliacode/tokens-tailwind" when the project
+   uses shadcn or shadcn-vue. It pulls in the full theme layer, then adds
+   the vocabulary those components expect:
+
+       @import "@muliacode/tokens-tailwind/shadcn";
+
+   WHY THIS FILE EXISTS
+
+   shadcn is not a component library you theme through configuration. It
+   copies component source into your repo with class names baked in —
+   bg-background, text-muted-foreground, border-input, ring-ring. That
+   set is a fixed contract, and it does not overlap ours: we ship
+   --color-app, --color-fg-muted, --color-line-control, --color-primary-fg.
+
+   In Tailwind v4 a utility whose theme variable is undefined generates no
+   rule at all. It does not warn and it does not fall back — the class is
+   simply absent from the stylesheet. So dropping shadcn onto the bare
+   theme layer produces components that are *mostly* unstyled while
+   `bg-primary` works, because --color-primary is the one name the two
+   vocabularies happen to share. That specific half-working symptom is
+   what this file fixes.
+
+   Everything here is an alias. No new colour is introduced, so shadcn
+   components inherit the same WCAG-validated palette as everything else
+   and follow data-theme switching for free. The names in index.css remain
+   the ones to reach for in your own markup; these exist so vendored
+   component source compiles.
+   ============================================================ */
+
+@import "./index.css";
+
+/* ------------------------------------------------------------
+   The shadcn colour contract.
+
+   `inline` for the same reason index.css uses it: the utility must emit
+   var(--token) so a runtime data-theme switch keeps working. Plain
+   @theme would freeze the light or dark value at build time.
+   ------------------------------------------------------------ */
+
+@theme inline {
+  /* Page and text */
+  --color-background: var(--surface-app);
+  --color-foreground: var(--text-primary);
+
+  /* Cards and popovers both sit above the page, so both map to raised.
+     We deliberately don't split them — our surface scale has three steps
+     and inventing a fourth here would put shadcn components on a scale
+     nothing else in the system uses. */
+  --color-card: var(--surface-raised);
+  --color-card-foreground: var(--text-primary);
+  --color-popover: var(--surface-raised);
+  --color-popover-foreground: var(--text-primary);
+
+  /* Primary — toska. Identical to the mapping in index.css, so
+     bg-primary means the same thing whichever name you write. */
+  --color-primary: var(--accent-solid);
+  --color-primary-foreground: var(--accent-on-solid);
+
+  /* Secondary is shadcn's *quiet neutral* button, not a second brand
+     colour — so it maps to a surface, not to kencana. Reach for
+     bg-brand from index.css when you actually want the gold. */
+  --color-secondary: var(--surface-surface);
+  --color-secondary-foreground: var(--text-primary);
+
+  --color-muted: var(--surface-surface);
+  --color-muted-foreground: var(--text-muted);
+
+  /* shadcn's "accent" is the hover/active wash on ghost buttons and menu
+     rows, unrelated to our accent ramp. --surface-hover is that exact
+     role, and being translucent it layers correctly over any surface. */
+  --color-accent: var(--surface-hover);
+  --color-accent-foreground: var(--text-primary);
+
+  --color-destructive: var(--danger-solid);
+  --color-destructive-foreground: var(--danger-on-solid);
+
+  /* Borders. shadcn splits the general border from the form-control
+     border exactly the way we do, so `input` gets --border-control —
+     the tier calibrated to clear 3:1 against a raised surface, which a
+     plain border does not and is not meant to. shadcn's own defaults
+     use one colour for both and fail WCAG 1.4.11 on inputs; this
+     mapping quietly fixes that for every vendored control. */
+  --color-border: var(--border-default);
+  --color-input: var(--border-control);
+  --color-ring: var(--accent-text);
+
+  /* Sidebar block. */
+  --color-sidebar: var(--surface-surface);
+  --color-sidebar-foreground: var(--text-primary);
+  --color-sidebar-primary: var(--accent-solid);
+  --color-sidebar-primary-foreground: var(--accent-on-solid);
+  --color-sidebar-accent: var(--surface-hover);
+  --color-sidebar-accent-foreground: var(--text-primary);
+  --color-sidebar-border: var(--border-default);
+  --color-sidebar-ring: var(--accent-text);
+}
+
+/* --color-chart-1 … --color-chart-5 are already mapped in index.css
+   (through --color-chart-8), and shadcn uses the same names, so its
+   chart components resolve against our categorical ramp with no
+   mapping here. */
+
+/* ------------------------------------------------------------
+   RADIUS
+
+   shadcn reaches for rounded-xl on cards, a fourth step our scale
+   doesn't have — left undefined it would silently fall back to
+   Tailwind's stock 12px, which is off our grid. Collapsing it onto
+   --radius-lg keeps every vendored component on the system's three
+   real radii rather than introducing a step by accident.
+   ------------------------------------------------------------ */
+
+@theme {
+  --radius-xl: var(--radius-lg);
+}
+
+/* ------------------------------------------------------------
+   BASE
+
+   Tailwind's preflight sets `border: 0 solid` with no colour, so a bare
+   `border` class inherits currentColor — which is text colour. shadcn
+   components rely on `border` alone meaning the theme border (its own
+   setup does this too), so without it the outline button variant draws
+   a border the colour of its label.
+   ------------------------------------------------------------ */
+
+@layer base {
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    border-color: var(--border-default);
+  }
+}
+
+/* ------------------------------------------------------------
+   DARK MODE
+
+   index.css points the `dark:` variant at [data-theme="dark"] rather
+   than the .dark class shadcn assumes, and that stays true here — one
+   switch drives the whole system. Two consequences worth knowing:
+
+     1. Set data-theme on <html>, not the .dark class. shadcn's docs and
+        most Vue theme togglers reach for .dark; point yours at
+        data-theme instead.
+
+     2. Our semantic tokens already resolve per theme, so the dark:
+        utilities littered through shadcn source are cosmetic
+        refinements, not load-bearing. Components look right in both
+        themes before a single one of them fires.
+
+   Note that :root carries the dark values, so a document with no
+   data-theme attribute renders dark. Set it explicitly to be
+   unambiguous about which theme you meant.
+   ------------------------------------------------------------ */
+
+/* ============================================================
+   USAGE
+
+   Nothing to write differently — vendored shadcn components now compile
+   against the system palette as-is:
+
+     <Button>Deploy</Button>
+     <Button variant="destructive">Delete</Button>
+     <Input placeholder="you@example.com" />
+
+   Both vocabularies are live at once, so system utilities compose with
+   shadcn components in the same markup:
+
+     <Button class="h-control">Deploy</Button>
+     <div class="rounded-md border border-line bg-raised p-4">…</div>
+   ============================================================ */
