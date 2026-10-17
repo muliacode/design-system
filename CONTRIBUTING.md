@@ -40,3 +40,16 @@ Semantic versioning on `@muliacode/ui`:
 | Fix that keeps the API | patch |
 | Prop, slot, event or class name renamed or removed | **major** |
 | A component's meaning or default behaviour changed | **major** |
+
+## Releasing
+
+1. Move the **Unreleased** entries in `packages/ui/CHANGELOG.md` under a new heading `## <version> (<date>)`, and set the same version in `packages/ui/package.json`. Merge that.
+2. Tag the merge commit and push the tag:
+
+   ```bash
+   git tag '@muliacode/ui@0.1.0' && git push origin '@muliacode/ui@0.1.0'
+   ```
+
+The release workflow checks that the tag matches `package.json` and that the changelog has the section, builds and tests the package, publishes it to npm with a provenance statement, and creates a GitHub release with that changelog section as its notes.
+
+**One-time setup.** npm only lets a package use trusted publishing once it exists. For the very first release, add an `NPM_TOKEN` repository secret: a granular access token that can publish `@muliacode/ui`. After that release, add this repository's `release.yml` as a trusted publisher on npmjs.com, then delete the secret; later releases authenticate over OIDC with no token at all.
