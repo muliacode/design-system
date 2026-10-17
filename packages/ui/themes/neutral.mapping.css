@@ -39,6 +39,13 @@
   --utrecht-heading-5-line-height: 24px;
   --utrecht-heading-6-font-size: 16px;
   --utrecht-heading-6-line-height: 24px;
+  /* Spacing between neighbouring elements in rich text and on --distanced
+     elements, from close (best friend) to far (stranger). */
+  --utrecht-rich-text-best-friend-margin-block-end: var(--mc-neutral-space-1);
+  --utrecht-rich-text-confidant-margin-block-end: var(--mc-neutral-space-2);
+  --utrecht-rich-text-friend-margin-block-end: var(--mc-neutral-space-2);
+  --utrecht-rich-text-acquaintance-margin-block-end: var(--mc-neutral-space-4);
+  --utrecht-rich-text-stranger-margin-block-end: var(--mc-neutral-space-8);
   --utrecht-separator-color: var(--mc-neutral-border-default);
   --utrecht-separator-block-size: var(--mc-neutral-border-width);
 
@@ -224,7 +231,8 @@
 }
 
 /* The contrast scheme also draws controls and boundaries heavier. */
-[data-color-scheme='contrast'] {
+[data-color-scheme='contrast'],
+[data-color-scheme='contrast'] .mc-neutral-theme {
   --utrecht-form-control-border-width: 3px;
   --utrecht-checkbox-border-width: 3px;
   --utrecht-alert-border-width: 2px;
