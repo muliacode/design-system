@@ -1,0 +1,11 @@
+/*
+ * The Utrecht CSS components that @muliacode/ui renders. Import this once in
+ * the app, before the app's theme:
+ *
+ *   import '@muliacode/ui/styles.css';
+ *
+ * The CSS is not bundled into this package: it is a dependency, resolved by
+ * the app's bundler, and keeps its own EUPL-1.2 licence (see
+ * THIRD-PARTY-NOTICES.md).
+ */
+@import '@utrecht/component-library-css/dist/index.css';

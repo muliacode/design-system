@@ -20,7 +20,7 @@ v1 keeps its full history on the `v1` branch; nothing was rewritten. Apps that u
 
 | Path | What |
 | --- | --- |
-| `packages/ui` | `@muliacode/ui`: the components, their tests and stories (arrives with #3) |
+| `packages/ui` | `@muliacode/ui`: the components, their tests and stories |
 
 ## Licences
 
