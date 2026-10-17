@@ -43,7 +43,7 @@ The components take every colour, size and font from **Utrecht component tokens*
 
 ### The neutral theme
 
-`@muliacode/ui/themes/neutral.css` is the default: brand-free, with three colour schemes. It applies to `:root` (or `.mc-neutral-theme`); set `data-color-scheme` to `light` (the default), `dark` or `contrast` on the root or theme element. The contrast scheme raises text to 7:1 and draws controls heavier.
+`@muliacode/ui/themes/neutral.css` is the default: brand-free, with three colour schemes. It applies to `:root` (or `.mc-neutral-theme`); set `data-color-scheme` to `light` (the default), `dark` or `contrast` on the theme element or any ancestor, for example `html`. The contrast scheme raises text to 7:1 and draws controls heavier.
 
 It is built from `themes/neutral.tokens.json` (the palette and scale) and `themes/neutral.mapping.css` (the mapping onto Utrecht tokens). `npm run build` fails if the mapping uses a variable the palette doesn't define, or sets a Utrecht token the Utrecht CSS never reads. `npm test` checks every colour pair in `contrast.config.json`, in every scheme.
 
