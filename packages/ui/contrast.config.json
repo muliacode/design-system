@@ -1,0 +1,35 @@
+{
+  "$description": "The colour pairs the neutral theme promises to keep, per scheme. Text pairs need 4.5:1 (7:1 in the contrast scheme); boundaries and focus rings need 3:1 (WCAG 1.4.11). A colour that text or a boundary sits against without a pair here is not checked.",
+  "thresholds": {
+    "text": { "light": 4.5, "dark": 4.5, "contrast": 7 },
+    "non-text": { "light": 3, "dark": 3, "contrast": 4.5 }
+  },
+  "pairs": [
+    { "fg": "text-default", "bg": "bg-document", "kind": "text" },
+    { "fg": "text-default", "bg": "bg-surface", "kind": "text" },
+    { "fg": "text-default", "bg": "bg-subtle", "kind": "text" },
+    { "fg": "text-subtle", "bg": "bg-document", "kind": "text" },
+    { "fg": "text-subtle", "bg": "bg-surface", "kind": "text" },
+    { "fg": "text-subtle", "bg": "bg-subtle", "kind": "text" },
+    { "fg": "action", "bg": "bg-document", "kind": "text" },
+    { "fg": "action", "bg": "bg-surface", "kind": "text" },
+    { "fg": "action-hover", "bg": "bg-surface", "kind": "text" },
+    { "fg": "action-hover", "bg": "bg-subtle", "kind": "text" },
+    { "fg": "on-action", "bg": "action", "kind": "text" },
+    { "fg": "on-action", "bg": "action-hover", "kind": "text" },
+    { "fg": "status-positive", "bg": "status-positive-bg", "kind": "text" },
+    { "fg": "status-negative", "bg": "status-negative-bg", "kind": "text" },
+    { "fg": "status-warning", "bg": "status-warning-bg", "kind": "text" },
+    { "fg": "status-info", "bg": "status-info-bg", "kind": "text" },
+    { "fg": "status-negative", "bg": "bg-surface", "kind": "text" },
+    { "fg": "text-default", "bg": "status-positive-bg", "kind": "text" },
+    { "fg": "text-default", "bg": "status-negative-bg", "kind": "text" },
+    { "fg": "text-default", "bg": "status-warning-bg", "kind": "text" },
+    { "fg": "text-default", "bg": "status-info-bg", "kind": "text" },
+    { "fg": "border-control", "bg": "bg-surface", "kind": "non-text" },
+    { "fg": "border-control", "bg": "bg-document", "kind": "non-text" },
+    { "fg": "focus-ring", "bg": "bg-document", "kind": "non-text" },
+    { "fg": "focus-ring", "bg": "bg-surface", "kind": "non-text" },
+    { "fg": "status-negative", "bg": "bg-surface", "kind": "non-text" }
+  ]
+}

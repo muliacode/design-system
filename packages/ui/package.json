@@ -14,7 +14,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./styles.css": "./styles.css"
+    "./styles.css": "./styles.css",
+    "./themes/neutral.css": "./dist/themes/neutral.css"
   },
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -29,8 +30,10 @@
     "*.css"
   ],
   "scripts": {
-    "build": "vite build && vue-tsc -p tsconfig.build.json",
-    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
+    "build": "vite build && vue-tsc -p tsconfig.build.json && node scripts/build-theme.mjs",
+    "typecheck": "vue-tsc -p tsconfig.json --noEmit",
+    "validate": "node scripts/validate-contrast.mjs",
+    "test": "npm run validate"
   },
   "peerDependencies": {
     "vue": "^3.5.0"
