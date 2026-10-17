@@ -32,3 +32,8 @@ jobs:
         run: npm run build
       - if: steps.packages.outputs.present == 'true'
         run: npm test
+      - if: steps.packages.outputs.present == 'true'
+        run: npm run typecheck -w @muliacode/ui
+      - if: steps.packages.outputs.present == 'true'
+        name: Build Storybook
+        run: npm run build-storybook -w @muliacode/ui

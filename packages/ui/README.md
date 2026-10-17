@@ -53,7 +53,7 @@ To write your own theme, copy the neutral one as a starting point. The Abonemen 
 
 | Component | Utrecht component | Notes |
 | --- | --- | --- |
-| `Heading` | Heading 1 to 6 | `level` (1 to 6) sets both the element and the style |
+| `Heading` | Heading 1 to 6 | `level` (1 to 6) sets both the element and the style. No outer margin by default; `distanced` spaces it as in running text |
 
 ## Licence
 
