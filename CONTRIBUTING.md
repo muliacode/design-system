@@ -1,68 +1,31 @@
 # Contributing
 
-## Repository layout
+This is v2 of the design system: `@muliacode/ui`, Vue components on the Utrecht CSS components and NL Design System tokens. Changes to v1 (`@muliacode/tokens`, `@muliacode/tokens-tailwind`) go to the `v1` branch; see the README.
 
-```
-packages/tokens/           the source of truth
-  src/*.json               hand-edited token definitions (DTCG format)
-  scripts/build.mjs        generates every output target
-  scripts/validate-contrast.mjs   fails CI on a contrast regression
-  contrast.config.json     the pairings we promise to keep
-  dist/                    generated — never hand-edit, but committed
-packages/tokens-tailwind/  Tailwind v4 theme layer
-docs/design-system.html    the styleguide and reference implementation
-```
+## Principles
 
-## Changing a token
-
-1. Edit the relevant file in `packages/tokens/src/`. Never edit `dist/`.
-2. `npm run build -w @muliacode/tokens`
-3. `npm run validate` — every declared contrast pairing must still pass.
-4. `npm test -w @muliacode/tokens-tailwind` — fails if the Tailwind layer
-   references a token you just renamed or removed. This is how the mapping
-   stays honest instead of drifting silently, which is exactly what
-   happened once already: an earlier draft of that file was written
-   against an imagined naming scheme that never matched what this package
-   actually shipped.
-5. Commit both the source change **and** the regenerated `dist/`.
-
-`dist/` is committed on purpose. A palette change should be readable as a diff
-in the pull request, by a reviewer who has not checked the branch out.
-
-## Adding a token
-
-Add it to `src/`, and if it is a colour that text or a boundary will sit
-against, add the pairing to `contrast.config.json` in the same commit. A colour
-with no declared pairing is a colour nobody is checking.
-
-## Versioning
-
-Semantic versioning, on the token package only.
-
-| Change | Bump |
-|---|---|
-| New token | minor |
-| Value changed, meaning unchanged | patch |
-| Token renamed or removed | **major** |
-| Meaning of an existing token changed | **major** |
-
-Never silently repurpose a token. Downstream code reads `--accent-solid`
-expecting "the colour of a primary action"; changing what that means is a
-breaking change even though the name is identical.
-
-Release by tagging: `git tag '@muliacode/tokens@2.2.0' && git push --tags`.
+- **Brand-neutral.** Components carry no Mulia Code or app branding. Apps theme them by setting design tokens.
+- **Utrecht first.** Where Utrecht CSS has a component, ours renders its class names and adds behaviour; we build our own only where Utrecht has none, following the same patterns.
+- **Tokens only.** Styling comes from design tokens. A raw colour or an off-grid size in a component is a defect.
+- **Native elements before ARIA.** A `<button>` beats a `<div role="button">`.
 
 ## Adding a component
 
-Components live in `docs/design-system.html` first. A component is not done
-until it has:
+A component is done when it has:
 
-- All six states rendered: default, hover, active, focus, disabled, loading
-- A keyboard-only pass — every action reachable, no traps, visible focus
-- Correct roles and names; native elements preferred over ARIA
-- An entry in the coverage table (§30), including if it was **declined**
+- a story per state (default, hover, focus, disabled, error, and loading where it applies), in every theme;
+- a test for keyboard use: every action reachable, no traps, visible focus;
+- an automated accessibility check that passes in every theme;
+- correct roles, names and descriptions, checked with a screen reader;
+- a short usage note: what it is for, what the consumer must provide, what not to do with it.
 
-## What we decline
+## Versioning
 
-Declining is a normal outcome. Record the reason in the coverage table so the
-same proposal does not return every six months.
+Semantic versioning on `@muliacode/ui`:
+
+| Change | Bump |
+| --- | --- |
+| New component, or a new optional prop | minor |
+| Fix that keeps the API | patch |
+| Prop, slot, event or class name renamed or removed | **major** |
+| A component's meaning or default behaviour changed | **major** |

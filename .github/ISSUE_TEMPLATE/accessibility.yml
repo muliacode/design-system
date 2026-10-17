@@ -15,7 +15,7 @@ body:
   - type: input
     attributes:
       label: Component or page
-      placeholder: "e.g. combobox, data grid, §14 charts"
+      placeholder: "e.g. Select, DataTable, Dialog"
   - type: input
     attributes:
       label: Assistive technology, if any
@@ -23,4 +23,4 @@ body:
   - type: dropdown
     attributes:
       label: Theme
-      options: [dark, light, both, not relevant]
+      options: [neutral, light, dark, high contrast, all, not relevant]

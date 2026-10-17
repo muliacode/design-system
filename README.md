@@ -1,50 +1,33 @@
 # Mulia Code Design System
 
-One visual and interaction language for web, mobile, and command-line software.
-Dense, technical, quiet. Dark-first, light-equal. WCAG 2.2 AA, enforced in CI.
+`@muliacode/ui` is a brand-neutral Vue 3 component library for Mulia Code software. It is built on [NL Design System](https://nldesignsystem.nl/): every component renders the class names of the [Utrecht CSS components](https://nl-design-system.github.io/utrecht/), and all styling comes from design tokens. Each app supplies its own theme by setting those tokens; the library ships a neutral default.
 
-Palette drawn from *batik pesisir*: **toska** (sea-green) for everything
-interactive, **kencana** (gold prada) for the mark, on **kain** (undyed cloth)
-in light and **malam** (batik wax, also "night") in dark.
+Every component is meant to be usable by everyone, including people on screen readers, keyboards, 400% zoom and Windows high contrast. WCAG 2.2 AA is the floor, enforced by tests in CI.
+
+## v1 and v2
+
+This repository holds two generations of the design system.
+
+| | v1 | v2 (this branch) |
+| --- | --- | --- |
+| What | `@muliacode/tokens` and `@muliacode/tokens-tailwind`: the batik-inspired tokens, a Tailwind and shadcn layer, and an HTML styleguide | `@muliacode/ui`: Vue components on Utrecht CSS and NL Design System tokens, themed per app |
+| Where | The [`v1`](../../tree/v1) branch, from tag `v1-final` | `main` |
+| Status | Maintained: fixes are made on `v1` and released from there. Published versions stay on npm unchanged | In development |
+
+v1 keeps its full history on the `v1` branch; nothing was rewritten. Apps that use `@muliacode/tokens` can keep doing so.
 
 ## Layout
 
 | Path | What |
-|---|---|
-| `packages/tokens` | The source of truth. Builds to CSS, SCSS, JSON, JS/TS, Swift, Kotlin, and CLI. |
-| `packages/tokens-tailwind` | Tailwind v4 theme layer, plus a `/shadcn` entrypoint for shadcn / shadcn-vue. |
-| `docs/design-system.html` | The styleguide — 31 sections, every component live. Open it in a browser. |
-
-## Quick start
-
-```bash
-npm install
-npm run build      # generate every token target
-npm run validate   # verify contrast in both themes
-npm run docs       # serve the styleguide at :8080
-```
-
-## Using it downstream
-
-```bash
-npm install @muliacode/tokens
-```
-
-```css
-@import "@muliacode/tokens/css";
-```
-
-Consume tokens, never literals. A raw hex or an off-grid pixel value in a
-stylesheet is a defect — lint for it.
+| --- | --- |
+| `packages/ui` | `@muliacode/ui`: the components, their tests and stories (arrives with #3) |
 
 ## Licences
 
-- Code in `packages/` — **MIT** (`LICENSE`)
-- Documentation in `docs/` — **CC BY 4.0** (`LICENSE-docs`)
-- Inter and JetBrains Mono — SIL OFL 1.1, not redistributed here. Self-host
-  them; a Google Fonts CDN call is a GDPR exposure and a needless dependency.
+- Code in `packages/`: **MIT** (`LICENSE`).
+- Documentation and stories: **CC BY 4.0** (`LICENSE-docs`).
+- The Utrecht CSS components that `@muliacode/ui` depends on are licensed under the EUPL-1.2; their notice ships with the package.
 
 ## Contributing
 
-See `CONTRIBUTING.md`. Accessibility reports are prioritised and do not need to
-cite a WCAG criterion — describing what got in your way is enough.
+See `CONTRIBUTING.md`. Accessibility reports are prioritised and do not need to cite a WCAG criterion: describing what got in your way is enough.
