@@ -52,22 +52,15 @@ Semantic versioning on `@muliacode/ui`:
 
 The release workflow checks that the tag matches `package.json` and that the changelog has the section, builds and tests the package, publishes it to npm with a provenance statement, and creates a GitHub release with that changelog section as its notes. If a run fails part-way, re-run it: it skips the npm publish and the GitHub release when they already exist.
 
-**One-time setup.** The workflow publishes over npm's trusted publishing (OIDC), like v1: no npm token is stored in the repository. npm only lets a package use trusted publishing once it exists, so the very first version is published by hand:
+**How publishing is set up.** The workflow publishes over npm's trusted publishing (OIDC), like v1: no npm token exists for this package. The settings, should they ever need recreating:
 
-1. Make the release commit as in step 1 above (version in `package.json`, changelog section), merge it, and check it out cleanly. Log in with an npm account that has two-factor authentication and can publish to `@muliacode`, then test and publish:
+- **GitHub, Settings → Environments:** an environment named `npm` whose deployment branches and tags are limited to the tag pattern `@muliacode/ui@*`.
+- **npmjs.com, `@muliacode/ui` → Settings → Trusted publishing:** GitHub Actions, organisation `muliacode`, repository `design-system`, workflow `release.yml`, environment `npm`, allowed action **npm publish**.
+- **npmjs.com, Publishing access:** require two-factor authentication and disallow tokens. Trusted publishing still works.
 
-   ```bash
-   npm ci
-   npx playwright install chromium
-   npm test
-   npm publish -w @muliacode/ui --access public --provenance=false
-   ```
+npm expires a trusted publisher configuration that hasn't published within 48 hours of being created or edited. If a release fails on authentication because of that, recreate the configuration and re-run the workflow.
 
-   `--provenance=false` is needed because `package.json` asks for provenance, which npm can only generate in CI; this one version has no provenance statement, every later one does. npm asks for a one-time password. Before publishing, npm runs the package's `prepublishOnly` script, which refuses version 0.0.0 or a version without a changelog section, then builds the package, so the tarball always has `dist`.
-2. On npmjs.com, under the package's **Settings → Trusted publishing**, add GitHub Actions with repository `muliacode/design-system` and workflow `release.yml`. Then set **Publishing access** to require two-factor authentication and disallow tokens.
-3. Tag that commit and push the tag anyway: the workflow sees the version is already on npm, skips the publish and creates the GitHub release.
-
-If the tag is pushed before step 1, the workflow stops with an error pointing here instead of failing on authentication.
+0.1.0 was published by hand, because npm then only allowed trusted publishing for a package that already existed; it has no provenance statement. The `0.0.0-stage` version is the placeholder npm creates with a new package.
 
 ## Licence
 

@@ -15,6 +15,10 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    # npm's trusted publisher only accepts runs in this environment, and the
+    # environment only accepts @muliacode/ui@* tags, so a branch that edits
+    # this file can't publish.
+    environment: npm
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
