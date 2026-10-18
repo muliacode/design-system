@@ -1,6 +1,6 @@
 {
   "name": "@muliacode/ui",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Brand-neutral Vue 3 components on the Utrecht CSS components and NL Design System tokens.",
   "license": "EUPL-1.2",
   "type": "module",

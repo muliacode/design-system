@@ -6,6 +6,10 @@ Add changes under **Unreleased** as they are merged. A release renames that sect
 
 ## Unreleased
 
+## 0.1.0 (2026-10-18)
+
+The first release.
+
 ### Added
 
 - The `@muliacode/ui` package: Vue 3 components on the Utrecht CSS components, one ES module per component, with types.
