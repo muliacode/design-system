@@ -1,6 +1,6 @@
 /*
- * The Utrecht CSS components that @muliacode/ui renders. Import this once in
- * the app, before the app's theme:
+ * The Utrecht CSS components that @muliacode/ui renders, and the few rules of
+ * our own below. Import this once in the app, before the app's theme:
  *
  *   import '@muliacode/ui/styles.css';
  *
@@ -9,3 +9,39 @@
  * THIRD-PARTY-NOTICES.md).
  */
 @import '@utrecht/component-library-css/dist/index.css';
+
+/*
+ * What Utrecht has no token for. Each rule reads an --mc-* token with a
+ * fallback, so a theme can tune it.
+ */
+
+/*
+ * A checkbox or radio button sits inside its label, so the label is the whole
+ * target: the input, the gap and the text. Its minimum size makes that
+ * target at least --mc-form-label-choice-min-size high and wide, with the
+ * input and text centred in it.
+ */
+.mc-form-label-choice {
+  align-items: center;
+  display: inline-flex;
+  min-block-size: var(--mc-form-label-choice-min-size, 44px);
+  min-inline-size: var(--mc-form-label-choice-min-size, 44px);
+}
+
+/* Utrecht orders the input after the text; inside the label it comes first. */
+.mc-form-label-choice > .utrecht-form-field__input {
+  order: 0;
+}
+
+/*
+ * The native checkbox at the theme's size, coloured with accent-color.
+ * Utrecht's custom checkbox draws its tick as a white image, which fails
+ * contrast on a light checked colour such as a dark scheme's; the browser
+ * picks a tick colour that contrasts with the accent, and forced colours keep
+ * working.
+ */
+.mc-checkbox {
+  accent-color: var(--utrecht-checkbox-checked-background-color, auto);
+  block-size: var(--utrecht-checkbox-size, 24px);
+  inline-size: var(--utrecht-checkbox-size, 24px);
+}

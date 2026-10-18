@@ -12,6 +12,7 @@ Add changes under **Unreleased** as they are merged. A release renames that sect
 - `ButtonLink`: a link styled as a button, primary, secondary or subtle; `as` renders the app's router link. `ButtonLinkVariant` is exported.
 - `Link`: a text link; `newTabText` opens it in a new tab and adds that text to its name, `current` marks the current page, `as` renders the app's router link.
 - `SkipLink`: hidden until focused, and moves focus to its target.
+- Form fields: `FormField` with `Textbox`, `Textarea` or `Select`, plus `Checkbox`, `RadioGroup` and `Fieldset`. Every control has a visible label; the hint and error are linked with `aria-describedby`, and an error sets `aria-invalid`. Checkbox and radio labels contain their input, so the whole label is a target of at least 44 by 44 px (`--mc-form-label-choice-min-size`).
 - A browser check that every control is at least 44 by 44 px in every colour scheme (`npm run test:targets`).
 
 ## 0.1.0 (2026-10-18)

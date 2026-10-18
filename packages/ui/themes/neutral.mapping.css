@@ -203,11 +203,12 @@
   --utrecht-checkbox-checked-color: var(--mc-neutral-on-action);
   --utrecht-checkbox-invalid-border-color: var(--mc-neutral-status-negative);
   --utrecht-radio-button-size: 24px;
-  --utrecht-radio-button-border-width: var(--mc-neutral-border-width-control);
+  --utrecht-radio-button-border-width: var(--mc-neutral-control-border-width);
   --utrecht-radio-button-border-color: var(--mc-neutral-border-control);
   --utrecht-radio-button-background-color: var(--mc-neutral-bg-surface);
   --utrecht-radio-button-checked-border-color: var(--mc-neutral-action);
   --utrecht-radio-button-checked-color: var(--mc-neutral-action);
+  --mc-form-label-choice-min-size: var(--mc-neutral-target-min);
 
   /* Alert */
   --utrecht-alert-border-radius: var(--mc-neutral-radius-md);

@@ -16,6 +16,8 @@ import { renderToString } from 'vue/server-renderer';
 
 const require = createRequire(import.meta.url);
 const utrecht = readFileSync(require.resolve('@utrecht/component-library-css/dist/index.css'), 'utf8');
+// Our own rules from styles.css, without its import of the Utrecht CSS above.
+const ours = readFileSync(new URL('../styles.css', import.meta.url), 'utf8').replace(/@import [^;]+;/, '');
 const theme = readFileSync(new URL('../dist/themes/neutral.css', import.meta.url), 'utf8');
 const tokens = JSON.parse(readFileSync(new URL('../themes/neutral.tokens.json', import.meta.url), 'utf8'));
 const min = Number.parseFloat(tokens.dimension['target-min']);
@@ -32,6 +34,11 @@ const vite = await createServer({
 const { default: Button } = await vite.ssrLoadModule('/src/components/Button/Button.vue');
 const { default: ButtonLink } = await vite.ssrLoadModule('/src/components/Button/ButtonLink.vue');
 const { default: SkipLink } = await vite.ssrLoadModule('/src/components/Link/SkipLink.vue');
+const { default: Textbox } = await vite.ssrLoadModule('/src/components/Form/Textbox.vue');
+const { default: Textarea } = await vite.ssrLoadModule('/src/components/Form/Textarea.vue');
+const { default: Select } = await vite.ssrLoadModule('/src/components/Form/Select.vue');
+const { default: Checkbox } = await vite.ssrLoadModule('/src/components/Form/Checkbox.vue');
+const { default: RadioGroup } = await vite.ssrLoadModule('/src/components/Form/RadioGroup.vue');
 const RouterLink = defineComponent({ setup: (_props, { slots, attrs }) => () => h('a', attrs, slots.default?.()) });
 
 const render = (component, props, attrs = {}) => renderToString(createSSRApp({ render: () => h(component, { ...props, ...attrs }, () => 'X') }));
@@ -48,6 +55,18 @@ for (const variant of ['primary', 'secondary', 'subtle']) {
 }
 // Measured hidden and focused: it can only be seen and clicked once focused.
 targets.SkipLink = await render(SkipLink, { href: '#main' });
+targets.Textarea = await render(Textarea, { rows: 1 }, { 'aria-label': 'X' });
+targets.Select = await render(Select, {}, { 'aria-label': 'X' });
+for (const invalid of [false, true]) {
+    targets[`Textbox${invalid ? ' invalid' : ''}`] = await render(Textbox, { invalid }, { 'aria-label': 'X' });
+}
+// A checkbox or radio button sits inside its label, which is the target.
+targets.Checkbox = { html: await render(Checkbox, { label: 'X' }), parts: 'label' };
+targets['Checkbox with error'] = { html: await render(Checkbox, { label: 'X', error: 'X' }), parts: 'label' };
+targets['RadioGroup option'] = {
+    html: await render(RadioGroup, { legend: 'X', options: [{ value: 'x', label: 'X' }] }),
+    parts: 'label',
+};
 await vite.close();
 
 // Targets that are also measured with focus on them.
@@ -60,25 +79,33 @@ let checked = 0;
 
 for (const scheme of Object.keys(tokens.color)) {
     const body = Object.entries(targets)
-        .map(([name, html], i) => `<p>${html.replace(/^<(\w+)/, `<$1 data-target="${i}" data-name="${name}"`)}</p>`)
+        .map(([name, target], i) => {
+            const { html, parts = ':scope > *' } = typeof target === 'string' ? { html: target } : target;
+            return `<div data-target="${i}" data-name="${name}" data-parts="${parts}">${html}</div>`;
+        })
         .join('');
     await page.setContent(
-        `<html data-color-scheme="${scheme}"><head><style>${utrecht}</style><style>${theme}</style></head><body class="mc-neutral-theme utrecht-document">${body}</body></html>`,
+        `<html data-color-scheme="${scheme}"><head><style>${utrecht}</style><style>${ours}</style><style>${theme}</style></head><body class="mc-neutral-theme utrecht-document">${body}</body></html>`,
     );
     const measure = (suffix) =>
         page.$$eval(
             '[data-target]',
             (elements, suffix) =>
                 elements.map((element) => {
-                    const box = element.getBoundingClientRect();
-                    return { name: element.dataset.name + suffix, width: box.width, height: box.height };
+                    // The smallest box around every part of the target.
+                    const boxes = [...element.querySelectorAll(element.dataset.parts)].map((part) => part.getBoundingClientRect());
+                    const left = Math.min(...boxes.map((box) => box.left));
+                    const right = Math.max(...boxes.map((box) => box.right));
+                    const top = Math.min(...boxes.map((box) => box.top));
+                    const bottom = Math.max(...boxes.map((box) => box.bottom));
+                    return { name: element.dataset.name + suffix, width: right - left, height: bottom - top };
                 }),
             suffix,
         );
     const sizes = await measure('');
     for (const [i, name] of Object.keys(targets).entries()) {
         if (alsoFocused.has(name)) {
-            await page.focus(`[data-target="${i}"]`);
+            await page.focus(`[data-target="${i}"] > *`);
             sizes.push(...(await measure(' (focused)')).filter((size) => size.name === `${name} (focused)`));
         }
     }
