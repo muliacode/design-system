@@ -54,16 +54,18 @@ The release workflow checks that the tag matches `package.json` and that the cha
 
 **One-time setup.** The workflow publishes over npm's trusted publishing (OIDC), like v1: no npm token is stored in the repository. npm only lets a package use trusted publishing once it exists, so the very first version is published by hand:
 
-1. On a clean checkout of the merged release commit, log in with an npm account that has two-factor authentication and can publish to `@muliacode`, then build, test and publish:
+1. Make the release commit as in step 1 above (version in `package.json`, changelog section), merge it, and check it out cleanly. Log in with an npm account that has two-factor authentication and can publish to `@muliacode`, then test and publish:
 
    ```bash
-   npm ci && npm run build -w @muliacode/ui && npm test -w @muliacode/ui
-   npm publish -w @muliacode/ui --access public
+   npm ci
+   npx playwright install chromium
+   npm test
+   npm publish -w @muliacode/ui --access public --provenance=false
    ```
 
-   npm asks for a one-time password. This version has no provenance statement; every later one does.
+   `--provenance=false` is needed because `package.json` asks for provenance, which npm can only generate in CI; this one version has no provenance statement, every later one does. npm asks for a one-time password. Before publishing, npm runs the package's `prepublishOnly` script, which refuses version 0.0.0 or a version without a changelog section, then builds the package, so the tarball always has `dist`.
 2. On npmjs.com, under the package's **Settings → Trusted publishing**, add GitHub Actions with repository `muliacode/design-system` and workflow `release.yml`. Then set **Publishing access** to require two-factor authentication and disallow tokens.
-3. Push the tag anyway: the workflow sees the version is already on npm, skips the publish and creates the GitHub release.
+3. Tag that commit and push the tag anyway: the workflow sees the version is already on npm, skips the publish and creates the GitHub release.
 
 If the tag is pushed before step 1, the workflow stops with an error pointing here instead of failing on authentication.
 
