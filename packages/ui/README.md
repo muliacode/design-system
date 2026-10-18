@@ -56,9 +56,16 @@ To write your own theme, copy the neutral one as a starting point. The Abonemen 
 | --- | --- | --- |
 | `Button` | Button | `variant`: primary, secondary (default), subtle, danger. `type` defaults to `button`. `disabled` and `loading` use `aria-disabled`, so the button stays focusable; it emits no click and doesn't submit |
 | `ButtonLink` | Button link | An `<a>` that looks like a button, for going to another page. `variant`: primary, secondary (default), subtle. `as` renders a router link instead; no disabled state |
+| `Checkbox` | Checkbox, form field | One checkbox inside its label, with an optional `hint` and `error`; `v-model` for the checked state. The native input, coloured with `accent-color` |
+| `Fieldset` | Form fieldset | A group of controls under a `legend`, with a `hint` and `error` for the whole group |
+| `FormField` | Form field, form label | A `label`, an optional `hint` and `error`, and one control: `Textbox`, `Textarea` or `Select`. Gives the control its id, `aria-describedby` and `aria-invalid` |
 | `Heading` | Heading 1 to 6 | `level` (1 to 6) sets both the element and the style. No outer margin by default; `distanced` spaces it as in running text |
 | `Link` | Link | A text link for running text; for a standalone link use `ButtonLink`. `newTabText` ("opens in a new tab", in the app's language) opens it in a new tab and adds that text to the link in brackets; without it, the link opens in the same tab. `current` sets `aria-current="page"` (a router link sets it itself). `as` renders a router link |
+| `RadioGroup` | Radio button, form fieldset | One question (`legend`) with `options`, as native radio buttons; `v-model` for the chosen value. The browser's own keyboard behaviour: one Tab stop, arrow keys to choose |
+| `Select` | Select | A native select with `<option>` elements in the slot; `v-model` |
 | `SkipLink` | Skip link | Put it first in the page. `href` is the target's id as a fragment (`#main`). Hidden until focused; moves focus to the target |
+| `Textarea` | Textarea | Multi-line text inside a `FormField`; `v-model` |
+| `Textbox` | Textbox | Single-line text inside a `FormField`; `type` (text, email, tel, url, password, search) and `v-model` |
 
 ## Licence
 
