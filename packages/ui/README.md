@@ -21,11 +21,12 @@ import '@muliacode/ui/themes/neutral.css'; // or your app's own theme
 
 ```vue
 <script setup lang="ts">
-import { Heading } from '@muliacode/ui';
+import { Button, Heading } from '@muliacode/ui';
 </script>
 
 <template>
     <Heading :level="1">Subscriptions</Heading>
+    <Button variant="primary" type="submit">Save</Button>
 </template>
 ```
 
@@ -53,6 +54,8 @@ To write your own theme, copy the neutral one as a starting point. The Abonemen 
 
 | Component | Utrecht component | Notes |
 | --- | --- | --- |
+| `Button` | Button | `variant`: primary, secondary (default), subtle, danger. `type` defaults to `button`. `disabled` and `loading` use `aria-disabled`, so the button stays focusable; it emits no click and doesn't submit |
+| `ButtonLink` | Button link | An `<a>` that looks like a button, for going to another page. `variant`: primary, secondary (default), subtle. `as` renders a router link instead; no disabled state |
 | `Heading` | Heading 1 to 6 | `level` (1 to 6) sets both the element and the style. No outer margin by default; `distanced` spaces it as in running text |
 
 ## Licence
