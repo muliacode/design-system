@@ -52,7 +52,20 @@ Semantic versioning on `@muliacode/ui`:
 
 The release workflow checks that the tag matches `package.json` and that the changelog has the section, builds and tests the package, publishes it to npm with a provenance statement, and creates a GitHub release with that changelog section as its notes. If a run fails part-way, re-run it: it skips the npm publish and the GitHub release when they already exist.
 
-**One-time setup.** npm only lets a package use trusted publishing once it exists. For the very first release, add an `NPM_TOKEN` repository secret: a granular access token that can publish `@muliacode/ui`. After that release, add this repository's `release.yml` as a trusted publisher on npmjs.com, then delete the secret; later releases authenticate over OIDC with no token at all.
+**One-time setup.** The workflow publishes over npm's trusted publishing (OIDC), like v1: no npm token is stored in the repository. npm only lets a package use trusted publishing once it exists, so the very first version is published by hand:
+
+1. On a clean checkout of the merged release commit, log in with an npm account that has two-factor authentication and can publish to `@muliacode`, then build, test and publish:
+
+   ```bash
+   npm ci && npm run build -w @muliacode/ui && npm test -w @muliacode/ui
+   npm publish -w @muliacode/ui --access public
+   ```
+
+   npm asks for a one-time password. This version has no provenance statement; every later one does.
+2. On npmjs.com, under the package's **Settings → Trusted publishing**, add GitHub Actions with repository `muliacode/design-system` and workflow `release.yml`. Then set **Publishing access** to require two-factor authentication and disallow tokens.
+3. Push the tag anyway: the workflow sees the version is already on npm, skips the publish and creates the GitHub release.
+
+If the tag is pushed before step 1, the workflow stops with an error pointing here instead of failing on authentication.
 
 ## Licence
 

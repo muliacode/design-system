@@ -61,15 +61,21 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
-      # With trusted publishing set up on npmjs.com, no token is needed: npm
-      # authenticates this workflow over OIDC. Until then (npm only allows it
-      # once the package exists), the first release uses an NPM_TOKEN secret.
-      # Either way the package gets a provenance statement.
+      # npm authenticates this workflow over OIDC (trusted publishing), so no
+      # token is stored anywhere. npm only allows that once the package
+      # exists: the very first version is published by hand, see
+      # CONTRIBUTING.md.
+      - name: Check the package exists on npm
+        if: steps.published.outputs.npm != 'true'
+        run: |
+          if ! npm view @muliacode/ui name > /dev/null 2>&1; then
+            echo "::error::@muliacode/ui is not on npm yet, so trusted publishing cannot work. Publish the first version by hand and set up the trusted publisher, see Releasing in CONTRIBUTING.md."
+            exit 1
+          fi
+
       - name: Publish to npm
         if: steps.published.outputs.npm != 'true'
         run: npm publish -w @muliacode/ui --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create the GitHub release
         if: steps.published.outputs.release != 'true'
