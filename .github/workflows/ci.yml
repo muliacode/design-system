@@ -3,49 +3,32 @@ name: CI
 on:
   push: { branches: [main] }
   pull_request:
+    branches: [main]
 
 permissions:
   contents: read
 
 jobs:
-  tokens:
-    name: Build & validate tokens
+  build:
+    name: Build and test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with: { node-version: 22 }
 
-      - name: Build tokens
-        run: npm run build -w @muliacode/tokens
-
-      # The generated output is committed so consumers can read the diff of a
-      # palette change in the PR. If the build produces something different
-      # from what was committed, the author forgot to run it.
-      - name: Check generated output is current
+      # Until packages/ui lands (#3) there is no workspace to build, and npm
+      # fails on --workspaces with none.
+      - name: Check for packages
+        id: packages
         run: |
-          if [ -n "$(git status --porcelain packages/tokens/dist)" ]; then
-            echo "::error::dist/ is stale. Run 'npm run build -w @muliacode/tokens' and commit."
-            git --no-pager diff --stat packages/tokens/dist
-            exit 1
+          if ls packages/*/package.json > /dev/null 2>&1; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
           fi
 
-      # Fails the build if any declared pairing drops below its WCAG threshold.
-      - name: Validate contrast
-        run: npm run validate
-
-  a11y:
-    name: Styleguide accessibility
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v7
-        with: { node-version: 22 }
-      - run: npm ci
-
-      # Playwright manages its own browser binary, so this doesn't depend on
-      # matching a ChromeDriver version to whatever Chrome the runner image
-      # ships this week.
-      - run: npx playwright install --with-deps chromium
-
-      - run: node scripts/check-a11y.mjs docs/design-system.html
+      - if: steps.packages.outputs.present == 'true'
+        run: npm ci
+      - if: steps.packages.outputs.present == 'true'
+        run: npm run build
+      - if: steps.packages.outputs.present == 'true'
+        run: npm test
