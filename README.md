@@ -22,12 +22,11 @@ v1 keeps its full history on the `v1` branch; nothing was rewritten. Apps that u
 | --- | --- |
 | `packages/ui` | `@muliacode/ui`: the components, their tests and stories |
 
-## Licences
+## Licence
 
-- Code in `packages/`: Copyright 2026 Mulia Code. Licensed under the **EUPL**, version 1.2 (`LICENSE`). The EUPL is a copyleft licence written for EU law: changes to the library itself stay open, while apps that use it keep their own licence.
-- Documentation and stories: **CC BY 4.0** (`LICENSE-docs`).
-- The Utrecht CSS components that `@muliacode/ui` depends on are licensed under the EUPL-1.2 as well; their notice ships with the package.
-- v1 (`@muliacode/tokens`, `@muliacode/tokens-tailwind`) stays MIT on the `v1` branch.
+Copyright 2026 Mulia Code. Licensed under the **EUPL**, version 1.2: the code, the documentation and the stories alike. See `LICENSE` for the text. The EUPL is a copyleft licence written for EU law: changes to the library itself stay open, while apps that use it keep their own licence.
+
+The Utrecht CSS components that `@muliacode/ui` depends on are licensed under the EUPL-1.2 as well; their notice ships with the package. v1 (`@muliacode/tokens`, `@muliacode/tokens-tailwind`) stays MIT, with CC BY 4.0 for its styleguide, on the `v1` branch.
 
 ## Contributing
 
