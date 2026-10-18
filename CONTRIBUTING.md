@@ -41,4 +41,4 @@ Semantic versioning on `@muliacode/ui`:
 
 ## Licence
 
-The code is licensed under the EUPL, version 1.2, and the documentation and stories under CC BY 4.0. By opening a pull request you agree that your contribution is licensed the same way.
+Everything in this repository, code, documentation and stories, is licensed under the EUPL, version 1.2. By opening a pull request you agree that your contribution is licensed the same way.
