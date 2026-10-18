@@ -42,18 +42,37 @@ jobs:
 
       - run: npm ci
       - run: npm run build -w @muliacode/ui
+      - name: Install Chromium for the theme's scheme test
+        run: npx playwright install --with-deps chromium
       - run: npm test -w @muliacode/ui
+
+      # Each of the last two steps checks whether its work is already done, so
+      # a failed run can simply be re-run: npm refuses to publish a version
+      # twice, and a release for the tag may already exist.
+      - name: Check what is already published
+        id: published
+        run: |
+          if npm view "@muliacode/ui@${{ steps.version.outputs.version }}" version > /dev/null 2>&1; then
+            echo "npm=true" >> "$GITHUB_OUTPUT"
+          fi
+          if gh release view "$GITHUB_REF_NAME" > /dev/null 2>&1; then
+            echo "release=true" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       # With trusted publishing set up on npmjs.com, no token is needed: npm
       # authenticates this workflow over OIDC. Until then (npm only allows it
       # once the package exists), the first release uses an NPM_TOKEN secret.
       # Either way the package gets a provenance statement.
       - name: Publish to npm
+        if: steps.published.outputs.npm != 'true'
         run: npm publish -w @muliacode/ui --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Create the GitHub release
+        if: steps.published.outputs.release != 'true'
         run: gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes-file release-notes.md
         env:
           GH_TOKEN: ${{ github.token }}
