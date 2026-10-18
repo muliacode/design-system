@@ -1,6 +1,8 @@
 // Checks in a real browser that every control meets the 44 by 44 px minimum
-// target in every colour scheme, even with a one-letter label. jsdom does no
-// layout, so this can't be a unit test.
+// target in every colour scheme, even with a one-letter label. Link is not
+// measured: it is for links in running text, which are exempt (WCAG 2.5.8), and
+// standalone links use ButtonLink. jsdom does no layout, so this can't be a
+// unit test.
 //
 // Needs dist/themes/neutral.css (npm run build) and a Chromium for Playwright
 // (npx playwright install chromium).
@@ -29,6 +31,7 @@ const vite = await createServer({
 });
 const { default: Button } = await vite.ssrLoadModule('/src/components/Button/Button.vue');
 const { default: ButtonLink } = await vite.ssrLoadModule('/src/components/Button/ButtonLink.vue');
+const { default: SkipLink } = await vite.ssrLoadModule('/src/components/Link/SkipLink.vue');
 const RouterLink = defineComponent({ setup: (_props, { slots, attrs }) => () => h('a', attrs, slots.default?.()) });
 
 const render = (component, props, attrs = {}) => renderToString(createSSRApp({ render: () => h(component, { ...props, ...attrs }, () => 'X') }));
@@ -43,7 +46,12 @@ for (const variant of ['primary', 'secondary', 'subtle']) {
     targets[`ButtonLink ${variant}`] = await render(ButtonLink, { variant }, { href: '#' });
     targets[`ButtonLink ${variant} as`] = await render(ButtonLink, { variant, as: RouterLink }, { href: '#' });
 }
+// Measured hidden and focused: it can only be seen and clicked once focused.
+targets.SkipLink = await render(SkipLink, { href: '#main' });
 await vite.close();
+
+// Targets that are also measured with focus on them.
+const alsoFocused = new Set(['SkipLink']);
 
 const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH || undefined });
 const page = await browser.newPage();
@@ -57,12 +65,23 @@ for (const scheme of Object.keys(tokens.color)) {
     await page.setContent(
         `<html data-color-scheme="${scheme}"><head><style>${utrecht}</style><style>${theme}</style></head><body class="mc-neutral-theme utrecht-document">${body}</body></html>`,
     );
-    const sizes = await page.$$eval('[data-target]', (elements) =>
-        elements.map((element) => {
-            const box = element.getBoundingClientRect();
-            return { name: element.dataset.name, width: box.width, height: box.height };
-        }),
-    );
+    const measure = (suffix) =>
+        page.$$eval(
+            '[data-target]',
+            (elements, suffix) =>
+                elements.map((element) => {
+                    const box = element.getBoundingClientRect();
+                    return { name: element.dataset.name + suffix, width: box.width, height: box.height };
+                }),
+            suffix,
+        );
+    const sizes = await measure('');
+    for (const [i, name] of Object.keys(targets).entries()) {
+        if (alsoFocused.has(name)) {
+            await page.focus(`[data-target="${i}"]`);
+            sizes.push(...(await measure(' (focused)')).filter((size) => size.name === `${name} (focused)`));
+        }
+    }
     for (const { name, width, height } of sizes) {
         checked++;
         if (width < min || height < min) {
