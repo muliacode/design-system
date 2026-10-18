@@ -31,4 +31,7 @@ jobs:
       - if: steps.packages.outputs.present == 'true'
         run: npm run build
       - if: steps.packages.outputs.present == 'true'
+        name: Install Chromium for the theme's scheme test
+        run: npx playwright install --with-deps chromium
+      - if: steps.packages.outputs.present == 'true'
         run: npm test

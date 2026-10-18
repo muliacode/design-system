@@ -2,9 +2,15 @@
  * The neutral theme's mapping onto Utrecht component tokens. Every value
  * refers to a palette or scale variable (--mc-neutral-*), generated from
  * neutral.tokens.json, so the colour schemes switch by changing those only.
+ *
+ * The mapping is declared again on every element with a data-color-scheme:
+ * a custom property's var() is resolved where it is declared, so without
+ * that, a scheme set below :root would change the palette there but leave
+ * the inherited Utrecht tokens on the old values.
  */
 :root,
-.mc-neutral-theme {
+.mc-neutral-theme,
+[data-color-scheme] {
   /* Document and text */
   --utrecht-document-background-color: var(--mc-neutral-bg-document);
   --utrecht-document-color: var(--mc-neutral-text-default);
@@ -122,7 +128,7 @@
   --utrecht-form-control-background-color: var(--mc-neutral-bg-surface);
   --utrecht-form-control-color: var(--mc-neutral-text-default);
   --utrecht-form-control-border-color: var(--mc-neutral-border-control);
-  --utrecht-form-control-border-width: var(--mc-neutral-border-width-control);
+  --utrecht-form-control-border-width: var(--mc-neutral-control-border-width);
   --utrecht-form-control-border-radius: var(--mc-neutral-radius-md);
   --utrecht-form-control-font-family: var(--mc-neutral-font-family);
   --utrecht-form-control-font-size: var(--mc-neutral-font-size-body);
@@ -167,7 +173,7 @@
 
   /* Checkbox and radio button */
   --utrecht-checkbox-size: 24px;
-  --utrecht-checkbox-border-width: var(--mc-neutral-border-width-control);
+  --utrecht-checkbox-border-width: var(--mc-neutral-control-border-width);
   --utrecht-checkbox-border-color: var(--mc-neutral-border-control);
   --utrecht-checkbox-border-radius: var(--mc-neutral-radius-sm);
   --utrecht-checkbox-background-color: var(--mc-neutral-bg-surface);
@@ -184,7 +190,7 @@
 
   /* Alert */
   --utrecht-alert-border-radius: var(--mc-neutral-radius-md);
-  --utrecht-alert-border-width: var(--mc-neutral-border-width);
+  --utrecht-alert-border-width: var(--mc-neutral-alert-border-width);
   --utrecht-alert-padding-block-start: var(--mc-neutral-space-4);
   --utrecht-alert-padding-block-end: var(--mc-neutral-space-4);
   --utrecht-alert-padding-inline-start: var(--mc-neutral-space-4);
@@ -230,18 +236,12 @@
   --utrecht-skip-link-min-block-size: var(--mc-neutral-target-min);
 }
 
-/* The contrast scheme also draws controls and boundaries heavier. */
-[data-color-scheme='contrast'],
-[data-color-scheme='contrast'] .mc-neutral-theme {
-  --utrecht-form-control-border-width: 3px;
-  --utrecht-checkbox-border-width: 3px;
-  --utrecht-alert-border-width: 2px;
-}
 
 /* Windows high contrast: keep boundaries and focus rings visible. */
 @media (forced-colors: active) {
   :root,
-  .mc-neutral-theme {
+  .mc-neutral-theme,
+  [data-color-scheme] {
     --utrecht-focus-outline-color: Highlight;
     --utrecht-button-border-width: 2px;
     --utrecht-alert-border-width: 2px;
