@@ -1,0 +1,84 @@
+name: Release
+
+# Tag format: @muliacode/ui@<version>, for example @muliacode/ui@0.1.0.
+# The tag must match packages/ui/package.json, and CHANGELOG.md must have a
+# section for that version. v1 packages are released from the v1 branch.
+on:
+  push:
+    tags:
+      - '@muliacode/ui@*'
+
+permissions:
+  contents: write   # create the GitHub release
+  id-token: write   # npm provenance and trusted publishing
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      # Trusted publishing needs npm 11.5 or newer.
+      - run: npm install -g npm@latest
+
+      - name: Read the version from the tag
+        id: version
+        run: echo "version=${GITHUB_REF_NAME##*@}" >> "$GITHUB_OUTPUT"
+
+      - name: Check the tag matches package.json
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./packages/ui/package.json').version")
+          if [ "$PACKAGE_VERSION" != "${{ steps.version.outputs.version }}" ]; then
+            echo "::error::The tag says ${{ steps.version.outputs.version }} but package.json says $PACKAGE_VERSION. Fix one and tag again."
+            exit 1
+          fi
+
+      - name: Extract the changelog section
+        run: node packages/ui/scripts/changelog-section.mjs "${{ steps.version.outputs.version }}" > release-notes.md
+
+      - run: npm ci
+      - run: npm run build -w @muliacode/ui
+      - name: Install Chromium for the theme's scheme test
+        run: npx playwright install --with-deps chromium
+      - run: npm test -w @muliacode/ui
+
+      # Each of the last two steps checks whether its work is already done, so
+      # a failed run can simply be re-run: npm refuses to publish a version
+      # twice, and a release for the tag may already exist.
+      - name: Check what is already published
+        id: published
+        run: |
+          if npm view "@muliacode/ui@${{ steps.version.outputs.version }}" version > /dev/null 2>&1; then
+            echo "npm=true" >> "$GITHUB_OUTPUT"
+          fi
+          if gh release view "$GITHUB_REF_NAME" > /dev/null 2>&1; then
+            echo "release=true" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      # npm authenticates this workflow over OIDC (trusted publishing), so no
+      # token is stored anywhere. npm only allows that once the package
+      # exists: the very first version is published by hand, see
+      # CONTRIBUTING.md.
+      - name: Check the package exists on npm
+        if: steps.published.outputs.npm != 'true'
+        run: |
+          if ! npm view @muliacode/ui name > /dev/null 2>&1; then
+            echo "::error::@muliacode/ui is not on npm yet, so trusted publishing cannot work. Publish the first version by hand and set up the trusted publisher, see Releasing in CONTRIBUTING.md."
+            exit 1
+          fi
+
+      - name: Publish to npm
+        if: steps.published.outputs.npm != 'true'
+        run: npm publish -w @muliacode/ui --provenance --access public
+
+      - name: Create the GitHub release
+        if: steps.published.outputs.release != 'true'
+        run: gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --notes-file release-notes.md
+        env:
+          GH_TOKEN: ${{ github.token }}

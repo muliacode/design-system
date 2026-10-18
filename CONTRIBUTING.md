@@ -41,6 +41,32 @@ Semantic versioning on `@muliacode/ui`:
 | Prop, slot, event or class name renamed or removed | **major** |
 | A component's meaning or default behaviour changed | **major** |
 
+## Releasing
+
+1. Move the **Unreleased** entries in `packages/ui/CHANGELOG.md` under a new heading `## <version> (<date>)`, and set the same version in `packages/ui/package.json`. Merge that.
+2. Tag the merge commit and push the tag:
+
+   ```bash
+   git tag '@muliacode/ui@0.1.0' && git push origin '@muliacode/ui@0.1.0'
+   ```
+
+The release workflow checks that the tag matches `package.json` and that the changelog has the section, builds and tests the package, publishes it to npm with a provenance statement, and creates a GitHub release with that changelog section as its notes. If a run fails part-way, re-run it: it skips the npm publish and the GitHub release when they already exist.
+
+**One-time setup.** The workflow publishes over npm's trusted publishing (OIDC), like v1: no npm token is stored in the repository. npm only lets a package use trusted publishing once it exists, so the very first version is published by hand:
+
+1. On a clean checkout of the merged release commit, log in with an npm account that has two-factor authentication and can publish to `@muliacode`, then build, test and publish:
+
+   ```bash
+   npm ci && npm run build -w @muliacode/ui && npm test -w @muliacode/ui
+   npm publish -w @muliacode/ui --access public
+   ```
+
+   npm asks for a one-time password. This version has no provenance statement; every later one does.
+2. On npmjs.com, under the package's **Settings → Trusted publishing**, add GitHub Actions with repository `muliacode/design-system` and workflow `release.yml`. Then set **Publishing access** to require two-factor authentication and disallow tokens.
+3. Push the tag anyway: the workflow sees the version is already on npm, skips the publish and creates the GitHub release.
+
+If the tag is pushed before step 1, the workflow stops with an error pointing here instead of failing on authentication.
+
 ## Licence
 
 Everything in this repository, code, documentation and stories, is licensed under the EUPL, version 1.2. By opening a pull request you agree that your contribution is licensed the same way.

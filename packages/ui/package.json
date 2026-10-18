@@ -23,6 +23,7 @@
     "dist",
     "styles.css",
     "README.md",
+    "CHANGELOG.md",
     "LICENSE",
     "THIRD-PARTY-NOTICES.md"
   ],
@@ -63,5 +64,9 @@
     "vitest-axe": "^0.1.0",
     "vue": "^3.5.44",
     "vue-tsc": "^3.3.13"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }
