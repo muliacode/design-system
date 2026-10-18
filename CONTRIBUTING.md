@@ -9,6 +9,15 @@ This is v2 of the design system: `@muliacode/ui`, Vue components on the Utrecht 
 - **Tokens only.** Styling comes from design tokens. A raw colour or an off-grid size in a component is a defect.
 - **Native elements before ARIA.** A `<button>` beats a `<div role="button">`.
 
+## Working on components
+
+```bash
+npm install
+npm run storybook -w @muliacode/ui   # http://localhost:6006
+```
+
+Storybook shows every story in the neutral theme. Its toolbar switches between the light, dark and high-contrast schemes, which changes only token values; the Accessibility panel runs axe on the story you're looking at.
+
 ## Adding a component
 
 A component is done when it has:

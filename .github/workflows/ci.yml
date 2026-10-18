@@ -22,3 +22,6 @@ jobs:
       - name: Install Chromium for the theme's scheme test
         run: npx playwright install --with-deps chromium
       - run: npm test
+      - run: npm run typecheck -w @muliacode/ui
+      - name: Build Storybook
+        run: npm run build-storybook -w @muliacode/ui
