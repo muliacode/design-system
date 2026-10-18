@@ -20,6 +20,27 @@ export function ratio(a, b) {
 }
 
 let failures = 0;
+
+// A scheme or kind without a threshold would make every comparison false and
+// every pair pass, so a missing threshold is a failure in itself.
+for (const { kind } of config.pairs) {
+    if (!(kind in config.thresholds)) {
+        console.error(`Unknown kind "${kind}" in contrast.config.json; known kinds: ${Object.keys(config.thresholds).join(', ')}`);
+        process.exit(1);
+    }
+}
+for (const scheme of Object.keys(tokens.color)) {
+    for (const [kind, byScheme] of Object.entries(config.thresholds)) {
+        if (typeof byScheme[scheme] !== 'number') {
+            console.error(`contrast.config.json has no ${kind} threshold for the ${scheme} scheme`);
+            failures++;
+        }
+    }
+}
+if (failures > 0) {
+    process.exit(1);
+}
+
 for (const [scheme, colours] of Object.entries(tokens.color)) {
     for (const { fg, bg, kind } of config.pairs) {
         if (!(fg in colours) || !(bg in colours)) {

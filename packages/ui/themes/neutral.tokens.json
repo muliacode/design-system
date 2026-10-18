@@ -1,5 +1,5 @@
 {
-  "$description": "The neutral default theme of @muliacode/ui: a brand-free palette in three colour schemes. scripts/build-theme.mjs turns it into themes/neutral.css; scripts/validate-contrast.mjs checks it against contrast.config.json.",
+  "$description": "The neutral default theme of @muliacode/ui: a brand-free palette in three colour schemes. Every scheme defines the same names under color and width. scripts/build-theme.mjs turns it into dist/themes/neutral.css; scripts/validate-contrast.mjs checks it against contrast.config.json.",
   "color": {
     "light": {
       "bg-document": "#f6f6f7",
@@ -63,6 +63,20 @@
       "status-warning-bg": "#fff1c9",
       "status-info": "#0f3a66",
       "status-info-bg": "#e6f0fb"
+    }
+  },
+  "width": {
+    "light": {
+      "control-border-width": "2px",
+      "alert-border-width": "1px"
+    },
+    "dark": {
+      "control-border-width": "2px",
+      "alert-border-width": "1px"
+    },
+    "contrast": {
+      "control-border-width": "3px",
+      "alert-border-width": "2px"
     }
   },
   "dimension": {
