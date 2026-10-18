@@ -3,20 +3,26 @@
 //
 //   node scripts/changelog-section.mjs 0.1.0
 import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 
-const version = process.argv[2];
-if (!version) {
-    console.error('Usage: changelog-section.mjs <version>');
-    process.exit(2);
+// The section's text, or null when CHANGELOG.md has none for this version.
+export function sectionFor(version) {
+    const changelog = readFileSync(new URL('../CHANGELOG.md', import.meta.url), 'utf8');
+    const sections = changelog.split(/^## /m).slice(1);
+    const section = sections.find((s) => s.startsWith(`${version} `) || s.startsWith(`${version}\n`) || s.startsWith(`[${version}]`));
+    return section ? section.slice(section.indexOf('\n') + 1).trim() : null;
 }
 
-const changelog = readFileSync(new URL('../CHANGELOG.md', import.meta.url), 'utf8');
-const sections = changelog.split(/^## /m).slice(1);
-const section = sections.find((s) => s.startsWith(`${version} `) || s.startsWith(`${version}\n`) || s.startsWith(`[${version}]`));
-
-if (!section) {
-    console.error(`CHANGELOG.md has no section for ${version}. Rename "Unreleased" to "${version} (YYYY-MM-DD)" before tagging.`);
-    process.exit(1);
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+    const version = process.argv[2];
+    if (!version) {
+        console.error('Usage: changelog-section.mjs <version>');
+        process.exit(2);
+    }
+    const section = sectionFor(version);
+    if (section === null) {
+        console.error(`CHANGELOG.md has no section for ${version}. Rename "Unreleased" to "${version} (YYYY-MM-DD)" before tagging.`);
+        process.exit(1);
+    }
+    process.stdout.write(section + '\n');
 }
-
-process.stdout.write(section.slice(section.indexOf('\n') + 1).trim() + '\n');

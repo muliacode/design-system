@@ -31,6 +31,7 @@
     "*.css"
   ],
   "scripts": {
+    "prepublishOnly": "node scripts/check-publish.mjs && npm run build",
     "build": "vite build && vue-tsc -p tsconfig.build.json && node scripts/build-theme.mjs",
     "typecheck": "vue-tsc -p tsconfig.json --noEmit",
     "validate": "node scripts/validate-contrast.mjs",
