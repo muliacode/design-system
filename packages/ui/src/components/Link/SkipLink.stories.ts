@@ -13,7 +13,7 @@ const meta = {
             <div>
                 <SkipLink v-bind="args">Skip to main content</SkipLink>
                 <p class="utrecht-paragraph">Press Tab to show the skip link.</p>
-                <nav aria-label="Main"><a class="utrecht-link utrecht-link--html-a" href="#subscriptions">Subscriptions</a></nav>
+                <nav aria-label="Main"><a class="utrecht-button-link utrecht-button-link--html-a utrecht-button-link--subtle" href="#subscriptions">Subscriptions</a></nav>
                 <main id="main"><p class="utrecht-paragraph">The main content.</p></main>
             </div>
         `,
