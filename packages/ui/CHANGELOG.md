@@ -8,8 +8,8 @@ Add changes under **Unreleased** as they are merged. A release renames that sect
 
 ### Added
 
-- `Button`: primary, secondary, subtle and danger variants, `type="button"` by default. `disabled` and `loading` keep it focusable with `aria-disabled`, emit no click and don't submit the form; `loadingText` shows while loading.
-- `ButtonLink`: a link styled as a button, primary, secondary or subtle; `as` renders the app's router link.
+- `Button`: primary, secondary, subtle and danger variants, `type="button"` by default. `disabled` and `loading` keep it focusable with `aria-disabled`, emit no click (nor let it reach ancestors) and don't submit the form; `loading` also sets `aria-busy`, and `loadingText` shows while loading.
+- `ButtonLink`: a link styled as a button, primary, secondary or subtle; `as` renders the app's router link. `ButtonLinkVariant` is exported.
 - A browser check that every control is at least 44 by 44 px in every colour scheme (`npm run test:targets`).
 
 ## 0.1.0 (2026-10-18)

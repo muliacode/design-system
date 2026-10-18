@@ -6,7 +6,11 @@
 // (npx playwright install chromium).
 import { readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
+import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
+import { createServer } from 'vite';
+import { createSSRApp, defineComponent, h } from 'vue';
+import { renderToString } from 'vue/server-renderer';
 
 const require = createRequire(import.meta.url);
 const utrecht = readFileSync(require.resolve('@utrecht/component-library-css/dist/index.css'), 'utf8');
@@ -14,17 +18,32 @@ const theme = readFileSync(new URL('../dist/themes/neutral.css', import.meta.url
 const tokens = JSON.parse(readFileSync(new URL('../themes/neutral.tokens.json', import.meta.url), 'utf8'));
 const min = Number.parseFloat(tokens.dimension['target-min']);
 
-// The markup each component renders, as in its tests.
-const targets = {
-    'Button primary': '<button type="button" class="utrecht-button utrecht-button--primary-action">X</button>',
-    'Button secondary': '<button type="button" class="utrecht-button utrecht-button--secondary-action">X</button>',
-    'Button subtle': '<button type="button" class="utrecht-button utrecht-button--subtle">X</button>',
-    'Button danger': '<button type="button" class="utrecht-button utrecht-button--primary-action utrecht-button--danger">X</button>',
-    'Button disabled': '<button type="button" class="utrecht-button utrecht-button--primary-action utrecht-button--disabled" aria-disabled="true">X</button>',
-    'ButtonLink primary': '<a href="#" class="utrecht-button-link utrecht-button-link--html-a utrecht-button-link--primary-action">X</a>',
-    'ButtonLink secondary': '<a href="#" class="utrecht-button-link utrecht-button-link--html-a utrecht-button-link--secondary-action">X</a>',
-    'ButtonLink subtle': '<a href="#" class="utrecht-button-link utrecht-button-link--html-a utrecht-button-link--subtle">X</a>',
-};
+// The real components, server-rendered through Vite, so a new variant or state
+// can't drift from what is checked here. Every variant is rendered in every
+// state it supports; `as` is covered with a stand-in for a router link.
+const vite = await createServer({
+    root: fileURLToPath(new URL('../', import.meta.url)),
+    server: { middlewareMode: true },
+    appType: 'custom',
+    logLevel: 'error',
+});
+const { default: Button } = await vite.ssrLoadModule('/src/components/Button/Button.vue');
+const { default: ButtonLink } = await vite.ssrLoadModule('/src/components/Button/ButtonLink.vue');
+const RouterLink = defineComponent({ setup: (_props, { slots, attrs }) => () => h('a', attrs, slots.default?.()) });
+
+const render = (component, props, attrs = {}) => renderToString(createSSRApp({ render: () => h(component, { ...props, ...attrs }, () => 'X') }));
+
+const targets = {};
+for (const variant of ['primary', 'secondary', 'subtle', 'danger']) {
+    targets[`Button ${variant}`] = await render(Button, { variant });
+    targets[`Button ${variant} disabled`] = await render(Button, { variant, disabled: true });
+    targets[`Button ${variant} loading`] = await render(Button, { variant, loading: true, loadingText: 'Saving…' });
+}
+for (const variant of ['primary', 'secondary', 'subtle']) {
+    targets[`ButtonLink ${variant}`] = await render(ButtonLink, { variant }, { href: '#' });
+    targets[`ButtonLink ${variant} as`] = await render(ButtonLink, { variant, as: RouterLink }, { href: '#' });
+}
+await vite.close();
 
 const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH || undefined });
 const page = await browser.newPage();

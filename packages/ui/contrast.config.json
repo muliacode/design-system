@@ -22,6 +22,7 @@
     { "fg": "status-warning", "bg": "status-warning-bg", "kind": "text" },
     { "fg": "status-info", "bg": "status-info-bg", "kind": "text" },
     { "fg": "status-negative", "bg": "bg-surface", "kind": "text" },
+    { "fg": "status-negative-hover", "bg": "bg-surface", "kind": "text" },
     { "fg": "text-default", "bg": "status-positive-bg", "kind": "text" },
     { "fg": "text-default", "bg": "status-negative-bg", "kind": "text" },
     { "fg": "text-default", "bg": "status-warning-bg", "kind": "text" },
@@ -30,6 +31,7 @@
     { "fg": "border-control", "bg": "bg-document", "kind": "non-text" },
     { "fg": "focus-ring", "bg": "bg-document", "kind": "non-text" },
     { "fg": "focus-ring", "bg": "bg-surface", "kind": "non-text" },
-    { "fg": "status-negative", "bg": "bg-surface", "kind": "non-text" }
+    { "fg": "status-negative", "bg": "bg-surface", "kind": "non-text" },
+    { "fg": "status-negative-hover", "bg": "bg-surface", "kind": "non-text" }
   ]
 }

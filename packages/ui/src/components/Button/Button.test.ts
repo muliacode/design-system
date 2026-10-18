@@ -69,6 +69,20 @@ describe('Button', () => {
             expect(onClick).not.toHaveBeenCalled();
         });
 
+        it('does not let the click reach its ancestors', async () => {
+            const user = userEvent.setup();
+            const onAncestorClick = vi.fn();
+            render(
+                defineComponent({
+                    setup: () => () => h('div', { onClick: onAncestorClick }, [h(Button, props, () => 'Save')]),
+                }),
+            );
+
+            await user.click(screen.getByRole('button', { name: 'Save' }));
+
+            expect(onAncestorClick).not.toHaveBeenCalled();
+        });
+
         it('does not submit its form, by click or by Enter in a field', async () => {
             const user = userEvent.setup();
             const onSubmit = vi.fn((event: Event) => event.preventDefault());
@@ -108,11 +122,20 @@ describe('Button', () => {
 
         const button = screen.getByRole('button', { name: 'Saving…' });
         expect(button.classList).toContain('utrecht-button--busy');
+        expect(button.getAttribute('aria-busy')).toBe('true');
+    });
+
+    it('is not busy unless loading', () => {
+        render(Button, { props: { disabled: true }, slots: { default: 'Save' } });
+
+        expect(screen.getByRole('button', { name: 'Save' }).hasAttribute('aria-busy')).toBe(false);
     });
 
     it('keeps its label while loading without a loading text', () => {
         render(Button, { props: { loading: true }, slots: { default: 'Save' } });
 
-        expect(screen.getByRole('button', { name: 'Save' }).classList).toContain('utrecht-button--busy');
+        const button = screen.getByRole('button', { name: 'Save' });
+        expect(button.classList).toContain('utrecht-button--busy');
+        expect(button.getAttribute('aria-busy')).toBe('true');
     });
 });

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, type Component } from 'vue';
 
+export type ButtonLinkVariant = 'primary' | 'secondary' | 'subtle';
+
 /**
  * A link that looks like a button, for the main way to another page ("Add a
  * subscription"). It is still a link: it goes somewhere, and screen readers
@@ -15,17 +17,19 @@ import { computed, type Component } from 'vue';
  */
 const props = withDefaults(
     defineProps<{
-        variant?: 'primary' | 'secondary' | 'subtle';
+        variant?: ButtonLinkVariant;
         as?: string | Component;
     }>(),
     { variant: 'secondary', as: 'a' },
 );
 
-const classes = computed(() => [
-    'utrecht-button-link',
-    'utrecht-button-link--html-a',
-    props.variant === 'subtle' ? 'utrecht-button-link--subtle' : `utrecht-button-link--${props.variant}-action`,
-]);
+const variantClass: Record<ButtonLinkVariant, string> = {
+    primary: 'utrecht-button-link--primary-action',
+    secondary: 'utrecht-button-link--secondary-action',
+    subtle: 'utrecht-button-link--subtle',
+};
+
+const classes = computed(() => ['utrecht-button-link', 'utrecht-button-link--html-a', variantClass[props.variant]]);
 </script>
 
 <template>
