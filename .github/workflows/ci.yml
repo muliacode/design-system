@@ -17,18 +17,6 @@ jobs:
       - uses: actions/setup-node@v7
         with: { node-version: 22 }
 
-      # Until packages/ui lands (#3) there is no workspace to build, and npm
-      # fails on --workspaces with none.
-      - name: Check for packages
-        id: packages
-        run: |
-          if ls packages/*/package.json > /dev/null 2>&1; then
-            echo "present=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - if: steps.packages.outputs.present == 'true'
-        run: npm ci
-      - if: steps.packages.outputs.present == 'true'
-        run: npm run build
-      - if: steps.packages.outputs.present == 'true'
-        run: npm test
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
