@@ -1,0 +1,106 @@
+{
+  "$description": "The neutral default theme of @muliacode/ui: a brand-free palette in three colour schemes. Every scheme defines the same names under color and width. scripts/build-theme.mjs turns it into dist/themes/neutral.css; scripts/validate-contrast.mjs checks it against contrast.config.json.",
+  "color": {
+    "light": {
+      "bg-document": "#f6f6f7",
+      "bg-surface": "#ffffff",
+      "bg-subtle": "#ececef",
+      "text-default": "#1a1a1f",
+      "text-subtle": "#4c4c57",
+      "border-default": "#d2d2d8",
+      "border-control": "#6b6b77",
+      "action": "#1d4ed8",
+      "action-hover": "#1e3a8a",
+      "on-action": "#ffffff",
+      "focus-ring": "#1a1a1f",
+      "status-positive": "#166534",
+      "status-positive-bg": "#e3f2e8",
+      "status-negative": "#b42318",
+      "status-negative-bg": "#fce8e6",
+      "status-warning": "#8a4600",
+      "status-warning-bg": "#fdf0d8",
+      "status-info": "#1d4f91",
+      "status-info-bg": "#e5eef9"
+    },
+    "dark": {
+      "bg-document": "#121215",
+      "bg-surface": "#1c1c21",
+      "bg-subtle": "#27272d",
+      "text-default": "#ededf1",
+      "text-subtle": "#b6b6c1",
+      "border-default": "#3c3c44",
+      "border-control": "#8d8d99",
+      "action": "#9db7ff",
+      "action-hover": "#c3d3ff",
+      "on-action": "#121215",
+      "focus-ring": "#ffd166",
+      "status-positive": "#7fd3a0",
+      "status-positive-bg": "#14301f",
+      "status-negative": "#ff9d92",
+      "status-negative-bg": "#3d1915",
+      "status-warning": "#f5c46e",
+      "status-warning-bg": "#3a2b0f",
+      "status-info": "#9ec8ff",
+      "status-info-bg": "#14283f"
+    },
+    "contrast": {
+      "bg-document": "#ffffff",
+      "bg-surface": "#ffffff",
+      "bg-subtle": "#f2f2f2",
+      "text-default": "#000000",
+      "text-subtle": "#262626",
+      "border-default": "#595959",
+      "border-control": "#000000",
+      "action": "#13286b",
+      "action-hover": "#0a1640",
+      "on-action": "#ffffff",
+      "focus-ring": "#000000",
+      "status-positive": "#0b4524",
+      "status-positive-bg": "#e6f4ea",
+      "status-negative": "#7a1610",
+      "status-negative-bg": "#fde8e5",
+      "status-warning": "#5c3300",
+      "status-warning-bg": "#fff1c9",
+      "status-info": "#0f3a66",
+      "status-info-bg": "#e6f0fb"
+    }
+  },
+  "width": {
+    "light": {
+      "control-border-width": "2px",
+      "alert-border-width": "1px"
+    },
+    "dark": {
+      "control-border-width": "2px",
+      "alert-border-width": "1px"
+    },
+    "contrast": {
+      "control-border-width": "3px",
+      "alert-border-width": "2px"
+    }
+  },
+  "dimension": {
+    "space-1": "4px",
+    "space-2": "8px",
+    "space-3": "12px",
+    "space-4": "16px",
+    "space-6": "24px",
+    "space-8": "32px",
+    "radius-sm": "4px",
+    "radius-md": "6px",
+    "radius-lg": "12px",
+    "radius-round": "999px",
+    "target-min": "44px",
+    "focus-width": "3px",
+    "focus-offset": "2px",
+    "border-width": "1px",
+    "border-width-control": "2px"
+  },
+  "font": {
+    "font-family": "system-ui, -apple-system, \"Segoe UI\", Roboto, sans-serif",
+    "font-size-body": "16px",
+    "line-height-body": "24px",
+    "font-size-small": "14px",
+    "line-height-small": "20px"
+  }
+}

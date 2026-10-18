@@ -1,0 +1,249 @@
+/*
+ * The neutral theme's mapping onto Utrecht component tokens. Every value
+ * refers to a palette or scale variable (--mc-neutral-*), generated from
+ * neutral.tokens.json, so the colour schemes switch by changing those only.
+ *
+ * The mapping is declared again on every element with a data-color-scheme:
+ * a custom property's var() is resolved where it is declared, so without
+ * that, a scheme set below :root would change the palette there but leave
+ * the inherited Utrecht tokens on the old values.
+ */
+:root,
+.mc-neutral-theme,
+[data-color-scheme] {
+  /* Document and text */
+  --utrecht-document-background-color: var(--mc-neutral-bg-document);
+  --utrecht-document-color: var(--mc-neutral-text-default);
+  --utrecht-document-font-family: var(--mc-neutral-font-family);
+  --utrecht-document-font-size: var(--mc-neutral-font-size-body);
+  --utrecht-document-font-weight: 400;
+  --utrecht-document-line-height: var(--mc-neutral-line-height-body);
+  --utrecht-paragraph-font-size: var(--mc-neutral-font-size-body);
+  --utrecht-paragraph-line-height: var(--mc-neutral-line-height-body);
+  --utrecht-paragraph-margin-block-start: 0;
+  --utrecht-paragraph-margin-block-end: var(--mc-neutral-space-4);
+  --utrecht-paragraph-small-font-size: var(--mc-neutral-font-size-small);
+  --utrecht-paragraph-small-line-height: var(--mc-neutral-line-height-small);
+  --utrecht-heading-font-family: var(--mc-neutral-font-family);
+  --utrecht-heading-font-weight: 700;
+  --utrecht-heading-color: var(--mc-neutral-text-default);
+  --utrecht-heading-1-font-size: 28px;
+  --utrecht-heading-1-line-height: 36px;
+  --utrecht-heading-1-margin-block-start: 0;
+  --utrecht-heading-1-margin-block-end: var(--mc-neutral-space-4);
+  --utrecht-heading-2-font-size: 22px;
+  --utrecht-heading-2-line-height: 30px;
+  --utrecht-heading-2-margin-block-start: 0;
+  --utrecht-heading-2-margin-block-end: var(--mc-neutral-space-3);
+  --utrecht-heading-3-font-size: 18px;
+  --utrecht-heading-3-line-height: 26px;
+  --utrecht-heading-3-margin-block-start: 0;
+  --utrecht-heading-3-margin-block-end: var(--mc-neutral-space-2);
+  --utrecht-heading-4-font-size: 16px;
+  --utrecht-heading-4-line-height: 24px;
+  --utrecht-heading-5-font-size: 16px;
+  --utrecht-heading-5-line-height: 24px;
+  --utrecht-heading-6-font-size: 16px;
+  --utrecht-heading-6-line-height: 24px;
+  /* Spacing between neighbouring elements in rich text and on --distanced
+     elements, from close (best friend) to far (stranger). */
+  --utrecht-rich-text-best-friend-margin-block-end: var(--mc-neutral-space-1);
+  --utrecht-rich-text-confidant-margin-block-end: var(--mc-neutral-space-2);
+  --utrecht-rich-text-friend-margin-block-end: var(--mc-neutral-space-2);
+  --utrecht-rich-text-acquaintance-margin-block-end: var(--mc-neutral-space-4);
+  --utrecht-rich-text-stranger-margin-block-end: var(--mc-neutral-space-8);
+  --utrecht-separator-color: var(--mc-neutral-border-default);
+  --utrecht-separator-block-size: var(--mc-neutral-border-width);
+
+  /* Focus and targets */
+  --utrecht-focus-outline-color: var(--mc-neutral-focus-ring);
+  --utrecht-focus-outline-width: var(--mc-neutral-focus-width);
+  --utrecht-focus-outline-offset: var(--mc-neutral-focus-offset);
+  --utrecht-focus-outline-style: solid;
+  --utrecht-focus-inverse-outline-color: var(--mc-neutral-bg-surface);
+  --utrecht-pointer-target-min-size: var(--mc-neutral-target-min);
+
+  /* Link */
+  --utrecht-link-color: var(--mc-neutral-action);
+  --utrecht-link-visited-color: var(--mc-neutral-action);
+  --utrecht-link-hover-color: var(--mc-neutral-action-hover);
+  --utrecht-link-active-color: var(--mc-neutral-action-hover);
+  --utrecht-link-focus-color: var(--mc-neutral-action);
+  --utrecht-link-text-decoration: underline;
+  --utrecht-link-text-decoration-thickness: 1px;
+  --utrecht-link-text-underline-offset: 3px;
+  --utrecht-link-hover-text-decoration: underline;
+  --utrecht-link-hover-text-decoration-thickness: 2px;
+  --utrecht-link-current-font-weight: 700;
+
+  /* Button */
+  --utrecht-button-font-family: var(--mc-neutral-font-family);
+  --utrecht-button-font-size: var(--mc-neutral-font-size-body);
+  --utrecht-button-font-weight: 600;
+  --utrecht-button-line-height: var(--mc-neutral-line-height-body);
+  --utrecht-button-border-radius: var(--mc-neutral-radius-md);
+  --utrecht-button-border-width: var(--mc-neutral-border-width-control);
+  --utrecht-button-column-gap: var(--mc-neutral-space-2);
+  --utrecht-button-min-block-size: var(--mc-neutral-target-min);
+  --utrecht-button-min-inline-size: var(--mc-neutral-target-min);
+  --utrecht-button-padding-block-start: var(--mc-neutral-space-2);
+  --utrecht-button-padding-block-end: var(--mc-neutral-space-2);
+  --utrecht-button-padding-inline-start: var(--mc-neutral-space-4);
+  --utrecht-button-padding-inline-end: var(--mc-neutral-space-4);
+  --utrecht-button-primary-action-background-color: var(--mc-neutral-action);
+  --utrecht-button-primary-action-border-color: var(--mc-neutral-action);
+  --utrecht-button-primary-action-color: var(--mc-neutral-on-action);
+  --utrecht-button-primary-action-hover-background-color: var(--mc-neutral-action-hover);
+  --utrecht-button-primary-action-hover-border-color: var(--mc-neutral-action-hover);
+  --utrecht-button-primary-action-hover-color: var(--mc-neutral-on-action);
+  --utrecht-button-primary-action-active-background-color: var(--mc-neutral-action-hover);
+  --utrecht-button-primary-action-active-color: var(--mc-neutral-on-action);
+  --utrecht-button-primary-action-focus-background-color: var(--mc-neutral-action);
+  --utrecht-button-primary-action-focus-color: var(--mc-neutral-on-action);
+  --utrecht-button-secondary-action-background-color: var(--mc-neutral-bg-surface);
+  --utrecht-button-secondary-action-border-color: var(--mc-neutral-action);
+  --utrecht-button-secondary-action-color: var(--mc-neutral-action);
+  --utrecht-button-secondary-action-hover-background-color: var(--mc-neutral-bg-surface);
+  --utrecht-button-secondary-action-hover-border-color: var(--mc-neutral-action-hover);
+  --utrecht-button-secondary-action-hover-color: var(--mc-neutral-action-hover);
+  --utrecht-button-secondary-action-focus-background-color: var(--mc-neutral-bg-surface);
+  --utrecht-button-secondary-action-focus-color: var(--mc-neutral-action);
+  --utrecht-button-subtle-background-color: transparent;
+  --utrecht-button-subtle-border-color: transparent;
+  --utrecht-button-subtle-color: var(--mc-neutral-action);
+  --utrecht-button-subtle-hover-background-color: var(--mc-neutral-bg-subtle);
+  --utrecht-button-subtle-hover-border-color: transparent;
+  --utrecht-button-subtle-hover-color: var(--mc-neutral-action-hover);
+  --utrecht-button-primary-action-danger-background-color: var(--mc-neutral-status-negative);
+  --utrecht-button-primary-action-danger-border-color: var(--mc-neutral-status-negative);
+  --utrecht-button-primary-action-danger-color: var(--mc-neutral-bg-surface);
+  --utrecht-button-secondary-action-danger-background-color: var(--mc-neutral-bg-surface);
+  --utrecht-button-secondary-action-danger-border-color: var(--mc-neutral-status-negative);
+  --utrecht-button-secondary-action-danger-color: var(--mc-neutral-status-negative);
+  --utrecht-button-disabled-background-color: var(--mc-neutral-bg-subtle);
+  --utrecht-button-disabled-border-color: var(--mc-neutral-border-default);
+  --utrecht-button-disabled-color: var(--mc-neutral-text-subtle);
+
+  /* Form controls: textbox, textarea, select */
+  --utrecht-form-control-background-color: var(--mc-neutral-bg-surface);
+  --utrecht-form-control-color: var(--mc-neutral-text-default);
+  --utrecht-form-control-border-color: var(--mc-neutral-border-control);
+  --utrecht-form-control-border-width: var(--mc-neutral-control-border-width);
+  --utrecht-form-control-border-radius: var(--mc-neutral-radius-md);
+  --utrecht-form-control-font-family: var(--mc-neutral-font-family);
+  --utrecht-form-control-font-size: var(--mc-neutral-font-size-body);
+  --utrecht-form-control-line-height: var(--mc-neutral-line-height-body);
+  --utrecht-form-control-padding-block-start: var(--mc-neutral-space-2);
+  --utrecht-form-control-padding-block-end: var(--mc-neutral-space-2);
+  --utrecht-form-control-padding-inline-start: var(--mc-neutral-space-3);
+  --utrecht-form-control-padding-inline-end: var(--mc-neutral-space-3);
+  --utrecht-form-control-max-inline-size: 32rem;
+  --utrecht-form-control-hover-border-color: var(--mc-neutral-text-default);
+  --utrecht-form-control-focus-border-color: var(--mc-neutral-action);
+  --utrecht-form-control-invalid-border-color: var(--mc-neutral-status-negative);
+  --utrecht-form-control-disabled-background-color: var(--mc-neutral-bg-subtle);
+  --utrecht-form-control-disabled-border-color: var(--mc-neutral-border-default);
+  --utrecht-form-control-disabled-color: var(--mc-neutral-text-subtle);
+  --utrecht-form-control-read-only-background-color: var(--mc-neutral-bg-subtle);
+  --utrecht-form-control-placeholder-color: var(--mc-neutral-text-subtle);
+
+  /* Form field, label, description, error message, fieldset */
+  --utrecht-form-field-margin-block-start: 0;
+  --utrecht-form-field-margin-block-end: var(--mc-neutral-space-6);
+  --utrecht-form-field-label-margin-block-end: var(--mc-neutral-space-2);
+  --utrecht-form-field-description-color: var(--mc-neutral-text-subtle);
+  --utrecht-form-field-error-message-color: var(--mc-neutral-status-negative);
+  --utrecht-form-field-invalid-border-inline-start-color: var(--mc-neutral-status-negative);
+  --utrecht-form-field-invalid-border-inline-start-width: 4px;
+  --utrecht-form-field-invalid-padding-inline-start: var(--mc-neutral-space-4);
+  --utrecht-form-label-color: var(--mc-neutral-text-default);
+  --utrecht-form-label-font-weight: 600;
+  --utrecht-form-label-checkbox-font-weight: 400;
+  --utrecht-form-label-radio-font-weight: 400;
+  --utrecht-form-fieldset-legend-color: var(--mc-neutral-text-default);
+  --utrecht-form-fieldset-legend-font-family: var(--mc-neutral-font-family);
+  --utrecht-form-fieldset-legend-font-weight: 600;
+  --utrecht-form-fieldset-legend-margin-block-end: var(--mc-neutral-space-3);
+  --utrecht-form-fieldset-margin-block-end: var(--mc-neutral-space-6);
+  --utrecht-feedback-invalid-color: var(--mc-neutral-status-negative);
+  --utrecht-feedback-danger-color: var(--mc-neutral-status-negative);
+  --utrecht-feedback-valid-color: var(--mc-neutral-status-positive);
+  --utrecht-feedback-safe-color: var(--mc-neutral-status-positive);
+  --utrecht-feedback-warning-color: var(--mc-neutral-status-warning);
+
+  /* Checkbox and radio button */
+  --utrecht-checkbox-size: 24px;
+  --utrecht-checkbox-border-width: var(--mc-neutral-control-border-width);
+  --utrecht-checkbox-border-color: var(--mc-neutral-border-control);
+  --utrecht-checkbox-border-radius: var(--mc-neutral-radius-sm);
+  --utrecht-checkbox-background-color: var(--mc-neutral-bg-surface);
+  --utrecht-checkbox-checked-background-color: var(--mc-neutral-action);
+  --utrecht-checkbox-checked-border-color: var(--mc-neutral-action);
+  --utrecht-checkbox-checked-color: var(--mc-neutral-on-action);
+  --utrecht-checkbox-invalid-border-color: var(--mc-neutral-status-negative);
+  --utrecht-radio-button-size: 24px;
+  --utrecht-radio-button-border-width: var(--mc-neutral-border-width-control);
+  --utrecht-radio-button-border-color: var(--mc-neutral-border-control);
+  --utrecht-radio-button-background-color: var(--mc-neutral-bg-surface);
+  --utrecht-radio-button-checked-border-color: var(--mc-neutral-action);
+  --utrecht-radio-button-checked-color: var(--mc-neutral-action);
+
+  /* Alert */
+  --utrecht-alert-border-radius: var(--mc-neutral-radius-md);
+  --utrecht-alert-border-width: var(--mc-neutral-alert-border-width);
+  --utrecht-alert-padding-block-start: var(--mc-neutral-space-4);
+  --utrecht-alert-padding-block-end: var(--mc-neutral-space-4);
+  --utrecht-alert-padding-inline-start: var(--mc-neutral-space-4);
+  --utrecht-alert-padding-inline-end: var(--mc-neutral-space-4);
+  --utrecht-alert-info-background-color: var(--mc-neutral-status-info-bg);
+  --utrecht-alert-info-border-color: var(--mc-neutral-status-info);
+  --utrecht-alert-info-color: var(--mc-neutral-text-default);
+  --utrecht-alert-ok-background-color: var(--mc-neutral-status-positive-bg);
+  --utrecht-alert-ok-border-color: var(--mc-neutral-status-positive);
+  --utrecht-alert-ok-color: var(--mc-neutral-text-default);
+  --utrecht-alert-warning-background-color: var(--mc-neutral-status-warning-bg);
+  --utrecht-alert-warning-border-color: var(--mc-neutral-status-warning);
+  --utrecht-alert-warning-color: var(--mc-neutral-text-default);
+  --utrecht-alert-error-background-color: var(--mc-neutral-status-negative-bg);
+  --utrecht-alert-error-border-color: var(--mc-neutral-status-negative);
+  --utrecht-alert-error-color: var(--mc-neutral-text-default);
+
+  /* Status badge */
+  --utrecht-status-badge-border-radius: var(--mc-neutral-radius-sm);
+  --utrecht-status-badge-safe-background-color: var(--mc-neutral-status-positive-bg);
+  --utrecht-status-badge-safe-color: var(--mc-neutral-status-positive);
+  --utrecht-status-badge-warning-background-color: var(--mc-neutral-status-warning-bg);
+  --utrecht-status-badge-warning-color: var(--mc-neutral-status-warning);
+  --utrecht-status-badge-danger-background-color: var(--mc-neutral-status-negative-bg);
+  --utrecht-status-badge-danger-color: var(--mc-neutral-status-negative);
+  --utrecht-status-badge-neutral-background-color: var(--mc-neutral-bg-subtle);
+  --utrecht-status-badge-neutral-color: var(--mc-neutral-text-default);
+
+  /* Table */
+  --utrecht-table-border-color: var(--mc-neutral-border-default);
+  --utrecht-table-header-background-color: var(--mc-neutral-bg-subtle);
+  --utrecht-table-header-color: var(--mc-neutral-text-default);
+  --utrecht-table-cell-padding-block-start: var(--mc-neutral-space-2);
+  --utrecht-table-cell-padding-block-end: var(--mc-neutral-space-2);
+  --utrecht-table-cell-padding-inline-start: var(--mc-neutral-space-3);
+  --utrecht-table-cell-padding-inline-end: var(--mc-neutral-space-3);
+  --utrecht-table-row-border-block-end-color: var(--mc-neutral-border-default);
+  --utrecht-table-row-border-block-end-width: var(--mc-neutral-border-width);
+
+  /* Skip link */
+  --utrecht-skip-link-background-color: var(--mc-neutral-bg-surface);
+  --utrecht-skip-link-color: var(--mc-neutral-action);
+  --utrecht-skip-link-min-block-size: var(--mc-neutral-target-min);
+}
+
+
+/* Windows high contrast: keep boundaries and focus rings visible. */
+@media (forced-colors: active) {
+  :root,
+  .mc-neutral-theme,
+  [data-color-scheme] {
+    --utrecht-focus-outline-color: Highlight;
+    --utrecht-button-border-width: 2px;
+    --utrecht-alert-border-width: 2px;
+  }
+}

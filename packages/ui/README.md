@@ -12,11 +12,11 @@ npm install @muliacode/ui
 
 ## Use
 
-Import the Utrecht CSS once, then the app's theme, then use the components:
+Import the Utrecht CSS once, then a theme, then use the components:
 
 ```ts
 import '@muliacode/ui/styles.css';
-import './my-theme.css';
+import '@muliacode/ui/themes/neutral.css'; // or your app's own theme
 ```
 
 ```vue
@@ -30,6 +30,24 @@ import { Heading } from '@muliacode/ui';
 ```
 
 Every component is its own module, so a bundler includes only the ones you import.
+
+## Theming
+
+The components take every colour, size and font from **Utrecht component tokens**: CSS custom properties named `--utrecht-<component>-<property>`, such as `--utrecht-button-primary-action-background-color`. That is the whole contract: a theme is a stylesheet that sets those tokens, and nothing else is needed.
+
+- **Where:** on `:root`, or on a theme class to scope it, for example `.my-app-theme`.
+- **Colour schemes:** switch them by changing token values only, for example under `[data-color-scheme='dark']`. Don't restyle components per scheme.
+- **Which tokens:** the ones the Utrecht CSS reads for the components you use; the [Utrecht documentation](https://nl-design-system.github.io/utrecht/) lists them per component. Unset tokens fall back to Utrecht's defaults, which are rarely what you want, so set at least the document, typography, focus, link, button and form-control tokens.
+- **Components Utrecht doesn't have** (marked "ours" in the table below) follow the same pattern with their own `--mc-<component>-*` tokens. Each one documents its tokens and defaults to the closest Utrecht ones.
+- **Accessibility is the theme's job too:** text needs 4.5:1 contrast against its background, boundaries and focus rings 3:1 (WCAG 1.4.3 and 1.4.11). Keep focus rings visible under `forced-colors`.
+
+### The neutral theme
+
+`@muliacode/ui/themes/neutral.css` is the default: brand-free, with three colour schemes. It applies to `:root` (or `.mc-neutral-theme`). Set `data-color-scheme` to `light` (the default), `dark` or `contrast` on any element: `html` for the whole page, or a panel for part of it. The nearest one wins. The contrast scheme raises text to 7:1 and draws controls heavier.
+
+It is built from `themes/neutral.tokens.json` (the palette and scale) and `themes/neutral.mapping.css` (the mapping onto Utrecht tokens). `npm run build` fails if the mapping uses a variable the palette doesn't define, or sets a Utrecht token the Utrecht CSS never reads. `npm test` checks every colour pair in `contrast.config.json` in every scheme, and checks in a browser that the nearest `data-color-scheme` wins wherever it is set.
+
+To write your own theme, copy the neutral one as a starting point. The Abonemen theme ([`docs/design/design-system/abonemen-theme.css`](https://github.com/muliacode/abonemen/blob/main/docs/design/design-system/abonemen-theme.css) in muliacode/abonemen) is a worked example of an app theme.
 
 ## Components
 

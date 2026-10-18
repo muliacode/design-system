@@ -14,7 +14,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./styles.css": "./styles.css"
+    "./styles.css": "./styles.css",
+    "./themes/neutral.css": "./dist/themes/neutral.css"
   },
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -29,8 +30,11 @@
     "*.css"
   ],
   "scripts": {
-    "build": "vite build && vue-tsc -p tsconfig.build.json",
-    "typecheck": "vue-tsc -p tsconfig.json --noEmit"
+    "build": "vite build && vue-tsc -p tsconfig.build.json && node scripts/build-theme.mjs",
+    "typecheck": "vue-tsc -p tsconfig.json --noEmit",
+    "validate": "node scripts/validate-contrast.mjs",
+    "test": "npm run validate && npm run test:schemes",
+    "test:schemes": "node scripts/test-schemes.mjs"
   },
   "peerDependencies": {
     "vue": "^3.5.0"
@@ -40,6 +44,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.10",
+    "playwright": "^1.64.1",
     "typescript": "~5.9.3",
     "vite": "^8.3.4",
     "vue": "^3.5.44",
