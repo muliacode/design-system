@@ -1,6 +1,7 @@
 // Checks in a real browser that every control meets the 44 by 44 px minimum
-// target in every colour scheme, even with a one-letter label. jsdom does no
-// layout, so this can't be a unit test.
+// target in every colour scheme, even with a one-letter label. Links in running
+// text are exempt (WCAG 2.5.8). jsdom does no layout, so this can't be a unit
+// test.
 //
 // Needs dist/themes/neutral.css (npm run build) and a Chromium for Playwright
 // (npx playwright install chromium).
@@ -24,6 +25,8 @@ const targets = {
     'ButtonLink primary': '<a href="#" class="utrecht-button-link utrecht-button-link--html-a utrecht-button-link--primary-action">X</a>',
     'ButtonLink secondary': '<a href="#" class="utrecht-button-link utrecht-button-link--html-a utrecht-button-link--secondary-action">X</a>',
     'ButtonLink subtle': '<a href="#" class="utrecht-button-link utrecht-button-link--html-a utrecht-button-link--subtle">X</a>',
+    // Measured while hidden: it keeps its size, only its position changes on focus.
+    'SkipLink': '<a href="#main" class="utrecht-skip-link utrecht-skip-link--visible-on-focus">X</a>',
 };
 
 const browser = await chromium.launch({ executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH || undefined });

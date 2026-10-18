@@ -57,6 +57,8 @@ To write your own theme, copy the neutral one as a starting point. The Abonemen 
 | `Button` | Button | `variant`: primary, secondary (default), subtle, danger. `type` defaults to `button`. `disabled` and `loading` use `aria-disabled`, so the button stays focusable; it emits no click and doesn't submit |
 | `ButtonLink` | Button link | An `<a>` that looks like a button, for going to another page. `variant`: primary, secondary (default), subtle. `as` renders a router link instead; no disabled state |
 | `Heading` | Heading 1 to 6 | `level` (1 to 6) sets both the element and the style. No outer margin by default; `distanced` spaces it as in running text |
+| `Link` | Link | A text link. `newTabText` ("opens in a new tab", in the app's language) opens it in a new tab and adds that text to the link in brackets; without it, the link opens in the same tab. `current` sets `aria-current="page"`. `as` renders a router link |
+| `SkipLink` | Skip link | Put it first in the page. `href` is the target's id as a fragment (`#main`). Hidden until focused; moves focus to the target |
 
 ## Licence
 
