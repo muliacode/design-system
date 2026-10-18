@@ -12,8 +12,9 @@ export type ButtonVariant = 'primary' | 'secondary' | 'subtle' | 'danger';
  * and hear why it doesn't respond. While either is set the button emits no
  * `click` and doesn't submit its form.
  *
- * `loading` shows `loadingText` in place of the label when given ("Saving…"),
- * so the change is visible and not only a cursor. Announce the outcome
+ * `loading` also sets `aria-busy`, and shows `loadingText` in place of the
+ * label when given ("Saving…"), so the change is visible and not only a
+ * cursor. Announce the outcome
  * elsewhere too, for example with a status message: a button's text alone is
  * not reliably read out when it changes.
  */
@@ -32,11 +33,17 @@ const emit = defineEmits<{ click: [event: MouseEvent] }>();
 
 const inert = computed(() => props.disabled || props.loading);
 
+const variantClasses: Record<ButtonVariant, string[]> = {
+    primary: ['utrecht-button--primary-action'],
+    secondary: ['utrecht-button--secondary-action'],
+    subtle: ['utrecht-button--subtle'],
+    danger: ['utrecht-button--primary-action', 'utrecht-button--danger'],
+};
+
 const classes = computed(() => [
     'utrecht-button',
-    props.variant === 'subtle' ? 'utrecht-button--subtle' : props.variant === 'secondary' ? 'utrecht-button--secondary-action' : 'utrecht-button--primary-action',
+    ...variantClasses[props.variant],
     {
-        'utrecht-button--danger': props.variant === 'danger',
         'utrecht-button--disabled': props.disabled,
         'utrecht-button--busy': props.loading,
     },
@@ -44,8 +51,10 @@ const classes = computed(() => [
 
 function onClick(event: MouseEvent): void {
     if (inert.value) {
-        // aria-disabled doesn't stop a submit button from submitting.
+        // aria-disabled doesn't stop a submit button from submitting, nor the
+        // click from reaching ancestors the way a native disabled button does.
         event.preventDefault();
+        event.stopImmediatePropagation();
         return;
     }
     emit('click', event);
@@ -57,6 +66,7 @@ function onClick(event: MouseEvent): void {
         :type="type"
         :class="classes"
         :aria-disabled="inert ? 'true' : undefined"
+        :aria-busy="loading ? 'true' : undefined"
         @click="onClick"
     >
         <template v-if="loading && loadingText">{{ loadingText }}</template>
