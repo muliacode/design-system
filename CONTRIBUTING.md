@@ -16,6 +16,8 @@ npm install
 npm run storybook -w @muliacode/ui   # http://localhost:6006
 ```
 
+`npm test -w @muliacode/ui` runs the contrast check and the component tests (Vitest, Testing Library and vitest-axe). Every story is also run through axe automatically, so a component with an accessibility violation fails CI; `src/test/keyboard.ts` has a `tabOrder` helper for keyboard tests.
+
 Storybook shows every story in the neutral theme. Its toolbar switches between the light, dark and high-contrast schemes, which changes only token values; the Accessibility panel runs axe on the story you're looking at.
 
 ## Adding a component
