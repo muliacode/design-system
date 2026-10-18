@@ -57,4 +57,4 @@ To write your own theme, copy the neutral one as a starting point. The Abonemen 
 
 ## Licence
 
-MIT. The Utrecht CSS components are a dependency under the EUPL-1.2; see `THIRD-PARTY-NOTICES.md`.
+Copyright 2026 Mulia Code. Licensed under the EUPL, version 1.2; see `LICENSE`. The EUPL is a copyleft licence: changes to this library stay open, while apps that use it keep their own licence. The Utrecht CSS components are a dependency under the same licence; see `THIRD-PARTY-NOTICES.md`.
