@@ -39,4 +39,4 @@ Every component is its own module, so a bundler includes only the ones you impor
 
 ## Licence
 
-MIT. The Utrecht CSS components are a dependency under the EUPL-1.2; see `THIRD-PARTY-NOTICES.md`.
+Copyright 2026 Mulia Code. Licensed under the EUPL, version 1.2; see `LICENSE`. The EUPL is a copyleft licence: changes to this library stay open, while apps that use it keep their own licence. The Utrecht CSS components are a dependency under the same licence; see `THIRD-PARTY-NOTICES.md`.
