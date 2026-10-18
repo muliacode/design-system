@@ -40,3 +40,7 @@ Semantic versioning on `@muliacode/ui`:
 | Fix that keeps the API | patch |
 | Prop, slot, event or class name renamed or removed | **major** |
 | A component's meaning or default behaviour changed | **major** |
+
+## Licence
+
+The code is licensed under the EUPL, version 1.2, and the documentation and stories under CC BY 4.0. By opening a pull request you agree that your contribution is licensed the same way.

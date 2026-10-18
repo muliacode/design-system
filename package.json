@@ -1,7 +1,7 @@
 {
   "name": "muliacode-design-system",
   "private": true,
-  "license": "MIT",
+  "license": "EUPL-1.2",
   "workspaces": [
     "packages/*"
   ],
