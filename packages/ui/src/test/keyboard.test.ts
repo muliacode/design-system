@@ -12,6 +12,8 @@ const Fixture = defineComponent({
             <span>Not focusable</span>
             <a href="#cancel">Cancel</a>
             <button type="button" aria-label="Close dialog">×</button>
+            <label>Amount <input type="number"></label>
+            <button type="button" aria-label="">Empty label falls back to text</button>
         </div>
     `,
 });
@@ -21,13 +23,20 @@ describe('tabOrder', () => {
         const user = userEvent.setup();
         render(Fixture);
 
-        expect(await tabOrder(user, 4)).toEqual(['button: Save', 'a: Cancel', 'button: Close dialog', 'body']);
+        expect(await tabOrder(user, 6)).toEqual([
+            'button: Save',
+            'link: Cancel',
+            'button: Close dialog',
+            'spinbutton: Amount',
+            'button: Empty label falls back to text',
+            'body',
+        ]);
     });
 
     it('walks backwards with Shift+Tab', async () => {
         const user = userEvent.setup();
         render(Fixture);
 
-        expect(await tabOrder(user, 2, { shift: true })).toEqual(['button: Close dialog', 'a: Cancel']);
+        expect(await tabOrder(user, 2, { shift: true })).toEqual(['button: Empty label falls back to text', 'spinbutton: Amount']);
     });
 });
